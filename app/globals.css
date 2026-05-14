@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --surface:                #131313;
+  --surface-container-low:  #1c1b1b;
+  --surface-container:      #201f1f;
+  --surface-container-high: #2a2a2a;
+  --on-surface:             #e5e2e1;
+  --on-surface-variant:     #c6c6c6;
+  --outline:                #919191;
+  --outline-variant:        #474747;
+  --accent:                 #2dd4bf;
+  --accent-muted:           #0d9488;
+}
+
+@theme inline {
+  --color-surface:                var(--surface);
+  --color-surface-low:            var(--surface-container-low);
+  --color-surface-container:      var(--surface-container);
+  --color-surface-high:           var(--surface-container-high);
+  --color-on-surface:             var(--on-surface);
+  --color-on-surface-variant:     var(--on-surface-variant);
+  --color-outline:                var(--outline);
+  --color-outline-variant:        var(--outline-variant);
+  --color-accent:                 var(--accent);
+  --color-accent-muted:           var(--accent-muted);
+  --font-sans:                    var(--font-inter);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography scale */
+.text-display {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.text-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.text-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
