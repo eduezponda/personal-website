@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "pre-commit: running tsc --noEmit..."
+npx tsc --noEmit
+
+echo "pre-commit: passed."

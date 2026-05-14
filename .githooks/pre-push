@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$BRANCH" = "main" ]; then
+  echo "pre-push: pushing to main — running npm run build..."
+  npm run build
+  echo "pre-push: build passed."
+else
+  echo "pre-push: branch is '$BRANCH' (not main) — skipping build check."
+fi
