@@ -1,12 +1,12 @@
 {
   "hooks": {
-    "Stop": [
+    "PreToolUse": [
       {
-        "matcher": "",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "bash scripts/save-session.sh"
+            "command": "bash scripts/pre-push-session.sh"
           }
         ]
       }
