@@ -2,8 +2,8 @@
 
 ## Pending
 
+- [x] Update email and LinkedIn link across the site — 2026-05-15
 - [ ] Write first blog post (topic TBD — candidate: deep-dive on one Zrive module)
-- [ ] Set up Vercel project, link to GitHub, deploy
 - [ ] Add real assets: Komorebi PDF link, GitHub repo links for both projects, notebook screenshots
 - [ ] Connect custom domain (if available)
 
@@ -21,3 +21,4 @@
 - [x] Set up MDX blog (next-mdx-remote + gray-matter + @tailwindcss/typography) — 2026-05-14
 - [x] Build Blog index page (/blog) — post list with title, date, tags, excerpt — 2026-05-14
 - [x] Build Blog post template (/blog/[slug]) — MDX renderer with prose styles — 2026-05-14
+- [x] Deploy to Vercel — linked GitHub repo, production deploy at https://eduardoezpondaigea.vercel.app — 2026-05-15

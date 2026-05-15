@@ -49,7 +49,7 @@ export default function Home() {
             <GithubIcon size={20} />
           </a>
           <a
-            href="https://linkedin.com/in/eduezponda"
+            href="https://www.linkedin.com/in/eduardo-ezponda-igea-104538230/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -58,7 +58,7 @@ export default function Home() {
             <LinkedinIcon size={20} />
           </a>
           <a
-            href="mailto:eduezponda@gmail.com"
+            href="mailto:eduardoezpondaigea@gmail.com"
             aria-label="Email"
             className="text-on-surface-variant hover:text-on-surface transition-colors"
           >

@@ -11,7 +11,7 @@ const metrics = [
   { label: "Task", value: "Binary Classification" },
   { label: "Target", value: "Customer Churn" },
   { label: "Report", value: "PDF available" },
-  { label: "GitHub", value: "Coming soon" },
+  { label: "GitHub", value: "Public repo" },
 ];
 
 const stack = ["Python", "scikit-learn", "pandas", "EDA", "Classification", "Feature Engineering"];
@@ -39,18 +39,18 @@ export default function KomorebiPage() {
         </p>
         <div className="flex gap-3">
           <a
-            href="#"
-            title="PDF report coming soon"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors opacity-50 cursor-not-allowed"
-            aria-disabled
+            href="/docs/komorebi-project-report.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors"
           >
             <FileText size={15} /> PDF Report
           </a>
           <a
-            href="#"
-            title="GitHub repo coming soon"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors opacity-50 cursor-not-allowed"
-            aria-disabled
+            href="https://github.com/eduezponda/zrive-ds-1q25-churn-prediction"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors"
           >
             <GithubIcon size={15} /> GitHub
           </a>

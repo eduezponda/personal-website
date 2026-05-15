@@ -33,7 +33,7 @@ export default function AboutPage() {
             <GithubIcon size={16} /> GitHub
           </a>
           <a
-            href="https://linkedin.com/in/eduezponda"
+            href="https://www.linkedin.com/in/eduardo-ezponda-igea-104538230/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline rounded-md px-4 py-2 transition-colors"
@@ -41,18 +41,19 @@ export default function AboutPage() {
             <LinkedinIcon size={16} /> LinkedIn
           </a>
           <a
-            href="mailto:eduezponda@gmail.com"
+            href="mailto:eduardoezpondaigea@gmail.com"
             className="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline rounded-md px-4 py-2 transition-colors"
           >
-            <Mail size={16} /> eduezponda@gmail.com
+            <Mail size={16} /> eduardoezpondaigea@gmail.com
           </a>
-          <button
-            disabled
-            title="CV coming soon"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 opacity-50 cursor-not-allowed"
+          <a
+            href="/docs/CV_Eduardo_Ezponda_Igea.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors"
           >
             <Download size={16} /> Download CV
-          </button>
+          </a>
         </div>
       </div>
 

@@ -33,10 +33,10 @@ export default function ZrivePage() {
         </p>
         <div className="flex gap-3">
           <a
-            href="#"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors opacity-50 cursor-not-allowed"
-            aria-disabled
-            title="GitHub repo coming soon"
+            href="https://github.com/eduezponda/zrive-ds"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors"
           >
             <GithubIcon size={15} /> GitHub repo
           </a>
