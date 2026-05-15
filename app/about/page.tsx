@@ -1,4 +1,4 @@
-import { Mail, Download } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { timeline, certifications, skills } from "@/lib/cv";
 
@@ -7,140 +7,196 @@ export const metadata = {
   description: "CV, timeline, skills and certifications for Eduardo Ezponda.",
 };
 
+const certIcons: Record<string, string> = {
+  "Anthropic Claude Code": "smart_toy",
+  "AWS Cloud Practitioner": "cloud_done",
+  "Machine Learning Specialization": "verified",
+  "Data Science Professional Certificate": "verified",
+};
+
 export default function AboutPage() {
   return (
-    <div className="max-w-5xl mx-auto px-6 pt-28 pb-20">
-      {/* Header */}
-      <div className="mb-16">
-        <p className="text-label text-accent mb-3">About me</p>
-        <h1 className="text-section-title text-on-surface mb-4">
-          Data Scientist &amp; Value Investor
-        </h1>
-        <p className="text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-8">
-          I build ML models that go to production and think about businesses
-          worth owning. Computer Science grad from UPNA, Erasmus+ at Laurea
-          (Helsinki), now at Management Solutions working with BBVA.
-        </p>
-
-        {/* Links */}
-        <div className="flex flex-wrap gap-4">
-          <a
-            href="https://github.com/eduezponda"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline rounded-md px-4 py-2 transition-colors"
-          >
-            <GithubIcon size={16} /> GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/eduardo-ezponda-igea-104538230/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline rounded-md px-4 py-2 transition-colors"
-          >
-            <LinkedinIcon size={16} /> LinkedIn
-          </a>
-          <a
-            href="mailto:eduardoezpondaigea@gmail.com"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant hover:text-on-surface border border-outline-variant hover:border-outline rounded-md px-4 py-2 transition-colors"
-          >
-            <Mail size={16} /> eduardoezpondaigea@gmail.com
-          </a>
-          <a
-            href="/docs/CV_Eduardo_Ezponda_Igea.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors"
-          >
-            <Download size={16} /> Download CV
-          </a>
-        </div>
-      </div>
-
-      <hr className="border-outline-variant mb-16" />
-
-      {/* Timeline */}
-      <section className="mb-16">
-        <h2 className="text-label text-accent mb-8">Experience &amp; Education</h2>
-        <ol className="relative border-l border-outline-variant ml-3 flex flex-col gap-10">
-          {timeline.map((item) => (
-            <li key={item.period} className="pl-8 relative">
-              {/* dot */}
-              <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-accent-muted border-2 border-surface" />
-              <div className="flex flex-wrap items-baseline gap-x-3 mb-1">
-                <span className="text-label text-outline">{item.period}</span>
-                <span className="text-sm text-on-surface-variant">{item.location}</span>
+    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-xl">
+        {/* Left sticky column */}
+        <aside className="md:col-span-5 lg:col-span-4">
+          <div className="sticky top-[88px] h-fit space-y-lg">
+            <div className="space-y-sm">
+              {/* Photo placeholder */}
+              <div className="w-32 h-32 md:w-48 md:h-48 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center">
+                <span className="material-symbols-outlined text-[48px] text-outline">
+                  person
+                </span>
               </div>
-              <h3 className="text-base font-semibold text-on-surface">
-                {item.role}{" "}
-                <span className="font-normal text-accent">@ {item.org}</span>
-              </h3>
-              <p className="mt-1 text-sm text-on-surface-variant leading-relaxed max-w-xl">
-                {item.description}
+              <div className="space-y-base">
+                <h1 className="text-hero-lg-mobile md:text-hero-lg text-on-surface tracking-tighter">
+                  Eduardo Ezponda
+                </h1>
+                <p className="text-title-md text-primary">
+                  Data Scientist · Value Investor
+                </p>
+              </div>
+              <div className="flex items-center gap-xs text-secondary text-body-md">
+                <span className="material-symbols-outlined text-[18px]">
+                  location_on
+                </span>
+                <span>Madrid, Spain</span>
+              </div>
+            </div>
+
+            {/* Social links */}
+            <div className="flex gap-md">
+              <a
+                href="https://github.com/eduezponda"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-primary transition-all flex items-center gap-xs"
+              >
+                <GithubIcon size={16} />
+                <span className="text-label-sm">GitHub</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/eduardo-ezponda-igea-104538230/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-primary transition-all flex items-center gap-xs"
+              >
+                <LinkedinIcon size={16} />
+                <span className="text-label-sm">LinkedIn</span>
+              </a>
+              <a
+                href="mailto:eduardoezpondaigea@gmail.com"
+                className="text-secondary hover:text-primary transition-all flex items-center gap-xs"
+              >
+                <Mail size={16} />
+                <span className="text-label-sm">Email</span>
+              </a>
+            </div>
+
+            {/* CV download */}
+            <a
+              href="/docs/CV_Eduardo_Ezponda_Igea.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full md:w-auto px-xl py-sm bg-surface-container-lowest border border-outline-variant text-on-surface text-title-md rounded hover:bg-surface-container-low transition-all flex items-center justify-center gap-xs"
+            >
+              <Download size={16} />
+              Download CV
+            </a>
+          </div>
+        </aside>
+
+        {/* Right scrollable column */}
+        <section className="md:col-span-7 lg:col-span-8 space-y-xl">
+          {/* Bio */}
+          <article className="space-y-md">
+            <h2 className="text-title-lg border-b border-outline-variant pb-base w-fit">
+              About
+            </h2>
+            <div className="space-y-sm text-secondary text-body-lg leading-relaxed max-w-2xl">
+              <p>
+                I&apos;m a Data Scientist at Management Solutions, building ML
+                pipelines and scoring models for BBVA. I care about code that
+                works in production — not just notebooks.
               </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {item.tags.map((tag) => (
+              <p>
+                I completed the{" "}
+                <span className="text-on-surface font-semibold">
+                  Zrive Applied Data Science
+                </span>{" "}
+                program (6 end-to-end modules) and a collaborative churn
+                prediction project with Komorebi. Outside of data science, I
+                pursue{" "}
+                <span className="text-on-surface font-semibold">
+                  value investing
+                </span>{" "}
+                as a systematic research practice — combining financial analysis
+                with the same rigour I apply to ML.
+              </p>
+            </div>
+          </article>
+
+          {/* Experience timeline */}
+          <section className="space-y-md">
+            <h2 className="text-title-lg border-b border-outline-variant pb-base w-fit">
+              Experience
+            </h2>
+            <div className="relative border-l border-outline-variant ml-xs space-y-lg py-xs">
+              {timeline.map((item, i) => (
+                <div key={item.period} className="relative pl-lg group">
+                  <div
+                    className={`absolute -left-[5px] top-1.5 w-2 h-2 rounded-full border-4 border-surface transition-all ${
+                      i === 0
+                        ? "bg-primary ring-2 ring-outline-variant group-hover:ring-primary/50"
+                        : "bg-outline group-hover:bg-primary"
+                    }`}
+                  />
                   <span
-                    key={tag}
-                    className="text-label text-on-surface-variant border border-outline-variant rounded px-2 py-0.5"
+                    className={`text-label-sm uppercase tracking-widest ${
+                      i === 0 ? "text-primary" : "text-secondary"
+                    }`}
                   >
-                    {tag}
+                    {item.period}
                   </span>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
+                  <h3 className="text-title-md text-on-surface">{item.role}</h3>
+                  <p className="text-body-md text-secondary">{item.org}</p>
+                  <p className="text-body-md text-secondary mt-xs">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
 
-      <hr className="border-outline-variant mb-16" />
-
-      {/* Skills */}
-      <section className="mb-16">
-        <h2 className="text-label text-accent mb-8">Skills</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Object.entries(skills).map(([category, items]) => (
-            <div key={category}>
-              <h3 className="text-sm font-semibold text-on-surface mb-3">
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {items.map((skill) => (
+          {/* Skills */}
+          <section className="space-y-md">
+            <h2 className="text-title-lg border-b border-outline-variant pb-base w-fit">
+              Skills &amp; Stack
+            </h2>
+            <div className="flex flex-wrap gap-xs">
+              {Object.values(skills)
+                .flat()
+                .map((skill) => (
                   <span
                     key={skill}
-                    className="text-label text-on-surface-variant bg-surface-container rounded px-2 py-1"
+                    className="px-md py-xs bg-surface-container-high text-on-surface text-label-sm rounded-full border border-outline-variant hover:border-primary transition-colors cursor-default"
                   >
                     {skill}
                   </span>
                 ))}
-              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      <hr className="border-outline-variant mb-16" />
-
-      {/* Certifications */}
-      <section>
-        <h2 className="text-label text-accent mb-8">Certifications</h2>
-        <div className="flex flex-col gap-4">
-          {certifications.map((cert) => (
-            <div
-              key={cert.name}
-              className="border border-outline-variant rounded-lg px-5 py-4 bg-surface-low"
-            >
-              <div className="flex flex-wrap items-baseline gap-x-3 mb-1">
-                <span className="text-sm font-semibold text-on-surface">
-                  {cert.name}
-                </span>
-                <span className="text-label text-outline">{cert.issuer}</span>
-              </div>
-              <p className="text-sm text-on-surface-variant">{cert.focus}</p>
+          {/* Certifications */}
+          <section className="space-y-md">
+            <h2 className="text-title-lg border-b border-outline-variant pb-base w-fit">
+              Certifications
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+              {certifications.map((cert) => (
+                <div
+                  key={cert.name}
+                  className="p-md bg-surface-container-lowest border border-outline-variant rounded hover:shadow-sm transition-all flex flex-col justify-between group"
+                >
+                  <div className="space-y-xs">
+                    <span
+                      className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform inline-block"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      {certIcons[cert.name] ?? "verified"}
+                    </span>
+                    <h4 className="text-title-md text-on-surface">{cert.name}</h4>
+                    <p className="text-label-sm text-secondary">{cert.issuer}</p>
+                  </div>
+                  <span className="text-primary text-label-sm mt-md uppercase tracking-wider">
+                    Credential Verified
+                  </span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-    </div>
+          </section>
+        </section>
+      </div>
+    </main>
   );
 }

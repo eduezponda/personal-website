@@ -32,45 +32,49 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   return (
-    <div className="max-w-3xl mx-auto px-6 pt-28 pb-20">
+    <main className="max-w-3xl mx-auto px-margin-desktop py-xl">
       <Link
         href="/blog"
-        className="inline-flex items-center gap-1.5 text-sm text-on-surface-variant hover:text-on-surface transition-colors mb-10"
+        className="inline-flex items-center gap-1.5 text-body-md text-secondary hover:text-on-surface transition-colors mb-lg"
       >
         <ArrowLeft size={14} /> Blog
       </Link>
 
-      <header className="mb-12">
-        <div className="flex flex-wrap items-center gap-3 mb-4">
-          <time className="text-label text-outline">{post.date}</time>
+      <header className="mb-xl">
+        <div className="flex flex-wrap items-center gap-sm mb-md">
+          <time className="text-label-sm text-secondary uppercase">{post.date}</time>
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="text-label text-on-surface-variant border border-outline-variant rounded px-2 py-0.5"
+              className="text-label-sm text-on-surface-variant border border-outline-variant rounded px-xs py-0.5"
             >
               {tag}
             </span>
           ))}
         </div>
-        <h1 className="text-section-title text-on-surface">{post.title}</h1>
+        <h1 className="text-hero-lg-mobile md:text-hero-lg text-on-surface">
+          {post.title}
+        </h1>
         {post.excerpt && (
-          <p className="mt-4 text-lg text-on-surface-variant leading-relaxed">
+          <p className="mt-md text-body-lg text-secondary leading-relaxed">
             {post.excerpt}
           </p>
         )}
       </header>
 
-      <article className="prose prose-invert prose-sm max-w-none
+      <article
+        className="prose prose-sm max-w-none
         prose-headings:text-on-surface prose-headings:font-semibold
-        prose-p:text-on-surface-variant prose-p:leading-relaxed
-        prose-a:text-accent prose-a:no-underline hover:prose-a:underline
-        prose-code:text-accent prose-code:bg-surface-container prose-code:rounded prose-code:px-1
+        prose-p:text-secondary prose-p:leading-relaxed
+        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+        prose-code:text-primary prose-code:bg-surface-container prose-code:rounded prose-code:px-1
         prose-pre:bg-surface-container prose-pre:border prose-pre:border-outline-variant
         prose-strong:text-on-surface
-        prose-li:text-on-surface-variant
-        prose-hr:border-outline-variant">
+        prose-li:text-secondary
+        prose-hr:border-outline-variant"
+      >
         <MDXRemote source={post.content} />
       </article>
-    </div>
+    </main>
   );
 }

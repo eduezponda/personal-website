@@ -16,39 +16,45 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-outline-variant backdrop-blur-md bg-surface/80">
-      <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+    <header className="bg-surface/80 backdrop-blur-md border-b border-outline-variant sticky top-0 z-50">
+      <nav className="flex justify-between items-center w-full px-margin-desktop max-w-7xl mx-auto h-16">
         <Link
           href="/"
-          className="text-on-surface font-semibold tracking-tight hover:text-accent transition-colors"
+          className="text-title-lg font-bold text-on-surface tracking-tight hover:text-primary transition-colors"
         >
           Eduardo Ezponda
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-lg">
           {links.map(({ href, label }) => {
-            const active = pathname === href || pathname.startsWith(href + "/");
+            const active =
+              pathname === href || pathname.startsWith(href + "/");
             return (
-              <li key={href}>
-                <Link
-                  href={href}
-                  className={`text-label transition-colors ${
-                    active
-                      ? "text-accent"
-                      : "text-on-surface-variant hover:text-on-surface"
-                  }`}
-                >
-                  {label}
-                </Link>
-              </li>
+              <Link
+                key={href}
+                href={href}
+                className={`text-title-md transition-colors ${
+                  active
+                    ? "text-primary font-bold border-b-2 border-primary pb-0.5"
+                    : "text-secondary hover:text-primary"
+                }`}
+              >
+                {label}
+              </Link>
             );
           })}
-        </ul>
+          <a
+            href="mailto:eduardoezpondaigea@gmail.com"
+            className="bg-primary-container text-on-primary-container px-md py-xs rounded-lg text-title-md hover:opacity-90 transition-all active:scale-95"
+          >
+            Contact
+          </a>
+        </div>
 
         {/* Mobile burger */}
         <button
-          className="md:hidden text-on-surface-variant hover:text-on-surface transition-colors"
+          className="md:hidden text-on-surface"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
@@ -58,28 +64,33 @@ export function Nav() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="md:hidden border-t border-outline-variant bg-surface-low px-6 py-4">
-          <ul className="flex flex-col gap-4">
+        <div className="md:hidden border-t border-outline-variant bg-surface-container-low px-margin-desktop py-sm">
+          <div className="flex flex-col gap-sm">
             {links.map(({ href, label }) => {
               const active =
                 pathname === href || pathname.startsWith(href + "/");
               return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    onClick={() => setOpen(false)}
-                    className={`text-label transition-colors ${
-                      active
-                        ? "text-accent"
-                        : "text-on-surface-variant hover:text-on-surface"
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                </li>
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className={`text-title-md transition-colors ${
+                    active
+                      ? "text-primary font-bold"
+                      : "text-secondary hover:text-primary"
+                  }`}
+                >
+                  {label}
+                </Link>
               );
             })}
-          </ul>
+            <a
+              href="mailto:eduardoezpondaigea@gmail.com"
+              className="bg-primary-container text-on-primary-container px-md py-xs rounded-lg text-title-md text-center hover:opacity-90 transition-all"
+            >
+              Contact
+            </a>
+          </div>
         </div>
       )}
     </header>

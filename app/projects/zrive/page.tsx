@@ -1,8 +1,6 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
 import { zriveModules } from "@/lib/zrive";
-import { ModuleCard } from "@/features/ModuleCard";
+import { projects } from "@/lib/projects";
 
 export const metadata = {
   title: "Zrive DS Course — Eduardo Ezponda",
@@ -10,45 +8,159 @@ export const metadata = {
     "Six end-to-end data science modules built during the Zrive program.",
 };
 
-export default function ZrivePage() {
-  return (
-    <div className="max-w-5xl mx-auto px-6 pt-28 pb-20">
-      <Link
-        href="/projects"
-        className="inline-flex items-center gap-1.5 text-sm text-on-surface-variant hover:text-on-surface transition-colors mb-10"
-      >
-        <ArrowLeft size={14} /> Projects
-      </Link>
+const moduleIcons = [
+  "api",
+  "analytics",
+  "query_stats",
+  "memory",
+  "work_history",
+  "rocket_launch",
+];
 
-      {/* Header */}
-      <div className="mb-12">
-        <p className="text-label text-accent mb-3">Data Science · 6 Modules</p>
-        <h1 className="text-section-title text-on-surface mb-4">
-          Zrive DS Course
-        </h1>
-        <p className="text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-6">
-          Six end-to-end data science modules completed during the Zrive
-          program. Covers the full DS stack: data ingestion, EDA, classical ML,
-          gradient boosting, financial modelling, and production API design.
-        </p>
-        <div className="flex gap-3">
-          <a
-            href="https://github.com/eduezponda/zrive-ds"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-on-surface-variant border border-outline-variant rounded-md px-4 py-2 hover:border-outline hover:text-on-surface transition-colors"
-          >
-            <GithubIcon size={15} /> GitHub repo
-          </a>
+export default function ZrivePage() {
+  const project = projects.find((p) => p.slug === "zrive")!;
+
+  return (
+    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+      {/* Breadcrumb */}
+      <nav className="flex items-center gap-xs mb-md text-secondary">
+        <Link
+          href="/projects"
+          className="text-label-sm uppercase tracking-widest hover:text-primary transition-colors"
+        >
+          Projects
+        </Link>
+        <span className="material-symbols-outlined text-[16px]">
+          chevron_right
+        </span>
+        <span className="text-label-sm uppercase tracking-widest text-primary">
+          Data Science
+        </span>
+      </nav>
+
+      {/* Hero */}
+      <section className="mb-xl">
+        <div className="max-w-3xl">
+          <h1 className="text-hero-lg text-on-surface mb-sm">Zrive DS Course</h1>
+          <p className="text-title-lg text-secondary mb-md">
+            6 end-to-end data science modules.
+          </p>
+          <div className="flex flex-wrap gap-xs mb-lg">
+            {["Machine Learning", "APIs", "pandas", "XGBoost", "LightGBM", "FastAPI"].map(
+              (tag) => (
+                <span
+                  key={tag}
+                  className="px-sm py-xs bg-surface-container text-secondary text-label-sm rounded border border-outline-variant"
+                >
+                  {tag}
+                </span>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Bento grid */}
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
+        {/* Featured card */}
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg overflow-hidden relative min-h-[240px] flex items-end">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="material-symbols-outlined text-[80px] text-outline/40">
+              account_tree
+            </span>
+          </div>
+          <div className="relative p-lg">
+            <h3 className="text-title-lg text-on-surface mb-xs">
+              End-to-End Pipeline
+            </h3>
+            <p className="text-body-md text-secondary max-w-md">
+              Comprehensive implementation covering data acquisition, processing,
+              modeling, and production deployment.
+            </p>
+          </div>
+        </div>
+
+        {/* Stats card */}
+        <div className="md:col-span-4 bg-surface-container border border-outline-variant rounded-lg p-lg flex flex-col justify-between">
+          <div>
+            <h4 className="text-label-sm uppercase tracking-widest text-primary mb-md">
+              Stack Insights
+            </h4>
+            <ul className="space-y-sm">
+              {[
+                { label: "Primary Language", value: "Python 3.10" },
+                { label: "Libraries", value: "Scikit-learn, Pandas" },
+                { label: "Deployment", value: "Docker, FastAPI" },
+              ].map(({ label, value }) => (
+                <li
+                  key={label}
+                  className="flex items-center justify-between py-xs border-b border-outline-variant/30"
+                >
+                  <span className="text-secondary text-body-md">{label}</span>
+                  <span className="text-on-surface text-title-md">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="text-body-md text-secondary italic pt-md">
+            &ldquo;Built with a focus on production-ready code and rigorous
+            statistical evaluation.&rdquo;
+          </p>
         </div>
       </div>
 
-      {/* Module grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {zriveModules.map((module) => (
-          <ModuleCard key={module.number} module={module} />
-        ))}
-      </div>
-    </div>
+      {/* Modules grid */}
+      <section className="mb-xl">
+        <h2 className="text-title-lg mb-lg flex items-center gap-xs">
+          <span className="material-symbols-outlined text-primary">
+            account_tree
+          </span>
+          Curriculum Modules
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+          {zriveModules.map((module, i) => (
+            <div
+              key={module.number}
+              className="bg-surface-container-lowest border border-outline-variant p-md rounded-lg hover:border-primary-container transition-colors group"
+            >
+              <div className="flex justify-between items-start mb-md">
+                <span className="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center text-label-sm font-bold">
+                  {String(module.number).padStart(2, "0")}
+                </span>
+                <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors">
+                  {moduleIcons[i] ?? "terminal"}
+                </span>
+              </div>
+              <h3 className="text-title-md text-on-surface mb-xs">
+                {module.title}
+              </h3>
+              <p className="text-body-md text-secondary">{module.summary}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="flex flex-col md:flex-row gap-md justify-center items-center py-lg bg-surface-container border border-outline-variant rounded-lg">
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-xs bg-primary-container text-on-primary-container px-xl py-md rounded-lg text-title-md transition-all hover:opacity-90 active:scale-95 shadow-sm"
+          >
+            <span className="material-symbols-outlined">code</span>
+            GitHub Repository
+          </a>
+        )}
+        <Link
+          href="/projects"
+          className="flex items-center gap-xs bg-surface-container-lowest border border-outline text-on-surface px-xl py-md rounded-lg text-title-md transition-all hover:bg-surface-variant active:scale-95"
+        >
+          <span className="material-symbols-outlined">arrow_back</span>
+          All Projects
+        </Link>
+      </section>
+    </main>
   );
 }

@@ -5,34 +5,38 @@ export type Project = {
   tags: string[];
   href: string;
   githubUrl?: string;
+  pdfUrl?: string;
   status: "live" | "wip" | "placeholder";
 };
 
 export const projects: Project[] = [
   {
     slug: "zrive",
-    title: "Zrive DS Course — 6 Modules",
+    title: "Zrive DS Course",
     description:
       "Six end-to-end data science modules: climate API analysis, e-commerce EDA, propensity modelling with Ridge and XGBoost, financial report scoring with LightGBM, and a production FastAPI recommendation service.",
-    tags: ["Python", "ML", "FastAPI", "LightGBM", "XGBoost", "pandas"],
+    tags: ["Machine Learning", "APIs", "Deployment"],
     href: "/projects/zrive",
+    githubUrl: "https://github.com/eduezponda/zrive-ds",
     status: "live",
   },
   {
     slug: "komorebi",
-    title: "Komorebi — Churn Prediction",
+    title: "Komorebi Churn Prediction",
     description:
-      "Binary classification model to predict customer churn. Full DS project with EDA, feature engineering, model selection, and a written report with metrics.",
-    tags: ["Python", "ML", "Classification", "EDA"],
+      "Advanced customer churn prediction model utilizing ensemble methods to identify at-risk users for a SaaS subscription ecosystem.",
+    tags: ["Binary Classification", "ML"],
     href: "/projects/komorebi",
+    githubUrl: "https://github.com/eduezponda/zrive-ds-1q25-churn-prediction",
+    pdfUrl: "/docs/komorebi-project-report.pdf",
     status: "live",
   },
   {
     slug: "ezponda-capital",
     title: "Ezponda Capital",
     description:
-      "Personal value investing project. Systematic research process for identifying undervalued businesses.",
-    tags: ["Value Investing", "Finance", "Research"],
+      "Rigorous value investing research and quantitative analysis platform for tracking fundamental business metrics and intrinsic value.",
+    tags: ["Value Investing"],
     href: "/projects/ezponda-capital",
     status: "placeholder",
   },

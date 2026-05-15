@@ -1,71 +1,125 @@
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
 
-export default function Home() {
+export const metadata = {
+  title: "Eduardo Ezponda | Portfolio",
+  description: "Data Scientist and value investor. Building things that work.",
+};
+
+const statusCards = [
+  {
+    label: "Currently Working On",
+    icon: "terminal",
+    title: "Personal Ecosystem",
+    body: "Developing a high-performance personal portfolio and quantitative DS tools using Python and modern web stacks.",
+  },
+  {
+    label: "Currently Reading",
+    icon: "auto_stories",
+    title: "Value Investing",
+    body: "Analyzing fundamental market dynamics and historical investment frameworks to bridge engineering with finance.",
+  },
+  {
+    label: "Based In",
+    icon: "location_on",
+    title: "Madrid, Spain",
+    body: "Working at Management Solutions on ML models and data pipelines for BBVA.",
+  },
+];
+
+const focusAreas = [
+  { number: "01", title: "Machine Learning" },
+  { number: "02", title: "API Design" },
+  { number: "03", title: "Data Architecture" },
+  { number: "04", title: "Value Strategy" },
+];
+
+export default function HomePage() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 pt-14">
-      <div className="max-w-5xl mx-auto w-full py-24 md:py-32">
-        {/* Label */}
-        <p className="text-label text-accent mb-6">Data Science · Value Investing</p>
-
-        {/* Headline */}
-        <h1 className="text-display text-on-surface max-w-3xl mb-6">
-          Eduardo<br />Ezponda
+    <main className="max-w-7xl mx-auto px-margin-desktop">
+      {/* Hero */}
+      <section className="py-xl md:py-[120px] flex flex-col items-center text-center">
+        <div className="inline-block px-sm py-base bg-primary-container/10 border border-primary-container/20 text-on-primary-container text-label-sm uppercase mb-md rounded-full">
+          Data Scientist · Value Investor
+        </div>
+        <h1 className="text-hero-lg-mobile md:text-hero-lg text-on-surface max-w-4xl mb-md">
+          Building things that work. Thinking about what&apos;s worth building.
         </h1>
-
-        {/* Bio */}
-        <p className="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">
-          Data Scientist at Management Solutions. I build ML models, design APIs,
-          and think carefully about businesses worth owning.
+        <p className="text-body-lg text-secondary max-w-2xl mb-lg">
+          DS engineer at Management Solutions. Working on ML models, APIs, and
+          tools that I&apos;d actually use.
         </p>
-
-        {/* CTAs */}
-        <div className="flex flex-wrap gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row gap-md items-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md bg-accent text-surface font-medium text-sm hover:bg-accent-muted transition-colors"
+            className="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg text-title-md hover:opacity-90 transition-all active:scale-95 flex items-center gap-xs"
           >
-            View projects
-            <ArrowRight size={16} />
+            View Projects
+            <span className="material-symbols-outlined text-[20px]">
+              arrow_forward
+            </span>
           </Link>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md border border-outline-variant text-on-surface-variant text-sm hover:border-outline hover:text-on-surface transition-colors"
+            className="bg-surface border border-outline-variant text-on-surface px-lg py-sm rounded-lg text-title-md hover:bg-surface-container transition-all active:scale-95"
           >
-            Read the blog
+            Read Blog
           </Link>
         </div>
+      </section>
 
-        {/* Social links */}
-        <div className="flex items-center gap-5">
-          <a
-            href="https://github.com/eduezponda"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-on-surface-variant hover:text-on-surface transition-colors"
-          >
-            <GithubIcon size={20} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/eduardo-ezponda-igea-104538230/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-on-surface-variant hover:text-on-surface transition-colors"
-          >
-            <LinkedinIcon size={20} />
-          </a>
-          <a
-            href="mailto:eduardoezpondaigea@gmail.com"
-            aria-label="Email"
-            className="text-on-surface-variant hover:text-on-surface transition-colors"
-          >
-            <Mail size={20} />
-          </a>
+      {/* Divider */}
+      <div className="w-full h-px bg-outline-variant opacity-30 my-xl" />
+
+      {/* Status cards */}
+      <section className="pb-xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+          {statusCards.map(({ label, icon, title, body }) => (
+            <div
+              key={label}
+              className="bg-surface-container-lowest border border-outline-variant p-lg rounded-lg group hover:border-primary-container transition-colors"
+            >
+              <div className="flex items-center justify-between mb-sm">
+                <span className="text-label-sm text-secondary uppercase tracking-widest">
+                  {label}
+                </span>
+                <span className="material-symbols-outlined text-primary-container">
+                  {icon}
+                </span>
+              </div>
+              <h3 className="text-title-md text-on-surface mb-xs">{title}</h3>
+              <p className="text-body-md text-secondary">{body}</p>
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Professional focus */}
+      <section className="py-xl">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-lg mb-lg">
+          <div className="max-w-xl">
+            <h2 className="text-title-lg mb-xs">Professional Focus</h2>
+            <p className="text-body-md text-secondary">
+              Methodical approach to problem-solving across the data engineering
+              lifecycle.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
+          {focusAreas.map(({ number, title }, i) => (
+            <div
+              key={number}
+              className={`border-l-2 ${
+                i === 0 ? "border-primary-container" : "border-outline-variant"
+              } pl-md py-xs`}
+            >
+              <div className="text-label-sm text-secondary uppercase mb-xs">
+                {number}
+              </div>
+              <div className="text-title-md">{title}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
