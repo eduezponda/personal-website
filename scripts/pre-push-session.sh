@@ -10,7 +10,7 @@ try:
     d = json.load(sys.stdin)
     print(d.get('tool_input', {}).get('command', ''))
 except:
-    print('')
+    sys.exit(0)
 " 2>/dev/null || true)
 
 if ! echo "$COMMAND" | grep -qE "git push"; then
