@@ -4,14 +4,14 @@ set -euo pipefail
 # Claude Code PreToolUse hook — fires before every Bash tool call.
 # Reads the tool input JSON from stdin and only acts on git push commands.
 INPUT=$(cat)
-COMMAND=$(python3 -c "
+COMMAND=$(echo "$INPUT" | python3 -c "
 import json, sys
 try:
-    d = json.loads(sys.argv[1])
+    d = json.load(sys.stdin)
     print(d.get('tool_input', {}).get('command', ''))
 except:
     print('')
-" "$INPUT" 2>/dev/null || true)
+" 2>/dev/null || true)
 
 if ! echo "$COMMAND" | grep -qE "git push"; then
   exit 0
