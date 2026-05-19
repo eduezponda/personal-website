@@ -41,7 +41,7 @@ export default function RootLayout({
           <div className="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-lg max-w-7xl mx-auto gap-md">
             <div className="text-title-md text-on-surface">Eduardo Ezponda</div>
             <div className="text-body-md text-secondary text-center">
-              © 2025 Eduardo Ezponda. Built with precision.
+              © 2026 Eduardo Ezponda. Built with precision.
             </div>
             <div className="flex items-center gap-lg">
               <a

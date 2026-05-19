@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { timeline, certifications, skills } from "@/lib/cv";
+import { timeline, education, certifications, skills } from "@/lib/cv";
 
 export const metadata = {
   title: "About — Eduardo Ezponda",
@@ -9,10 +9,21 @@ export const metadata = {
 };
 
 const certIcons: Record<string, string> = {
-  "Anthropic Claude Code": "smart_toy",
-  "AWS Cloud Practitioner": "cloud_done",
-  "Machine Learning Specialization": "verified",
-  "Data Science Professional Certificate": "verified",
+  "AWS Certified Cloud Practitioner": "cloud_done",
+  "Machine Learning with Python": "model_training",
+  "Data Visualization with Python": "bar_chart",
+  "Data Analysis with Python": "analytics",
+  "Databases and SQL for Data Science with Python": "storage",
+  "Python Project for Data Science": "science",
+  "Python for Data Science, AI & Development": "code",
+  "Data Science Methodology": "schema",
+  "Tools for Data Science": "build",
+  "Data Science Orientation": "explore",
+  "Claude Code in Action": "smart_toy",
+  "Introduction to Subagents": "hub",
+  "Introduction to Agent Skills": "extension",
+  "C1 Advanced (CAE)": "translate",
+  "Talento Joven Navarra 2024": "emoji_events",
 };
 
 export default function AboutPage() {
@@ -34,7 +45,7 @@ export default function AboutPage() {
                 />
               </div>
               <div className="space-y-base">
-                <h1 className="text-hero-lg-mobile md:text-hero-lg text-on-surface tracking-tighter">
+                <h1 className="text-hero-lg-mobile md:text-hero-sidebar text-on-surface tracking-tighter">
                   Eduardo Ezponda
                 </h1>
                 <p className="text-title-md text-primary">
@@ -109,7 +120,7 @@ export default function AboutPage() {
                 <span className="text-on-surface font-semibold">
                   Zrive Applied Data Science
                 </span>{" "}
-                program (6 end-to-end modules) and a collaborative churn
+                programme (6 end-to-end modules) and a collaborative churn
                 prediction project with Komorebi. Outside of data science, I
                 pursue{" "}
                 <span className="text-on-surface font-semibold">
@@ -128,7 +139,7 @@ export default function AboutPage() {
             </h2>
             <div className="relative border-l border-outline-variant ml-xs space-y-lg py-xs">
               {timeline.map((item, i) => (
-                <div key={item.period} className="relative pl-lg group">
+                <div key={item.period + item.org} className="relative pl-lg group">
                   <div
                     className={`absolute -left-[5px] top-1.5 w-2 h-2 rounded-full border-4 border-surface transition-all ${
                       i === 0
@@ -144,9 +155,36 @@ export default function AboutPage() {
                     {item.period}
                   </span>
                   <h3 className="text-title-md text-on-surface">{item.role}</h3>
-                  <p className="text-body-md text-secondary">{item.org}</p>
+                  <p className="text-body-md text-secondary">{item.org} · {item.location}</p>
                   <p className="text-body-md text-secondary mt-xs">
                     {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Education timeline */}
+          <section className="space-y-md">
+            <h2 className="text-title-lg border-b border-outline-variant pb-base w-fit">
+              Education
+            </h2>
+            <div className="relative border-l border-outline-variant ml-xs space-y-lg py-xs">
+              {education.map((edu) => (
+                <div key={edu.period + edu.org} className="relative pl-lg group">
+                  <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full border-4 border-surface bg-outline group-hover:bg-primary transition-all" />
+                  <span className="text-label-sm uppercase tracking-widest text-secondary">
+                    {edu.period}
+                  </span>
+                  <h3 className="text-title-md text-on-surface">{edu.degree}</h3>
+                  <p className="text-body-md text-secondary">
+                    {edu.org} · {edu.location}
+                    {edu.gpa ? (
+                      <span className="text-primary ml-xs">GPA {edu.gpa}</span>
+                    ) : null}
+                  </p>
+                  <p className="text-body-md text-secondary mt-xs">
+                    {edu.description}
                   </p>
                 </div>
               ))}
@@ -194,7 +232,7 @@ export default function AboutPage() {
                     <p className="text-label-sm text-secondary">{cert.issuer}</p>
                   </div>
                   <span className="text-primary text-label-sm mt-md uppercase tracking-wider">
-                    Credential Verified
+                    {cert.date}
                   </span>
                 </div>
               ))}
