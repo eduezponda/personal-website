@@ -109,6 +109,35 @@ export default function ZrivePage() {
         </div>
       </div>
 
+      {/* Brochure */}
+      <section className="mb-xl">
+        <div className="flex items-center justify-between gap-md p-lg bg-surface-container border border-outline-variant rounded-lg">
+          <div className="flex items-center gap-md">
+            <span className="material-symbols-outlined text-[40px] text-primary">
+              description
+            </span>
+            <div>
+              <h3 className="text-title-md text-on-surface">
+                Program Brochure
+              </h3>
+              <p className="text-body-md text-secondary">
+                Official Zrive Applied Data Science (Z-DS) program guide — 15-week
+                curriculum, modules, instructors and real-company project.
+              </p>
+            </div>
+          </div>
+          <a
+            href="/zrive-brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 flex items-center gap-xs bg-primary-container text-on-primary-container px-lg py-sm rounded-lg text-title-md transition-all hover:opacity-90 active:scale-95"
+          >
+            <span className="material-symbols-outlined">open_in_new</span>
+            View PDF
+          </a>
+        </div>
+      </section>
+
       {/* Modules grid */}
       <section className="mb-xl">
         <h2 className="text-title-lg mb-lg flex items-center gap-xs">
