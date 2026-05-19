@@ -1,9 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62 32" fill="none">
   <defs>
     <clipPath id="ibm-bars">
-      <rect x="0" y="4"  width="62" height="6"/>
-      <rect x="0" y="13" width="62" height="6"/>
-      <rect x="0" y="22" width="62" height="6"/>
+      <!-- 3 stripes aligned to letter body (caps y≈9–29), equal 3px gaps -->
+      <rect x="0" y="9"  width="62" height="5"/>
+      <rect x="0" y="17" width="62" height="5"/>
+      <rect x="0" y="25" width="62" height="5"/>
     </clipPath>
   </defs>
   <text
