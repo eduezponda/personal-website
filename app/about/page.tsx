@@ -246,9 +246,24 @@ export default function AboutPage() {
                     <h4 className="text-title-md text-on-surface">{cert.name}</h4>
                     <p className="text-label-sm text-secondary">{cert.focus}</p>
                   </div>
-                  <span className="text-secondary text-label-sm mt-md uppercase tracking-wider">
-                    {cert.date}
-                  </span>
+                  <div className="flex items-center justify-between mt-md">
+                    <span className="text-secondary text-label-sm uppercase tracking-wider">
+                      {cert.date}
+                    </span>
+                    {cert.pdf && (
+                      <a
+                        href={cert.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-[4px] text-primary text-label-sm hover:opacity-70 transition-opacity"
+                      >
+                        <span className="material-symbols-outlined text-[14px]">
+                          open_in_new
+                        </span>
+                        View
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

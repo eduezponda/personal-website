@@ -107,6 +107,7 @@ export const certifications = [
     date: "Nov 2024",
     logo: "/logos/cambridge.svg",
     focus: "C1 Advanced English proficiency",
+    pdf: "/certifications/c1-advanced-cae.pdf",
   },
   {
     name: "AWS Certified Cloud Practitioner",
@@ -114,6 +115,7 @@ export const certifications = [
     date: "Jan 2026",
     logo: "/logos/aws.svg",
     focus: "Cloud fundamentals, services, architecture",
+    pdf: "/certifications/aws-certified-cloud-practitioner.pdf",
   },
   {
     name: "Machine Learning with Python",
@@ -121,6 +123,7 @@ export const certifications = [
     date: "Mar 2026",
     logo: "/logos/ibm.svg",
     focus: "Supervised and unsupervised learning, model evaluation",
+    pdf: "/certifications/machine-learning-with-python.pdf",
   },
   {
     name: "Claude Code in Action",
@@ -128,6 +131,7 @@ export const certifications = [
     date: "Mar 2026",
     logo: "/logos/anthropic.svg",
     focus: "Agentic workflows, multi-agent orchestration, GitHub integration",
+    pdf: "/certifications/claude-code-in-action.pdf",
   },
   {
     name: "Introduction to Subagents",
@@ -135,6 +139,7 @@ export const certifications = [
     date: "Mar 2026",
     logo: "/logos/anthropic.svg",
     focus: "Subagent orchestration and agent pipelines",
+    pdf: "/certifications/introduction-to-subagents.pdf",
   },
   {
     name: "Introduction to Agent Skills",
@@ -142,6 +147,7 @@ export const certifications = [
     date: "Mar 2026",
     logo: "/logos/anthropic.svg",
     focus: "Claude Code skill development and automation",
+    pdf: "/certifications/introduction-to-agent-skills.pdf",
   },
   {
     name: "Young Talent Navarre 2024",
@@ -149,6 +155,7 @@ export const certifications = [
     date: "June 2024",
     logo: "/logos/esic.svg",
     focus: "Leadership, emotional intelligence, public speaking",
+    pdf: null,
   },
   {
     name: "Data Visualization with Python",
@@ -156,6 +163,7 @@ export const certifications = [
     date: "Mar 2026",
     logo: "/logos/ibm.svg",
     focus: "Matplotlib, Seaborn, Plotly, dashboards",
+    pdf: "/certifications/data-visualization-with-python.pdf",
   },
   {
     name: "Data Analysis with Python",
@@ -163,6 +171,7 @@ export const certifications = [
     date: "Feb 2026",
     logo: "/logos/ibm.svg",
     focus: "NumPy, pandas, exploratory data analysis",
+    pdf: "/certifications/data-analysis-with-python.pdf",
   },
   {
     name: "Databases and SQL for Data Science with Python",
@@ -170,13 +179,7 @@ export const certifications = [
     date: "Feb 2026",
     logo: "/logos/ibm.svg",
     focus: "SQL, relational databases, Python integration",
-  },
-  {
-    name: "Python Project for Data Science",
-    issuer: "IBM",
-    date: "Feb 2026",
-    logo: "/logos/ibm.svg",
-    focus: "Hands-on data science project with Python",
+    pdf: "/certifications/databases-and-sql-for-data-science-with-python.pdf",
   },
   {
     name: "Python for Data Science, AI & Development",
@@ -184,27 +187,7 @@ export const certifications = [
     date: "Feb 2026",
     logo: "/logos/ibm.svg",
     focus: "Python programming, APIs, web scraping",
-  },
-  {
-    name: "Data Science Methodology",
-    issuer: "IBM",
-    date: "Feb 2026",
-    logo: "/logos/ibm.svg",
-    focus: "CRISP-DM methodology, problem framing",
-  },
-  {
-    name: "Tools for Data Science",
-    issuer: "IBM",
-    date: "Jan 2026",
-    logo: "/logos/ibm.svg",
-    focus: "Jupyter, RStudio, Git, Watson Studio",
-  },
-  {
-    name: "Data Science Orientation",
-    issuer: "IBM",
-    date: "Jan 2026",
-    logo: "/logos/ibm.svg",
-    focus: "Data science career path and tools overview",
+    pdf: "/certifications/python-for-data-science-ai-development.pdf",
   },
 ] as const;
 
