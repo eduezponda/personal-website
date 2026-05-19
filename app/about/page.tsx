@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { timeline, certifications, skills } from "@/lib/cv";
@@ -22,11 +23,15 @@ export default function AboutPage() {
         <aside className="md:col-span-5 lg:col-span-4">
           <div className="sticky top-[88px] h-fit space-y-lg">
             <div className="space-y-sm">
-              {/* Photo placeholder */}
-              <div className="w-32 h-32 md:w-48 md:h-48 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center">
-                <span className="material-symbols-outlined text-[48px] text-outline">
-                  person
-                </span>
+              <div className="w-32 h-32 md:w-48 md:h-48 rounded-lg overflow-hidden border border-outline-variant">
+                <Image
+                  src="/profile.jpg"
+                  alt="Eduardo Ezponda"
+                  width={192}
+                  height={192}
+                  className="object-cover w-full h-full"
+                  priority
+                />
               </div>
               <div className="space-y-base">
                 <h1 className="text-hero-lg-mobile md:text-hero-lg text-on-surface tracking-tighter">
