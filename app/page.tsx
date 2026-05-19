@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -38,6 +39,16 @@ export default function HomePage() {
     <main className="max-w-7xl mx-auto px-margin-desktop">
       {/* Hero */}
       <section className="py-xl md:py-[120px] flex flex-col items-center text-center">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-outline-variant mb-lg">
+          <Image
+            src="/profile.jpg"
+            alt="Eduardo Ezponda"
+            width={96}
+            height={96}
+            className="object-cover w-full h-full"
+            priority
+          />
+        </div>
         <div className="inline-block px-sm py-base bg-primary-container/10 border border-primary-container/20 text-on-primary-container text-label-sm uppercase mb-md rounded-full">
           Data Scientist · Value Investor
         </div>
