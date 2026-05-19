@@ -1,6 +1,6 @@
 import { Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
-import { timeline, certifications, skills } from "@/lib/cv";
+import { timeline, education, certifications, skills } from "@/lib/cv";
 
 export const metadata = {
   title: "About — Eduardo Ezponda",
@@ -139,10 +139,70 @@ export default function AboutPage() {
                     {item.period}
                   </span>
                   <h3 className="text-title-md text-on-surface">{item.role}</h3>
-                  <p className="text-body-md text-secondary">{item.org}</p>
+                  <p className="text-body-md text-secondary">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      {item.org}
+                    </a>
+                    {" · "}{item.location}
+                  </p>
                   <p className="text-body-md text-secondary mt-xs">
                     {item.description}
                   </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Education */}
+          <section className="space-y-md">
+            <h2 className="text-title-lg border-b border-outline-variant pb-base w-fit">
+              Education
+            </h2>
+            <div className="relative border-l border-outline-variant ml-xs space-y-lg py-xs">
+              {education.map((edu) => (
+                <div key={edu.period + edu.org} className="relative pl-lg group">
+                  <div className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full border-4 border-surface bg-outline group-hover:bg-primary transition-all" />
+                  <span className="text-label-sm uppercase tracking-widest text-secondary">
+                    {edu.period}
+                  </span>
+                  <h3 className="text-title-md text-on-surface">{edu.degree}</h3>
+                  <p className="text-body-md text-secondary">
+                    {edu.org} · {edu.location}
+                    {edu.gpa ? (
+                      <span className="text-primary ml-xs">GPA {edu.gpa}</span>
+                    ) : null}
+                  </p>
+                  <p className="text-body-md text-secondary mt-xs">
+                    {edu.description}
+                  </p>
+                  {edu.highlights.length > 0 && (
+                    <ul className="mt-sm space-y-xs">
+                      {edu.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="flex gap-xs text-body-md text-secondary"
+                        >
+                          <span className="text-primary mt-[3px] shrink-0">›</span>
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="flex flex-wrap gap-xs mt-sm">
+                    {edu.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-sm py-[2px] bg-surface-container text-secondary text-label-sm rounded border border-outline-variant"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
