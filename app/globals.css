@@ -51,6 +51,11 @@
   --text-hero-lg--letter-spacing: -0.02em;
   --text-hero-lg--font-weight: 800;
 
+  --text-hero-sidebar: 42px;
+  --text-hero-sidebar--line-height: 1.1;
+  --text-hero-sidebar--letter-spacing: -0.02em;
+  --text-hero-sidebar--font-weight: 800;
+
   --text-hero-lg-mobile: 32px;
   --text-hero-lg-mobile--line-height: 1.2;
   --text-hero-lg-mobile--letter-spacing: -0.02em;
