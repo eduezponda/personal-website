@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { timeline, education, certifications, skills } from "@/lib/cv";
@@ -5,13 +6,6 @@ import { timeline, education, certifications, skills } from "@/lib/cv";
 export const metadata = {
   title: "About — Eduardo Ezponda",
   description: "CV, timeline, skills and certifications for Eduardo Ezponda.",
-};
-
-const certIcons: Record<string, string> = {
-  "Anthropic Claude Code": "smart_toy",
-  "AWS Cloud Practitioner": "cloud_done",
-  "Machine Learning Specialization": "verified",
-  "Data Science Professional Certificate": "verified",
 };
 
 export default function AboutPage() {
@@ -236,20 +230,24 @@ export default function AboutPage() {
               {certifications.map((cert) => (
                 <div
                   key={cert.name}
-                  className="p-md bg-surface-container-lowest border border-outline-variant rounded hover:shadow-sm transition-all flex flex-col justify-between group"
+                  className="p-md bg-surface-container-lowest border border-outline-variant rounded hover:border-outline transition-all flex flex-col justify-between group"
                 >
-                  <div className="space-y-xs">
-                    <span
-                      className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform inline-block"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      {certIcons[cert.name] ?? "verified"}
-                    </span>
+                  <div className="space-y-sm">
+                    <div className="h-8 flex items-center">
+                      <Image
+                        src={cert.logo}
+                        alt={cert.issuer}
+                        width={80}
+                        height={32}
+                        className="object-contain object-left max-h-8 w-auto"
+                        unoptimized
+                      />
+                    </div>
                     <h4 className="text-title-md text-on-surface">{cert.name}</h4>
-                    <p className="text-label-sm text-secondary">{cert.issuer}</p>
+                    <p className="text-label-sm text-secondary">{cert.focus}</p>
                   </div>
-                  <span className="text-primary text-label-sm mt-md uppercase tracking-wider">
-                    Credential Verified
+                  <span className="text-secondary text-label-sm mt-md uppercase tracking-wider">
+                    {cert.date}
                   </span>
                 </div>
               ))}
