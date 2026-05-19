@@ -8,24 +8,6 @@ export const metadata = {
   description: "CV, timeline, skills and certifications for Eduardo Ezponda.",
 };
 
-const certIcons: Record<string, string> = {
-  "AWS Certified Cloud Practitioner": "cloud_done",
-  "Machine Learning with Python": "model_training",
-  "Data Visualization with Python": "bar_chart",
-  "Data Analysis with Python": "analytics",
-  "Databases and SQL for Data Science with Python": "storage",
-  "Python Project for Data Science": "science",
-  "Python for Data Science, AI & Development": "code",
-  "Data Science Methodology": "schema",
-  "Tools for Data Science": "build",
-  "Data Science Orientation": "explore",
-  "Claude Code in Action": "smart_toy",
-  "Introduction to Subagents": "hub",
-  "Introduction to Agent Skills": "extension",
-  "C1 Advanced (CAE)": "translate",
-  "Talento Joven Navarra 2024": "emoji_events",
-};
-
 export default function AboutPage() {
   return (
     <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
@@ -155,7 +137,17 @@ export default function AboutPage() {
                     {item.period}
                   </span>
                   <h3 className="text-title-md text-on-surface">{item.role}</h3>
-                  <p className="text-body-md text-secondary">{item.org} · {item.location}</p>
+                  <p className="text-body-md text-secondary">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      {item.org}
+                    </a>
+                    {" · "}{item.location}
+                  </p>
                   <p className="text-body-md text-secondary mt-xs">
                     {item.description}
                   </p>
@@ -164,7 +156,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Education timeline */}
+          {/* Education */}
           <section className="space-y-md">
             <h2 className="text-title-lg border-b border-outline-variant pb-base w-fit">
               Education
@@ -186,6 +178,29 @@ export default function AboutPage() {
                   <p className="text-body-md text-secondary mt-xs">
                     {edu.description}
                   </p>
+                  {edu.highlights.length > 0 && (
+                    <ul className="mt-sm space-y-xs">
+                      {edu.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="flex gap-xs text-body-md text-secondary"
+                        >
+                          <span className="text-primary mt-[3px] shrink-0">›</span>
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="flex flex-wrap gap-xs mt-sm">
+                    {edu.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-sm py-[2px] bg-surface-container text-secondary text-label-sm rounded border border-outline-variant"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -219,21 +234,40 @@ export default function AboutPage() {
               {certifications.map((cert) => (
                 <div
                   key={cert.name}
-                  className="p-md bg-surface-container-lowest border border-outline-variant rounded hover:shadow-sm transition-all flex flex-col justify-between group"
+                  className="p-md bg-surface-container-lowest border border-outline-variant rounded hover:border-outline transition-all flex flex-col justify-between group"
                 >
-                  <div className="space-y-xs">
-                    <span
-                      className="material-symbols-outlined text-primary group-hover:scale-110 transition-transform inline-block"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      {certIcons[cert.name] ?? "verified"}
-                    </span>
+                  <div className="space-y-sm">
+                    <div className="h-8 flex items-center">
+                      <Image
+                        src={cert.logo}
+                        alt={cert.issuer}
+                        width={80}
+                        height={32}
+                        className="object-contain object-left max-h-8 w-auto"
+                        unoptimized
+                      />
+                    </div>
                     <h4 className="text-title-md text-on-surface">{cert.name}</h4>
-                    <p className="text-label-sm text-secondary">{cert.issuer}</p>
+                    <p className="text-label-sm text-secondary">{cert.focus}</p>
                   </div>
-                  <span className="text-primary text-label-sm mt-md uppercase tracking-wider">
-                    {cert.date}
-                  </span>
+                  <div className="flex items-center justify-between mt-md">
+                    <span className="text-secondary text-label-sm uppercase tracking-wider">
+                      {cert.date}
+                    </span>
+                    {cert.pdf && (
+                      <a
+                        href={cert.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-[4px] text-primary text-label-sm hover:opacity-70 transition-opacity"
+                      >
+                        <span className="material-symbols-outlined text-[14px]">
+                          open_in_new
+                        </span>
+                        View
+                      </a>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
