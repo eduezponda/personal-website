@@ -94,8 +94,9 @@ export default function AboutPage() {
             <div className="space-y-sm text-secondary text-body-lg leading-relaxed max-w-2xl">
               <p>
                 I&apos;m a Data Scientist at Management Solutions, building ML
-                pipelines and scoring models for BBVA. I care about code that
-                works in production, not just notebooks.
+                pipelines and scoring models for BBVA, one of Europe&apos;s
+                leading financial institutions. I care about code that works in
+                production, not just notebooks.
               </p>
               <p>
                 I completed the{" "}

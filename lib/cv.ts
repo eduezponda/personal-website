@@ -6,7 +6,7 @@ export const timeline = [
     url: "https://www.managementsolutions.com/en/",
     location: "Bilbao, Basque Country, Spain",
     description:
-      "Data Scientist embedded in a major international bank, focused on developing and analysing scoring models to support risk and business decision-making. Works on EDA, feature analysis, and Python-based analytics in cloud environments (Amazon SageMaker) across multiple portfolios. Supports data quality, governance initiatives, and process automation using SQL, VBA, and Excel.",
+      "Data Scientist at Management Solutions, embedded in BBVA, a global top-50 bank by assets and one of the most recognised financial groups worldwide. Focused on developing and analysing scoring models to support risk and business decision-making. Works on EDA, feature analysis, and Python-based analytics in cloud environments (Amazon SageMaker) across multiple portfolios. Supports data quality, governance initiatives, and process automation using SQL, VBA, and Excel.",
     tags: ["Python", "AWS SageMaker", "Amazon Athena", "SQL", "Machine Learning", "Scoring", "Data Mining"],
   },
   {
