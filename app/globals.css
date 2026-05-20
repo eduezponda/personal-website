@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Colors — Stitch light palette */
+  /* Colors: Stitch light palette */
   --color-surface: #f9f9f9;
   --color-surface-container-lowest: #ffffff;
   --color-surface-container-low: #f3f3f3;

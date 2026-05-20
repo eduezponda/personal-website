@@ -3,7 +3,7 @@ import { zriveModules } from "@/lib/zrive";
 import { projects } from "@/lib/projects";
 
 export const metadata = {
-  title: "Zrive DS Course — Eduardo Ezponda",
+  title: "Zrive DS Course | Eduardo Ezponda",
   description:
     "Six end-to-end data science modules built during the Zrive program.",
 };
@@ -121,7 +121,7 @@ export default function ZrivePage() {
                 Program Brochure
               </h3>
               <p className="text-body-md text-secondary">
-                Official Zrive Applied Data Science (Z-DS) program guide — 15-week
+                Official Zrive Applied Data Science (Z-DS) program guide, a 15-week
                 curriculum, modules, instructors and real-company project.
               </p>
             </div>

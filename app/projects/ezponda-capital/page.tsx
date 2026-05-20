@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
-  title: "Ezponda Capital — Eduardo Ezponda",
+  title: "Ezponda Capital | Eduardo Ezponda",
   description: "Personal value investing project by Eduardo Ezponda.",
 };
 
@@ -23,7 +23,7 @@ export default function EzpondaCapitalPage() {
         <h1 className="text-hero-lg text-on-surface mb-md">Ezponda Capital</h1>
         <p className="text-body-lg text-secondary max-w-2xl leading-relaxed">
           Personal value investing project. Systematic research process for
-          identifying undervalued businesses — combining financial analysis,
+          identifying undervalued businesses, combining financial analysis,
           business quality assessment, and margin of safety thinking.
         </p>
       </div>

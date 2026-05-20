@@ -2,7 +2,7 @@ import Link from "next/link";
 import { projects } from "@/lib/projects";
 
 export const metadata = {
-  title: "Projects — Eduardo Ezponda",
+  title: "Projects | Eduardo Ezponda",
   description:
     "A collection of technical projects focusing on machine learning pipelines, financial modeling, and software systems.",
 };

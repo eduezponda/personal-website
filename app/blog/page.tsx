@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata = {
-  title: "Blog — Eduardo Ezponda",
+  title: "Blog | Eduardo Ezponda",
   description: "Notes on data science, value investing, and building things.",
 };
 
@@ -27,7 +27,7 @@ export default function BlogPage() {
           {posts.length === 0 ? (
             <div className="border-t border-outline-variant py-lg text-center">
               <p className="text-body-md text-secondary">
-                No posts yet — first post coming soon.
+                No posts yet. First post coming soon.
               </p>
             </div>
           ) : (
