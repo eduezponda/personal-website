@@ -23,7 +23,7 @@ const statusCards = [
     label: "Based In",
     icon: "location_on",
     title: "Madrid, Spain",
-    body: "Working at Management Solutions on ML models and data pipelines for BBVA.",
+    body: "Working at Management Solutions on ML models and data pipelines for BBVA, one of Spain's largest banks.",
   },
 ];
 

@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 48" fill="none">
-  <!-- "aws" in white, visible on dark backgrounds -->
-  <text x="4" y="26" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#FFFFFF" letter-spacing="-0.5">aws</text>
-  <!-- Orange smile arc -->
+  <text x="4" y="26" font-family="Arial,sans-serif" font-size="23" font-weight="700" fill="#232F3E" letter-spacing="-0.5">aws</text>
   <path d="M 6,37 C 30,47 76,47 103,33" stroke="#FF9900" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-  <!-- Arrowhead at right end pointing upper-right -->
   <line x1="103" y1="33" x2="97" y2="27" stroke="#FF9900" stroke-width="3.5" stroke-linecap="round"/>
   <line x1="103" y1="33" x2="108" y2="27" stroke="#FF9900" stroke-width="3.5" stroke-linecap="round"/>
 </svg>
