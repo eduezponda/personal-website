@@ -112,6 +112,17 @@ export default function AboutPage() {
                 as a systematic research practice, combining financial analysis
                 with the same rigour I apply to ML.
               </p>
+              <p>
+                On the tools side, I work daily with{" "}
+                <span className="text-on-surface font-semibold">
+                  Claude Code and Codex
+                </span>{" "}
+                — testing multi-agent workflows, context architectures, and
+                Obsidian-based knowledge systems. I think the profiles that
+                will matter are those who combine technical depth with business
+                clarity: knowing what to build, why, and how to communicate it
+                to the people who need to act on it.
+              </p>
             </div>
           </article>
 
