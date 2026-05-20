@@ -22,8 +22,8 @@ const statusCards = [
   {
     label: "Based In",
     icon: "location_on",
-    title: "Madrid, Spain",
-    body: "Working at Management Solutions on ML models and data pipelines for BBVA, one of Spain's largest banks.",
+    title: "Madrid → Open to Relocation",
+    body: "Currently in Madrid, but actively looking for international opportunities. Relocating is the main goal.",
   },
 ];
 
