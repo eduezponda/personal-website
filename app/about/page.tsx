@@ -4,7 +4,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { timeline, education, certifications, skills } from "@/lib/cv";
 
 export const metadata = {
-  title: "About — Eduardo Ezponda",
+  title: "About | Eduardo Ezponda",
   description: "CV, timeline, skills and certifications for Eduardo Ezponda.",
 };
 
@@ -95,7 +95,7 @@ export default function AboutPage() {
               <p>
                 I&apos;m a Data Scientist at Management Solutions, building ML
                 pipelines and scoring models for BBVA. I care about code that
-                works in production — not just notebooks.
+                works in production, not just notebooks.
               </p>
               <p>
                 I completed the{" "}
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 <span className="text-on-surface font-semibold">
                   value investing
                 </span>{" "}
-                as a systematic research practice — combining financial analysis
+                as a systematic research practice, combining financial analysis
                 with the same rigour I apply to ML.
               </p>
             </div>

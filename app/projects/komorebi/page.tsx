@@ -4,7 +4,7 @@ import { GithubIcon } from "@/components/icons";
 import { projects } from "@/lib/projects";
 
 export const metadata = {
-  title: "Komorebi — Churn Prediction — Eduardo Ezponda",
+  title: "Komorebi: Churn Prediction | Eduardo Ezponda",
   description: "Binary classification model to predict customer churn.",
 };
 

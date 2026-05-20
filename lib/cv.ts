@@ -34,14 +34,14 @@ export const timeline = [
 export const education = [
   {
     period: "Sept 2021 – June 2025",
-    degree: "BSc Computer Science — International Programme",
+    degree: "BSc Computer Science: International Programme",
     org: "Universidad Pública de Navarra",
     location: "Pamplona, Spain",
     gpa: "7.43 / 10",
     description:
       "International Programme student in Computer Science, specialising in software development and actively involved in cybersecurity initiatives.",
     highlights: [
-      "Bachelor's Thesis based on an internship as Junior Software Developer at Splorotech — adapted the Django backend to support migration of the frontend to Next.js and implemented unit tests to ensure functionality.",
+      "Bachelor's Thesis based on an internship as Junior Software Developer at Splorotech. Adapted the Django backend to support migration of the frontend to Next.js and implemented unit tests to ensure functionality.",
       "After the backend adjustments, developed a web interface interacting with the API. Configured the local development environment with Docker using PostgreSQL and Redis containers.",
     ],
     tags: [
@@ -60,10 +60,10 @@ export const education = [
     description:
       "Semester abroad in Helsinki as part of the Erasmus+ programme, attending four courses across cloud, data, and software quality disciplines.",
     highlights: [
-      "AWS Cloud — aligned with the AWS Certified Cloud Practitioner certification.",
-      "Building an Online Shop — data analysis, financial reports, and decision-making tools for strategic business decisions in various contexts.",
-      "Data-Driven Decision Making — planning, analysis, and decision-making tools for strategic planning; analysing financial statements and business reports to make informed decisions.",
-      "Fundamentals of Software Testing — basics of QA, testing processes, test techniques, review methods, and test documentation.",
+      "AWS Cloud: aligned with the AWS Certified Cloud Practitioner certification.",
+      "Building an Online Shop: data analysis, financial reports, and decision-making tools for strategic business decisions in various contexts.",
+      "Data-Driven Decision Making: planning, analysis, and decision-making tools for strategic planning; analysing financial statements and business reports to make informed decisions.",
+      "Fundamentals of Software Testing: basics of QA, testing processes, test techniques, review methods, and test documentation.",
     ],
     tags: ["AWS", "Cloud", "Software Testing", "QA", "Data Analysis", "Business Analysis", "Erasmus+"],
   },
@@ -78,7 +78,7 @@ export const education = [
     highlights: [
       "50+ hours of live online sessions (Monday and Wednesday evenings), three cohorts per year.",
       "Curriculum: Intro to Applied Data Science → DS Fundamentals (EDA, Statistical Learning, model fitting, model diagnostics, Business Translation, System Design) → Real-company project.",
-      "Final project: real-world churn prediction case with Komorebi AI and Sumauto — from data preprocessing to business-oriented modelling.",
+      "Final project: real-world churn prediction case with Komorebi AI and Sumauto, from data preprocessing to business-oriented modelling.",
       "Two mock interviews guided by mentors from companies such as Vodafone and Revolut, plus 1-to-1 mentoring session.",
     ],
     tags: ["Python", "Scikit-learn", "FastAPI", "Statistics", "LLMs", "LLMOps", "AI", "Business Analysis"],
@@ -93,7 +93,7 @@ export const education = [
       "Intensive seminar on financial markets and value investing conducted by experts Gustavo Martínez, José Ruiz de Alda, and Juan Luis Fresneda.",
     highlights: [
       "Macroeconomics & Financial Markets: economic and market indicators, monetary policy, interest rates, economic cycles; introduction to equities, fixed income, derivatives, and currencies.",
-      "Stock Market Analysis: Fundamental Analysis I & II, sector and company analysis — holding, cyclical, and growth companies.",
+      "Stock Market Analysis: Fundamental Analysis I & II, sector and company analysis covering holding, cyclical, and growth companies.",
       "Financial Strategies & Competitiveness: competitive advantages, financial derivatives and strategies, corporate operations, short selling, and special situations.",
     ],
     tags: ["Value Investing", "Finance", "Fundamental Analysis", "Macroeconomics", "Equities", "Derivatives"],
