@@ -228,9 +228,11 @@ export const skills = {
   ],
   "Agentic & AI": [
     "Claude Code",
-    "LLMOps",
-    "LLMs",
+    "Codex",
+    "Agent Engineering",
     "Multi-agent orchestration",
+    "LLMs",
+    "LLMOps",
   ],
   "Data & Automation": [
     "Excel",

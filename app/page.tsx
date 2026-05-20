@@ -10,8 +10,8 @@ const statusCards = [
   {
     label: "Currently Working On",
     icon: "terminal",
-    title: "Personal Ecosystem",
-    body: "Developing a high-performance personal portfolio and quantitative DS tools using Python and modern web stacks.",
+    title: "Agent Engineering",
+    body: "Daily work with Claude Code, Codex, and multi-agent systems. Testing context architectures, Obsidian knowledge vaults, and autonomous workflows — and learning where they break.",
   },
   {
     label: "Currently Reading",
@@ -22,14 +22,14 @@ const statusCards = [
   {
     label: "Based In",
     icon: "location_on",
-    title: "Madrid, Spain",
-    body: "Working at Management Solutions on ML models and data pipelines for BBVA, one of Spain's largest banks.",
+    title: "Madrid → Open to Relocation",
+    body: "Currently in Madrid, but actively looking for international opportunities. Relocating is the main goal.",
   },
 ];
 
 const focusAreas = [
   { number: "01", title: "Machine Learning" },
-  { number: "02", title: "API Design" },
+  { number: "02", title: "Agent Engineering" },
   { number: "03", title: "Data Architecture" },
   { number: "04", title: "Value Strategy" },
 ];
@@ -56,8 +56,10 @@ export default function HomePage() {
           Building things that work. Thinking about what&apos;s worth building.
         </h1>
         <p className="text-body-lg text-secondary max-w-2xl mb-lg">
-          DS engineer at Management Solutions. Working on ML models, APIs, and
-          tools that I&apos;d actually use.
+          Data Scientist at Management Solutions. Daily work with Claude Code,
+          Codex, and multi-agent systems — testing context strategies, agent
+          workflows, and Obsidian-based knowledge architectures. I bridge
+          technical execution with business thinking.
         </p>
         <div className="flex flex-col sm:flex-row gap-md items-center">
           <Link
