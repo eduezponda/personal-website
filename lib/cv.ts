@@ -113,7 +113,7 @@ export const certifications = [
     name: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
     date: "Jan 2026",
-    logo: "/logos/aws.svg",
+    logo: "/logos/aws.png",
     focus: "Cloud fundamentals, services, architecture",
     pdf: "/certifications/aws-certified-cloud-practitioner.pdf",
   },
