@@ -11,7 +11,7 @@ const statusCards = [
     label: "Currently Working On",
     icon: "terminal",
     title: "Agent Engineering",
-    body: "Daily work with Claude Code, Codex, and multi-agent systems. Testing context architectures, Obsidian knowledge vaults, and autonomous workflows — and learning where they break.",
+    body: "Daily work with Claude Code, Codex, and multi-agent systems. Testing context architectures, Obsidian knowledge vaults, and autonomous workflows and learning where they break.",
   },
   {
     label: "Currently Reading",
@@ -57,7 +57,7 @@ export default function HomePage() {
         </h1>
         <p className="text-body-lg text-secondary max-w-2xl mb-lg">
           Data Scientist at Management Solutions. Daily work with Claude Code,
-          Codex, and multi-agent systems — testing context strategies, agent
+          Codex, and multi-agent systems, testing context strategies, agent
           workflows, and Obsidian-based knowledge architectures. I bridge
           technical execution with business thinking.
         </p>

@@ -116,8 +116,8 @@ export default function AboutPage() {
                 On the tools side, I work daily with{" "}
                 <span className="text-on-surface font-semibold">
                   Claude Code and Codex
-                </span>{" "}
-                — testing multi-agent workflows, context architectures, and
+                </span>{", "}
+                testing multi-agent workflows, context architectures, and
                 Obsidian-based knowledge systems. I think the profiles that
                 will matter are those who combine technical depth with business
                 clarity: knowing what to build, why, and how to communicate it
