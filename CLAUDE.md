@@ -2,7 +2,7 @@
 
 ## Identity
 
-Eduardo Ezponda's personal website. Professional portfolio for a Data Science engineer and value investor.
+Eduardo Ezponda's personal website. Professional portfolio for an AI Engineer and value investor.
 Deployed to Vercel at [domain TBD].
 
 - GitHub: eduezponda

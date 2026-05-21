@@ -31,7 +31,7 @@ export default function AboutPage() {
                   Eduardo Ezponda
                 </h1>
                 <p className="text-title-md text-primary">
-                  Data Scientist · Value Investor
+                  AI Engineer · Value Investor
                 </p>
               </div>
               <div className="flex items-center gap-xs text-secondary text-body-md">
@@ -93,7 +93,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-sm text-secondary text-body-lg leading-relaxed max-w-2xl">
               <p>
-                I&apos;m a Data Scientist at Management Solutions, building ML
+                I&apos;m an AI Engineer at Management Solutions, building ML
                 pipelines and scoring models for BBVA, one of Europe&apos;s
                 leading financial institutions. I care about code that works in
                 production, not just notebooks.
@@ -104,7 +104,7 @@ export default function AboutPage() {
                   Zrive Applied Data Science
                 </span>{" "}
                 programme (6 end-to-end modules) and a collaborative churn
-                prediction project with Komorebi. Outside of data science, I
+                prediction project with Komorebi. Outside of AI engineering, I
                 pursue{" "}
                 <span className="text-on-surface font-semibold">
                   value investing
