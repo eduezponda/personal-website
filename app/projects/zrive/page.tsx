@@ -34,7 +34,7 @@ export default function ZrivePage() {
           chevron_right
         </span>
         <span className="text-label-sm uppercase tracking-widest text-primary">
-          Data Science
+          AI Engineering
         </span>
       </nav>
 

@@ -1,12 +1,12 @@
 export const timeline = [
   {
     period: "July 2025 – Present",
-    role: "Data Scientist",
+    role: "AI Engineer",
     org: "Management Solutions",
     url: "https://www.managementsolutions.com/en/",
     location: "Bilbao, Basque Country, Spain",
     description:
-      "Data Scientist at Management Solutions, embedded in BBVA, a global top-50 bank by assets and one of the most recognised financial groups worldwide. Focused on developing and analysing scoring models to support risk and business decision-making. Works on EDA, feature analysis, and Python-based analytics in cloud environments (Amazon SageMaker) across multiple portfolios. Supports data quality, governance initiatives, and process automation using SQL, VBA, and Excel.",
+      "AI Engineer at Management Solutions, embedded in BBVA, a global top-50 bank by assets and one of the most recognised financial groups worldwide. Focused on developing and analysing scoring models to support risk and business decision-making. Works on EDA, feature analysis, and Python-based analytics in cloud environments (Amazon SageMaker) across multiple portfolios. Supports data quality, governance initiatives, and process automation using SQL, VBA, and Excel.",
     tags: ["Python", "AWS SageMaker", "Amazon Athena", "SQL", "Machine Learning", "Scoring", "Data Mining"],
   },
   {
@@ -74,7 +74,7 @@ export const education = [
     location: "Remote",
     gpa: null,
     description:
-      "15-week intensive programme designed for high-performing university students and young professionals who want to launch their careers as Data Scientists.",
+      "15-week intensive programme designed for high-performing university students and young professionals who want to build a career in applied AI and ML.",
     highlights: [
       "50+ hours of live online sessions (Monday and Wednesday evenings), three cohorts per year.",
       "Curriculum: Intro to Applied Data Science → DS Fundamentals (EDA, Statistical Learning, model fitting, model diagnostics, Business Translation, System Design) → Real-company project.",
@@ -192,7 +192,7 @@ export const certifications = [
 ] as const;
 
 export const skills = {
-  "Data Science & ML": [
+  "AI & ML": [
     "Python",
     "pandas",
     "scikit-learn",

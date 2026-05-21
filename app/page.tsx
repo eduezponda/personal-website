@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Eduardo Ezponda | Portfolio",
-  description: "Data Scientist and value investor. Building things that work.",
+  description: "AI Engineer and value investor. Building things that work.",
 };
 
 const statusCards = [
@@ -50,13 +50,13 @@ export default function HomePage() {
           />
         </div>
         <div className="inline-block px-sm py-base bg-primary-container/10 border border-primary-container/20 text-on-primary-container text-label-sm uppercase mb-md rounded-full">
-          Data Scientist · Value Investor
+          AI Engineer · Value Investor
         </div>
         <h1 className="text-hero-lg-mobile md:text-hero-lg text-on-surface max-w-4xl mb-md">
           Building things that work. Thinking about what&apos;s worth building.
         </h1>
         <p className="text-body-lg text-secondary max-w-2xl mb-lg">
-          Data Scientist at Management Solutions. Daily work with Claude Code,
+          AI Engineer at Management Solutions. Daily work with Claude Code,
           Codex, and multi-agent systems, testing context strategies, agent
           workflows, and Obsidian-based knowledge architectures. I bridge
           technical execution with business thinking.

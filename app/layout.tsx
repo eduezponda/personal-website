@@ -12,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Eduardo Ezponda",
   description:
-    "Data Scientist and value investor. Portfolio of projects in ML, DS, and value investing.",
+    "AI Engineer and value investor. Portfolio of projects in AI, ML, and value investing.",
 };
 
 export default function RootLayout({
