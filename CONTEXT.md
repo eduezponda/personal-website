@@ -14,7 +14,9 @@ All routes are implemented and statically prerendered:
 - `/blog` — Post list (empty state shown, ready for MDX posts)
 - `/blog/[slug]` — MDX renderer with prose styles
 
-Next: deploy to Vercel, then add real assets (Komorebi PDF, GitHub links, notebook screenshots).
+First blog post published: "The Death of the Code Monkey" (2026-05-22) — `content/blog/death-of-the-code-monkey.mdx`.
+
+Next: add real assets (Komorebi PDF, GitHub links, notebook screenshots).
 
 ## Architecture map
 
