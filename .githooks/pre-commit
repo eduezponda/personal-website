@@ -2,21 +2,24 @@
 set -euo pipefail
 
 # ── Image format guard ────────────────────────────────────────────────────────
-# All images committed under public/ must be .webp.
-# If you have a .png / .jpg / .jpeg / .gif, convert it first:
-#   cwebp input.png -o output.webp       (install: brew install webp)
+# Allowed formats under public/:
+#   .webp  — photos, screenshots, background images
+#   .svg   — logos, icons, UI graphics, illustrations
+#
+# Everything else (.png, .jpg, .jpeg, .gif, .bmp, .tiff, .avif …) is blocked.
+# To convert a raster image:
+#   cwebp input.png -o output.webp   (install: brew install webp)
 #   ffmpeg -i input.png output.webp
-#   squoosh-cli --webp '{}' input.png
 # Then update any src= / ![]() references in .mdx / .tsx files.
 BAD_IMAGES=$(git diff --cached --name-only | grep -E '^public/.*\.(png|jpg|jpeg|gif|bmp|tiff|avif)$' || true)
 
 if [[ -n "$BAD_IMAGES" ]]; then
   echo ""
-  echo "❌ pre-commit: non-webp images detected in public/:"
+  echo "❌ pre-commit: disallowed image format detected in public/:"
   echo "$BAD_IMAGES" | sed 's/^/   /'
   echo ""
-  echo "   Convert to .webp before committing:"
-  echo "   cwebp <input> -o <output>.webp"
+  echo "   Use .webp for photos/screenshots, .svg for icons/logos."
+  echo "   Convert: cwebp <input> -o <output>.webp"
   echo ""
   exit 1
 fi
