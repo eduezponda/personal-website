@@ -108,14 +108,12 @@ export default function HomePage() {
 
       {/* Professional focus */}
       <section className="py-xl">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-lg mb-lg">
-          <div className="flex flex-wrap items-baseline gap-x-md gap-y-xs">
-            <h2 className="text-title-lg">Professional Focus</h2>
-            <p className="text-body-md text-secondary">
-              Methodical approach to problem-solving across the data engineering
-              lifecycle.
-            </p>
-          </div>
+        <div className="flex items-baseline gap-x-md mb-lg">
+          <h2 className="text-title-lg shrink-0">Professional Focus</h2>
+          <p className="text-body-md text-secondary">
+            Methodical approach to problem-solving across the data engineering
+            lifecycle.
+          </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-md">
           {focusAreas.map(({ number, title }, i) => (

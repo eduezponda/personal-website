@@ -91,8 +91,8 @@ export default function BlogPage() {
       {/* Follow CTA */}
       <section className="mt-xl">
         <div className="bg-surface-container-lowest border border-outline-variant p-lg md:p-xl rounded-lg flex flex-col md:flex-row items-center justify-between gap-lg">
-          <div className="flex flex-wrap items-baseline gap-x-md gap-y-xs">
-            <h3 className="text-title-lg text-on-surface">
+          <div className="flex items-baseline gap-x-md">
+            <h3 className="text-title-lg text-on-surface shrink-0">
               Follow the Journey
             </h3>
             <p className="text-body-lg text-secondary">
