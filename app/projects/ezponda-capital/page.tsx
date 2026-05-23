@@ -389,12 +389,12 @@ export default function EzpondaCapitalPage() {
           </figure>
 
           {/* 5 — User profile / RBAC (4/12, stretches to match row height) */}
-          <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant m-0">
+          <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant bg-[#131313] m-0">
             <Image
               src="/images/projects/ezponda-capital/profile-card.webp"
               alt="User profile card — name, email, Superadmin plan badge, and full admin access status"
               fill
-              className="object-cover object-top"
+              className="object-contain object-center"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
             <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
