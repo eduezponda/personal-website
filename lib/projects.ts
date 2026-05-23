@@ -35,9 +35,10 @@ export const projects: Project[] = [
     slug: "ezponda-capital",
     title: "Ezponda Capital",
     description:
-      "Rigorous value investing research and quantitative analysis platform for tracking fundamental business metrics and intrinsic value.",
-    tags: ["Value Investing"],
+      "Premium investment research platform focused on commodities — gold, copper, and macro cycles. Subscription-gated MDX theses, live commodity prices, Stripe payments, and bilingual (EN/ES) support.",
+    tags: ["Value Investing", "Gold", "Copper", "Next.js 15"],
     href: "/projects/ezponda-capital",
-    status: "placeholder",
+    githubUrl: "https://github.com/eduezponda/ezponda-capital",
+    status: "live",
   },
 ];
