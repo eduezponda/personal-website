@@ -69,7 +69,7 @@ export default function ZrivePage() {
               account_tree
             </span>
           </div>
-          <div className="relative p-lg">
+          <div className="relative p-lg w-full">
             <h3 className="text-title-lg text-on-surface mb-xs">
               End-to-End Pipeline
             </h3>
