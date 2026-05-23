@@ -63,7 +63,7 @@ export default function ZrivePage() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Featured card */}
-        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg overflow-hidden relative min-h-[240px] flex items-end">
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg overflow-hidden relative min-h-[240px] flex flex-col justify-end">
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="material-symbols-outlined text-[80px] text-outline/40">
               account_tree
