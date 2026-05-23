@@ -348,13 +348,13 @@ export default function EzpondaCapitalPage() {
             </figcaption>
           </figure>
 
-          {/* 3 — Registration / auth (4/12, stretches to match row height) */}
+          {/* 3 — Login / auth (4/12, stretches to match row height) */}
           <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
-              src="/images/projects/ezponda-capital/register.webp"
-              alt="Create Your Account — registration form with free and premium sign-up options"
+              src="/images/projects/ezponda-capital/auth-login.webp"
+              alt="Login to Terminal — Google OAuth and email/password login for investment research dashboard"
               fill
-              className="object-cover object-left-top"
+              className="object-cover object-center"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
             <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
@@ -362,8 +362,8 @@ export default function EzpondaCapitalPage() {
                 Authentication
               </p>
               <p className="text-body-md text-white font-medium">
-                Frictionless sign-up with Google OAuth, free tier, or direct
-                Stripe premium upgrade — market insight shown on idle side.
+                Google OAuth or email/password login — gating access to the
+                investment research terminal.
               </p>
             </figcaption>
           </figure>
@@ -391,11 +391,10 @@ export default function EzpondaCapitalPage() {
           {/* 5 — User profile / RBAC (4/12, stretches to match row height) */}
           <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
-              src="/images/projects/ezponda-capital/profile.webp"
-              alt="User profile page — name, email, Superadmin plan, and full admin access status"
+              src="/images/projects/ezponda-capital/profile-card.webp"
+              alt="User profile card — name, email, Superadmin plan badge, and full admin access status"
               fill
-              quality={95}
-              className="object-cover object-center"
+              className="object-cover object-top"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
             <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
