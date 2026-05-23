@@ -133,22 +133,47 @@ export default function EzpondaCapitalPage() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Featured card */}
-        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg overflow-hidden relative min-h-[240px]">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="material-symbols-outlined text-[80px] text-outline/40">
-              candlestick_chart
-            </span>
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg p-lg grid grid-cols-[1fr_148px] gap-xl min-h-[240px]">
+          {/* Left column: eyebrow + heading + description */}
+          <div className="flex flex-col justify-between gap-md min-w-0">
+            <div className="flex items-center gap-xs">
+              <span className="material-symbols-outlined text-[20px] text-primary">
+                candlestick_chart
+              </span>
+              <span className="text-label-sm uppercase tracking-widest text-primary">
+                Research Platform
+              </span>
+            </div>
+            <div className="flex flex-col gap-sm">
+              <h3 className="text-title-lg text-on-surface">
+                Independent High-Conviction Research
+              </h3>
+              <p className="text-body-md text-secondary leading-relaxed">
+                Deep-dive commodity theses for sophisticated investors — beyond
+                mainstream financial media. Rigorous fundamental analysis with
+                explicit valuation scenarios and margin-of-safety thinking.
+              </p>
+            </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0 p-lg">
-            <h3 className="text-title-lg text-on-surface mb-xs">
-              Independent High-Conviction Research
-            </h3>
-            <p className="text-body-md text-secondary">
-              Deep-dive commodity theses for sophisticated investors — beyond
-              mainstream financial media. Rigorous fundamental analysis with
-              explicit valuation scenarios and margin-of-safety thinking.
-              Six macro assets tracked daily via live price feed.
-            </p>
+
+          {/* Right column: key metrics */}
+          <div className="flex flex-col justify-center gap-md border-l border-outline-variant/40 pl-xl">
+            {(
+              [
+                ["6", "Assets tracked"],
+                ["Daily", "Price feed"],
+                ["2", "Theses live"],
+              ] as const
+            ).map(([value, label]) => (
+              <div key={label}>
+                <p className="text-title-lg text-primary font-bold leading-none mb-[2px]">
+                  {value}
+                </p>
+                <p className="text-label-sm text-secondary uppercase tracking-widest">
+                  {label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
