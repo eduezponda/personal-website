@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -36,12 +37,31 @@ const theses = [
 const stack = [
   { label: "Framework", value: "Next.js 15 · App Router" },
   { label: "Runtime", value: "React 19 · TypeScript 5" },
+  { label: "Styling", value: "Tailwind CSS v4 · Inter · Gold theme" },
   { label: "Auth & DB", value: "Supabase (PostgreSQL + RLS)" },
   { label: "Payments", value: "Stripe Checkout + Webhooks" },
   { label: "Content", value: "MDX via next-mdx-remote" },
   { label: "i18n", value: "next-intl v4 (EN / ES)" },
-  { label: "Prices", value: "GoldAPI.io · api-ninjas.com" },
-  { label: "Hosting", value: "Vercel (Cron + Edge)" },
+  { label: "Prices", value: "GoldAPI.io · api-ninjas.com · Daily cron" },
+  { label: "Hosting", value: "Vercel · Fluid Compute" },
+];
+
+const assets = [
+  { symbol: "XAU", name: "Gold", icon: "diamond" },
+  { symbol: "XAG", name: "Silver", icon: "diamond" },
+  { symbol: "XCU", name: "Copper", icon: "crisis_alert" },
+  { symbol: "BTC", name: "Bitcoin", icon: "currency_bitcoin" },
+  { symbol: "XPT", name: "Platinum", icon: "science" },
+  { symbol: "XPD", name: "Palladium", icon: "science" },
+];
+
+const statusItems = [
+  { done: true, label: "Core platform fully built and deployed" },
+  { done: true, label: "Auth, payments, content gating, i18n, and price ticker" },
+  { done: true, label: "2 equity research theses published (FCX · MKO)" },
+  { done: false, wip: true, label: "More thesis content in progress" },
+  { done: false, wip: true, label: "Custom domain (currently on Vercel subdomain)" },
+  { done: false, wip: false, label: "Phase 2: Stripe live mode, subscriber terminal, more theses" },
 ];
 
 const tiers = [
@@ -127,6 +147,7 @@ export default function EzpondaCapitalPage() {
               Deep-dive commodity theses for sophisticated investors — beyond
               mainstream financial media. Rigorous fundamental analysis with
               explicit valuation scenarios and margin-of-safety thinking.
+              Six macro assets tracked daily via live price feed.
             </p>
           </div>
         </div>
@@ -239,6 +260,162 @@ export default function EzpondaCapitalPage() {
             >
               <span className="text-secondary text-body-md">{label}</span>
               <span className="text-on-surface text-title-md">{value}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Coverage Universe */}
+      <section className="mb-xl">
+        <h2 className="text-title-lg mb-lg flex items-center gap-xs">
+          <span className="material-symbols-outlined text-primary">
+            monitoring
+          </span>
+          Coverage Universe
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-gutter">
+          {assets.map(({ symbol, name, icon }) => (
+            <div
+              key={symbol}
+              className="bg-surface-container border border-outline-variant rounded-lg p-md flex flex-col items-center gap-xs text-center"
+            >
+              <span className="material-symbols-outlined text-[28px] text-primary">
+                {icon}
+              </span>
+              <p className="text-title-md text-on-surface font-semibold">
+                {symbol}
+              </p>
+              <p className="text-label-sm text-secondary uppercase tracking-widest">
+                {name}
+              </p>
+            </div>
+          ))}
+        </div>
+        <p className="text-body-sm text-secondary mt-sm">
+          Prices refreshed daily at 08:00 UTC via Vercel Cron — GoldAPI.io (metals) and api-ninjas.com (Bitcoin, Copper).
+        </p>
+      </section>
+
+      {/* Screenshots */}
+      <section className="mb-xl">
+        <h2 className="text-title-lg mb-lg flex items-center gap-xs">
+          <span className="material-symbols-outlined text-primary">
+            screenshot_monitor
+          </span>
+          Screenshots
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+          {/* Hero — full width */}
+          <div className="md:col-span-12 relative aspect-[3/1] rounded-lg overflow-hidden border border-outline-variant">
+            <Image
+              src="/images/projects/ezponda-capital/hero.webp"
+              alt="Ezponda Capital homepage — Real Assets. Real Value."
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
+              <p className="text-label-sm text-white/80 uppercase tracking-widest">
+                Homepage
+              </p>
+            </div>
+          </div>
+
+          {/* Theses gallery (landscape) */}
+          <div className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant">
+            <Image
+              src="/images/projects/ezponda-capital/theses-gallery.webp"
+              alt="Thesis gallery — MKO and FCX cards"
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 768px) 66vw, 100vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
+              <p className="text-label-sm text-white/80 uppercase tracking-widest">
+                Theses Gallery
+              </p>
+            </div>
+          </div>
+
+          {/* Login — portrait */}
+          <div className="md:col-span-4 relative aspect-[4/5] rounded-lg overflow-hidden border border-outline-variant">
+            <Image
+              src="/images/projects/ezponda-capital/login.webp"
+              alt="Login page — email/password + Google OAuth"
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 768px) 33vw, 100vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
+              <p className="text-label-sm text-white/80 uppercase tracking-widest">
+                Auth
+              </p>
+            </div>
+          </div>
+
+          {/* FCX valuation table */}
+          <div className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant">
+            <Image
+              src="/images/projects/ezponda-capital/fcx-valuation.webp"
+              alt="FCX thesis — valuation framework with Bear / Base / Bull scenarios"
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 768px) 66vw, 100vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
+              <p className="text-label-sm text-white/80 uppercase tracking-widest">
+                Thesis Detail · FCX Valuation Framework
+              </p>
+            </div>
+          </div>
+
+          {/* Profile — portrait */}
+          <div className="md:col-span-4 relative aspect-[4/5] rounded-lg overflow-hidden border border-outline-variant">
+            <Image
+              src="/images/projects/ezponda-capital/profile.webp"
+              alt="User profile page — subscription role and access status"
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 768px) 33vw, 100vw"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
+              <p className="text-label-sm text-white/80 uppercase tracking-widest">
+                Profile · Role-Based Access
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Status */}
+      <section className="mb-xl">
+        <h2 className="text-title-lg mb-lg flex items-center gap-xs">
+          <span className="material-symbols-outlined text-primary">
+            rocket_launch
+          </span>
+          Platform Status
+        </h2>
+        <div className="bg-surface-container border border-outline-variant rounded-lg divide-y divide-outline-variant/30">
+          {statusItems.map(({ done, wip, label }) => (
+            <div key={label} className="flex items-center gap-md px-lg py-sm">
+              <span
+                className={`material-symbols-outlined text-[20px] shrink-0 ${
+                  done
+                    ? "text-primary"
+                    : wip
+                    ? "text-[var(--color-warning,#f59e0b)]"
+                    : "text-secondary"
+                }`}
+              >
+                {done ? "check_circle" : wip ? "pending" : "schedule"}
+              </span>
+              <span
+                className={`text-body-md ${
+                  done ? "text-on-surface" : "text-secondary"
+                }`}
+              >
+                {label}
+              </span>
             </div>
           ))}
         </div>
