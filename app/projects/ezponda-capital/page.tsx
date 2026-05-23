@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Ezponda Capital | Eduardo Ezponda",
   description:
-    "Premium investment research platform focused on commodities — gold, copper, and macro cycles.",
+    "Premium investment research platform covering gold, copper, and macro cycles.",
 };
 
 const theses = [
@@ -16,7 +16,7 @@ const theses = [
     tier: "Free",
     title: "Freeport-McMoRan: The Central Bank of Copper",
     summary:
-      "Grasberg controls ~10 % of global mined copper supply with ore grades 3× the industry average. Three concurrent megatrends — EV electrification, grid modernisation, and AI data-centre buildout — drive structural demand while supply remains constrained by declining ore grades.",
+      "Grasberg controls ~10 % of global mined copper supply with ore grades 3× the industry average. Three concurrent megatrends drive structural demand while supply remains constrained by declining ore grades: EV electrification, grid modernisation, and AI data-centre buildout.",
     tags: ["Supercycle", "Electrification", "Indonesia"],
     date: "Apr 2026",
   },
@@ -28,7 +28,7 @@ const theses = [
     tier: "Premium",
     title: "Mako Mining: Four Mines, One Window, Triple the Upside",
     summary:
-      "Market prices Mako on current 2026 production (~60 koz), ignoring funded growth assets that will nearly triple output to 191 koz by 2028. At that level, annual gross margins approach $510 M against a $475 M enterprise value — a 3× re-rating analogous to Aris Mining.",
+      "Market prices Mako on current 2026 production (~60 koz), ignoring funded growth assets that will nearly triple output to 191 koz by 2028. At that level, annual gross margins approach $510 M against a $475 M enterprise value, a 3× re-rating analogous to Aris Mining.",
     tags: ["Junior Miner", "Production Growth", "FCF"],
     date: "Apr 2026",
   },
@@ -68,7 +68,7 @@ const tiers = [
   {
     name: "Guest",
     icon: "visibility",
-    description: "Public browsing — platform overview and thesis previews.",
+    description: "Public browsing with access to platform overview and thesis previews.",
   },
   {
     name: "Free",
@@ -149,7 +149,7 @@ export default function EzpondaCapitalPage() {
                 Independent High-Conviction Research
               </h3>
               <p className="text-body-md text-secondary leading-relaxed">
-                Deep-dive commodity theses for sophisticated investors — beyond
+                Deep-dive commodity theses for sophisticated investors, beyond
                 mainstream financial media. Rigorous fundamental analysis with
                 explicit valuation scenarios and margin-of-safety thinking.
               </p>
@@ -317,7 +317,7 @@ export default function EzpondaCapitalPage() {
           ))}
         </div>
         <p className="text-body-sm text-secondary mt-sm">
-          Prices refreshed daily at 08:00 UTC via Vercel Cron — GoldAPI.io (metals) and api-ninjas.com (Bitcoin, Copper).
+          Prices refreshed daily at 08:00 UTC via Vercel Cron. GoldAPI.io serves metals data; api-ninjas.com covers Bitcoin and Copper.
         </p>
       </section>
 
@@ -336,7 +336,7 @@ export default function EzpondaCapitalPage() {
           <figure className="md:col-span-12 relative aspect-[16/7] rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/hero.webp"
-              alt="Ezponda Capital landing page — Real Assets. Real Value."
+              alt="Ezponda Capital landing page. Real Assets, Real Value."
               fill
               priority
               className="object-cover object-top"
@@ -347,8 +347,8 @@ export default function EzpondaCapitalPage() {
                 Landing Page
               </p>
               <p className="text-body-md text-white font-medium">
-                High-conviction commodity research — gold, copper, and macro
-                cycles for investors who think in decades.
+                High-conviction commodity research on gold, copper, and macro
+                cycles, for investors who think in decades.
               </p>
             </figcaption>
           </figure>
@@ -357,7 +357,7 @@ export default function EzpondaCapitalPage() {
           <figure className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/theses-gallery.webp"
-              alt="Featured Theses — Mako Mining and Freeport-McMoRan research cards"
+              alt="Featured Theses: Mako Mining and Freeport-McMoRan research cards"
               fill
               className="object-cover object-top"
               sizes="(min-width: 768px) 66vw, 100vw"
@@ -368,7 +368,7 @@ export default function EzpondaCapitalPage() {
               </p>
               <p className="text-body-md text-white font-medium">
                 Thesis cards showing ticker, exchange, category tag, and
-                publication date — browsable by asset class.
+                publication date, browsable by asset class.
               </p>
             </figcaption>
           </figure>
@@ -377,7 +377,7 @@ export default function EzpondaCapitalPage() {
           <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/auth-login.webp"
-              alt="Login to Terminal — Google OAuth and email/password login for investment research dashboard"
+              alt="Login to Terminal: Google OAuth and email/password login for the investment research dashboard"
               fill
               className="object-cover object-center"
               sizes="(min-width: 768px) 33vw, 100vw"
@@ -387,7 +387,7 @@ export default function EzpondaCapitalPage() {
                 Authentication
               </p>
               <p className="text-body-md text-white font-medium">
-                Google OAuth or email/password login — gating access to the
+                Google OAuth or email/password login, granting access to the
                 investment research terminal.
               </p>
             </figcaption>
@@ -397,7 +397,7 @@ export default function EzpondaCapitalPage() {
           <figure className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/strategic-anchors.webp"
-              alt="Coverage Universe — Gold, Copper, Macro Cycles, Real Assets category cards, plus analyst profile"
+              alt="Coverage Universe: Gold, Copper, Macro Cycles, and Real Assets category cards, plus analyst profile"
               fill
               className="object-cover object-top"
               sizes="(min-width: 768px) 66vw, 100vw"
@@ -407,8 +407,8 @@ export default function EzpondaCapitalPage() {
                 Coverage Universe
               </p>
               <p className="text-body-md text-white font-medium">
-                Four strategic anchors — Gold, Copper, Macro Cycles, and Real
-                Assets — with the analyst profile and credential badges.
+                Gold, Copper, Macro Cycles, and Real Assets as strategic
+                anchors, paired with the analyst profile and credential badges.
               </p>
             </figcaption>
           </figure>
@@ -417,7 +417,7 @@ export default function EzpondaCapitalPage() {
           <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant bg-[#131313] m-0">
             <Image
               src="/images/projects/ezponda-capital/profile-card.webp"
-              alt="User profile card — name, email, Superadmin plan badge, and full admin access status"
+              alt="User profile card showing name, email, Superadmin plan badge, and full admin access status"
               fill
               className="object-contain object-center"
               sizes="(min-width: 768px) 33vw, 100vw"
@@ -427,7 +427,7 @@ export default function EzpondaCapitalPage() {
                 User Profile
               </p>
               <p className="text-body-md text-white font-medium">
-                Role-based access control — Guest, Free, and Subscriber tiers
+                Role-based access control with Guest, Free, and Subscriber tiers
                 enforced via Supabase RLS on every research asset.
               </p>
             </figcaption>
@@ -437,7 +437,7 @@ export default function EzpondaCapitalPage() {
           <figure className="md:col-span-12 relative aspect-[16/7] rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/methodology.webp"
-              alt="Investment Methodology — Macro Framework, Conviction Filtering, Institutional Lens steps"
+              alt="Investment Methodology: Macro Framework, Conviction Filtering, and Institutional Lens steps"
               fill
               className="object-cover object-top"
               sizes="100vw"

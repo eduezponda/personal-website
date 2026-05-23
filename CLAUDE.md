@@ -1,5 +1,17 @@
 # CLAUDE.md — personal-website
 
+## Writing style rules
+
+**NO em-dashes or en-dashes in any user-visible text.** This applies to all UI copy, card descriptions, figcaptions, alt attributes, metadata descriptions, thesis summaries, status labels, and blog prose. Never use `—` or ` - ` to connect clauses.
+
+Rewrite instead using:
+- A colon (`:`) to introduce a list or elaboration
+- A comma (`,`) for a soft pause or appositive
+- A full stop (`.`) to start a new sentence
+- Natural connectors: "with", "covering", "including", "granting", "since", "as"
+
+This rule applies project-wide and permanently. Do not reintroduce dashes in future edits.
+
 ## Identity
 
 Eduardo Ezponda's personal website. Professional portfolio for an AI Engineer and value investor.

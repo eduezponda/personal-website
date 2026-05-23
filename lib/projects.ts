@@ -36,7 +36,7 @@ export const projects: Project[] = [
     slug: "ezponda-capital",
     title: "Ezponda Capital",
     description:
-      "Premium investment research platform focused on commodities — gold, copper, and macro cycles. Subscription-gated MDX theses, live commodity prices, Stripe payments, and bilingual (EN/ES) support.",
+      "Premium investment research platform covering gold, copper, and macro cycles. Subscription-gated MDX theses, live commodity prices, Stripe payments, and bilingual EN/ES support.",
     tags: ["Value Investing", "Gold", "Copper", "Next.js 15"],
     href: "/projects/ezponda-capital",
     githubUrl: "https://github.com/eduezponda/ezponda-capital",
