@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
 
@@ -12,6 +13,7 @@ const coverIcons: Record<string, string> = {
   komorebi: "query_stats",
   "ezponda-capital": "trending_up",
 };
+
 
 export default function ProjectsPage() {
   return (
@@ -35,11 +37,23 @@ export default function ProjectsPage() {
             key={project.slug}
             className="group bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col h-full hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300"
           >
-            {/* Cover placeholder */}
-            <div className="aspect-video mb-md bg-surface-container-low overflow-hidden rounded flex items-center justify-center">
-              <span className="material-symbols-outlined text-[48px] text-outline">
-                {coverIcons[project.slug] ?? "folder"}
-              </span>
+            {/* Cover image / placeholder */}
+            <div className="aspect-video mb-md bg-surface-container-low overflow-hidden rounded relative">
+              {project.coverImage ? (
+                <Image
+                  src={project.coverImage}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                />
+              ) : (
+                <div className="flex items-center justify-center h-full">
+                  <span className="material-symbols-outlined text-[48px] text-outline">
+                    {coverIcons[project.slug] ?? "folder"}
+                  </span>
+                </div>
+              )}
             </div>
 
             {/* Tags */}

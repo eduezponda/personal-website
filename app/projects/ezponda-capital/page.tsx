@@ -133,17 +133,17 @@ export default function EzpondaCapitalPage() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Featured card */}
-        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg overflow-hidden relative min-h-[240px] flex flex-col justify-end">
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg overflow-hidden relative min-h-[240px]">
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="material-symbols-outlined text-[80px] text-outline/40">
               candlestick_chart
             </span>
           </div>
-          <div className="relative p-lg">
+          <div className="absolute bottom-0 left-0 right-0 p-lg">
             <h3 className="text-title-lg text-on-surface mb-xs">
               Independent High-Conviction Research
             </h3>
-            <p className="text-body-md text-secondary max-w-md">
+            <p className="text-body-md text-secondary">
               Deep-dive commodity theses for sophisticated investors — beyond
               mainstream financial media. Rigorous fundamental analysis with
               explicit valuation scenarios and margin-of-safety thinking.
@@ -302,88 +302,132 @@ export default function EzpondaCapitalPage() {
           <span className="material-symbols-outlined text-primary">
             screenshot_monitor
           </span>
-          Screenshots
+          Platform Screenshots
         </h2>
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-          {/* Hero — full width */}
-          <div className="md:col-span-12 relative aspect-[3/1] rounded-lg overflow-hidden border border-outline-variant">
+
+          {/* 1 — Landing hero — full width */}
+          <figure className="md:col-span-12 relative aspect-[16/7] rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/hero.webp"
-              alt="Ezponda Capital homepage — Real Assets. Real Value."
+              alt="Ezponda Capital landing page — Real Assets. Real Value."
               fill
-              className="object-cover"
+              priority
+              className="object-cover object-top"
               sizes="100vw"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
-              <p className="text-label-sm text-white/80 uppercase tracking-widest">
-                Homepage
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
+                Landing Page
               </p>
-            </div>
-          </div>
+              <p className="text-body-md text-white font-medium">
+                High-conviction commodity research — gold, copper, and macro
+                cycles for investors who think in decades.
+              </p>
+            </figcaption>
+          </figure>
 
-          {/* Theses gallery (landscape) */}
-          <div className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant">
+          {/* 2 — Featured theses (landscape 8/12) */}
+          <figure className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/theses-gallery.webp"
-              alt="Thesis gallery — MKO and FCX cards"
+              alt="Featured Theses — Mako Mining and Freeport-McMoRan research cards"
               fill
               className="object-cover object-top"
               sizes="(min-width: 768px) 66vw, 100vw"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
-              <p className="text-label-sm text-white/80 uppercase tracking-widest">
-                Theses Gallery
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
+                Research Theses
               </p>
-            </div>
-          </div>
+              <p className="text-body-md text-white font-medium">
+                Thesis cards showing ticker, exchange, category tag, and
+                publication date — browsable by asset class.
+              </p>
+            </figcaption>
+          </figure>
 
-          {/* Login — portrait */}
-          <div className="md:col-span-4 relative aspect-[4/5] rounded-lg overflow-hidden border border-outline-variant">
+          {/* 3 — Registration / auth (4/12, stretches to match row height) */}
+          <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
-              src="/images/projects/ezponda-capital/login.webp"
-              alt="Login page — email/password + Google OAuth"
+              src="/images/projects/ezponda-capital/register.webp"
+              alt="Create Your Account — registration form with free and premium sign-up options"
               fill
               className="object-cover object-top"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
-              <p className="text-label-sm text-white/80 uppercase tracking-widest">
-                Auth
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
+                Authentication
               </p>
-            </div>
-          </div>
+              <p className="text-body-md text-white font-medium">
+                Frictionless sign-up with Google OAuth, free tier, or direct
+                Stripe premium upgrade — market insight shown on idle side.
+              </p>
+            </figcaption>
+          </figure>
 
-          {/* FCX valuation table */}
-          <div className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant">
+          {/* 4 — Coverage universe + analyst profile (landscape 8/12) */}
+          <figure className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
-              src="/images/projects/ezponda-capital/fcx-valuation.webp"
-              alt="FCX thesis — valuation framework with Bear / Base / Bull scenarios"
+              src="/images/projects/ezponda-capital/strategic-anchors.webp"
+              alt="Coverage Universe — Gold, Copper, Macro Cycles, Real Assets category cards, plus analyst profile"
               fill
               className="object-cover object-top"
               sizes="(min-width: 768px) 66vw, 100vw"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
-              <p className="text-label-sm text-white/80 uppercase tracking-widest">
-                Thesis Detail · FCX Valuation Framework
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
+                Coverage Universe
               </p>
-            </div>
-          </div>
+              <p className="text-body-md text-white font-medium">
+                Four strategic anchors — Gold, Copper, Macro Cycles, and Real
+                Assets — with the analyst profile and credential badges.
+              </p>
+            </figcaption>
+          </figure>
 
-          {/* Profile — portrait */}
-          <div className="md:col-span-4 relative aspect-[4/5] rounded-lg overflow-hidden border border-outline-variant">
+          {/* 5 — User profile / RBAC (4/12, stretches to match row height) */}
+          <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant m-0">
             <Image
               src="/images/projects/ezponda-capital/profile.webp"
-              alt="User profile page — subscription role and access status"
+              alt="User profile page — name, email, Superadmin plan, and full admin access status"
               fill
-              className="object-cover object-top"
+              className="object-cover object-center"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-md py-sm">
-              <p className="text-label-sm text-white/80 uppercase tracking-widest">
-                Profile · Role-Based Access
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
+                User Profile
               </p>
-            </div>
-          </div>
+              <p className="text-body-md text-white font-medium">
+                Role-based access control — Guest, Free, and Subscriber tiers
+                enforced via Supabase RLS on every research asset.
+              </p>
+            </figcaption>
+          </figure>
+
+          {/* 6 — Investment methodology + footer — full width */}
+          <figure className="md:col-span-12 relative aspect-[16/7] rounded-lg overflow-hidden border border-outline-variant m-0">
+            <Image
+              src="/images/projects/ezponda-capital/methodology.webp"
+              alt="Investment Methodology — Macro Framework, Conviction Filtering, Institutional Lens steps"
+              fill
+              className="object-cover object-top"
+              sizes="100vw"
+            />
+            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
+                Investment Methodology
+              </p>
+              <p className="text-body-md text-white font-medium">
+                Three-step framework: top-down macro analysis → asymmetric
+                conviction filtering → institutional-grade presentation.
+              </p>
+            </figcaption>
+          </figure>
+
         </div>
       </section>
 

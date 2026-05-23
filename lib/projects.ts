@@ -6,6 +6,7 @@ export type Project = {
   href: string;
   githubUrl?: string;
   pdfUrl?: string;
+  coverImage?: string;
   status: "live" | "wip" | "placeholder";
 };
 
@@ -39,6 +40,7 @@ export const projects: Project[] = [
     tags: ["Value Investing", "Gold", "Copper", "Next.js 15"],
     href: "/projects/ezponda-capital",
     githubUrl: "https://github.com/eduezponda/ezponda-capital",
+    coverImage: "/images/projects/ezponda-capital/hero.webp",
     status: "live",
   },
 ];
