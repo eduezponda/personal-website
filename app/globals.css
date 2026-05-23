@@ -93,3 +93,42 @@ body {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   vertical-align: middle;
 }
+
+/* ── Blog article typography ──────────────────────────────────
+   Companion styles for the .blog-article prose wrapper.
+   Prose modifiers (prose-*:) handle most rules;
+   these fill the gaps that need direct CSS.
+   ──────────────────────────────────────────────────────────── */
+
+/* Lead paragraph: darker + slightly larger to draw the reader in */
+.blog-article > p:first-of-type {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: var(--color-on-surface);
+  font-weight: 400;
+}
+
+/* Remove auto-quotes that prose inserts around inline code */
+.blog-article :not(pre) > code::before,
+.blog-article :not(pre) > code::after {
+  content: '' !important;
+}
+
+/* Blockquote: left accent bar uses design-system primary color */
+.blog-article blockquote {
+  font-style: normal;
+  border-left-color: var(--color-primary);
+  background-color: var(--color-surface-container-low);
+  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+  padding-block: 0.75rem;
+}
+
+/* Ordered and unordered lists: consistent indentation */
+.blog-article ul,
+.blog-article ol {
+  padding-left: 1.5rem;
+}
+
+.blog-article li + li {
+  margin-top: 0.5rem;
+}

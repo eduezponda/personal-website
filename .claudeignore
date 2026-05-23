@@ -1,0 +1,120 @@
+# ============================================================
+# .claudeignore — Claude Code context exclusions
+# Mirrors .gitignore and extends it with additional noise.
+# Goal: feed Claude ONLY source files, never generated artefacts.
+# ============================================================
+
+# ── Dependencies ────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+
+# ── Next.js / framework build output ────────────────────────
+.next/
+out/
+dist/
+build/
+
+# ── Vercel artefacts ─────────────────────────────────────────
+.vercel/
+
+# ── TypeScript generated ─────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
+
+# ── Environment / secrets ────────────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.cert
+
+# ── Python / ML environments ─────────────────────────────────
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+*.whl
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+mlruns/
+wandb/
+lightning_logs/
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+
+# ── Logs & debug ─────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log.*
+
+# ── OS noise ─────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# ── Editor / IDE ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ── Git internals ─────────────────────────────────────────────
+.git/
+
+# ── Obsidian workspace state ──────────────────────────────────
+obsidian-vault/.obsidian/
+obsidian-vault/
+
+# ── Claude local settings ─────────────────────────────────────
+.claude/settings.local.json
+
+# ── Lock files (huge, never need to read) ─────────────────────
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lock
+poetry.lock
+Pipfile.lock
+uv.lock
+
+# ── Coverage / test artefacts ─────────────────────────────────
+coverage/
+.nyc_output/
+*.lcov
+htmlcov/
+.coverage
+.coverage.*
+
+# ── Temp / misc ───────────────────────────────────────────────
+tmp/
+temp/
+.tmp/
+*.tmp
+*.bak
+*.orig

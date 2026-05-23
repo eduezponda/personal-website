@@ -63,14 +63,18 @@ export default async function BlogPostPage({
       </header>
 
       <article
-        className="prose prose-sm max-w-none
-        prose-headings:text-on-surface prose-headings:font-semibold
-        prose-p:text-secondary prose-p:leading-relaxed
+        className="blog-article prose prose-lg max-w-none
+        prose-headings:text-on-surface prose-headings:font-bold prose-headings:tracking-tight
+        prose-h2:mt-12 prose-h2:mb-5
+        prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-secondary prose-p:leading-[1.85]
         prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-        prose-code:text-primary prose-code:bg-surface-container prose-code:rounded prose-code:px-1
-        prose-pre:bg-surface-container prose-pre:border prose-pre:border-outline-variant
-        prose-strong:text-on-surface
-        prose-li:text-secondary
+        prose-strong:text-on-surface prose-strong:font-semibold
+        prose-code:text-primary prose-code:bg-surface-container-high prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm
+        prose-pre:bg-surface-container-high prose-pre:border prose-pre:border-outline-variant prose-pre:rounded-lg prose-pre:p-6
+        prose-blockquote:border-l-4 prose-blockquote:pl-5 prose-blockquote:text-secondary prose-blockquote:font-normal
+        prose-li:text-secondary prose-li:leading-[1.85]
+        prose-img:rounded-lg prose-img:my-10
         prose-hr:border-outline-variant"
       >
         <MDXRemote source={post.content} />
