@@ -98,6 +98,19 @@ export const education = [
     ],
     tags: ["Value Investing", "Finance", "Fundamental Analysis", "Macroeconomics", "Equities", "Derivatives"],
   },
+  {
+    period: "Sep 2019 – Jun 2021",
+    degree: "Technological Baccalaureate",
+    org: "Nuestra Señora del Huerto High School",
+    location: "Pamplona, Spain",
+    gpa: "8.82 / 10",
+    description:
+      "Technological Baccalaureate with specialization in Mathematics, Physics, Technical Drawing, and Chemistry.",
+    highlights: [
+      "University Entrance Examination (EBAU): 12.24 / 14.",
+    ],
+    tags: ["Mathematics", "Physics", "Chemistry", "Technical Drawing"],
+  },
 ] as const;
 
 export const certifications = [
