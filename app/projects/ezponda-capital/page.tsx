@@ -354,7 +354,7 @@ export default function EzpondaCapitalPage() {
               src="/images/projects/ezponda-capital/register.webp"
               alt="Create Your Account — registration form with free and premium sign-up options"
               fill
-              className="object-cover object-top"
+              className="object-cover object-left-top"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
             <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
@@ -394,6 +394,7 @@ export default function EzpondaCapitalPage() {
               src="/images/projects/ezponda-capital/profile.webp"
               alt="User profile page — name, email, Superadmin plan, and full admin access status"
               fill
+              quality={95}
               className="object-cover object-center"
               sizes="(min-width: 768px) 33vw, 100vw"
             />
