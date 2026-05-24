@@ -15,6 +15,7 @@ const moduleIcons = [
   "memory",
   "work_history",
   "rocket_launch",
+  "business_center",
 ];
 
 export default function ZrivePage() {
@@ -163,7 +164,25 @@ export default function ZrivePage() {
               <h3 className="text-title-md text-on-surface mb-xs">
                 {module.title}
               </h3>
-              <p className="text-body-md text-secondary">{module.summary}</p>
+              <p className="text-body-md text-secondary mb-md">{module.summary}</p>
+              {module.pdfs && module.pdfs.length > 0 && (
+                <div className="flex flex-wrap gap-xs pt-xs border-t border-outline-variant/30">
+                  {module.pdfs.map((pdf) => (
+                    <a
+                      key={pdf.url}
+                      href={pdf.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-xs text-label-sm text-primary hover:text-accent transition-colors"
+                    >
+                      <span className="material-symbols-outlined text-[14px]">
+                        picture_as_pdf
+                      </span>
+                      {pdf.label}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
