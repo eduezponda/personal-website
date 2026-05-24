@@ -88,8 +88,8 @@ export default function ZrivePage() {
               account_tree
             </span>
           </div>
-          <div className="relative p-lg w-full">
-            <h3 className="text-title-lg text-on-surface mb-xs">
+          <div className="relative p-lg w-full flex flex-col gap-xs">
+            <h3 className="text-title-lg text-on-surface">
               End-to-End Pipeline
             </h3>
             <p className="text-body-md text-secondary max-w-md">
@@ -179,10 +179,12 @@ export default function ZrivePage() {
                   {moduleIcons[i] ?? "terminal"}
                 </span>
               </div>
-              <h3 className="text-title-md text-on-surface mb-xs">
-                {module.title}
-              </h3>
-              <p className="text-body-md text-secondary mb-md">{module.summary}</p>
+              <div className="flex flex-col gap-xs mb-md">
+                <h3 className="text-title-md text-on-surface">
+                  {module.title}
+                </h3>
+                <p className="text-body-md text-secondary">{module.summary}</p>
+              </div>
               {module.pdfs && module.pdfs.length > 0 && (
                 <div className="flex flex-wrap gap-xs pt-xs border-t border-outline-variant/30">
                   {module.pdfs.map((pdf) => (
