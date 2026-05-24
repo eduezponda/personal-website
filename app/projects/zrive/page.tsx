@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { zriveModules } from "@/lib/zrive";
 import { projects } from "@/lib/projects";
@@ -16,6 +17,39 @@ const moduleIcons = [
   "work_history",
   "rocket_launch",
   "business_center",
+];
+
+const techStack = [
+  {
+    label: "Machine Learning",
+    type: "icon" as const,
+    icon: "psychology",
+  },
+  {
+    label: "APIs",
+    type: "icon" as const,
+    icon: "api",
+  },
+  {
+    label: "pandas",
+    type: "img" as const,
+    src: "/logos/pandas-dark.svg",
+  },
+  {
+    label: "XGBoost",
+    type: "img" as const,
+    src: "/logos/xgboost.png",
+  },
+  {
+    label: "LightGBM",
+    type: "img" as const,
+    src: "/logos/lightgbm.svg",
+  },
+  {
+    label: "FastAPI",
+    type: "img" as const,
+    src: "/logos/fastapi.png",
+  },
 ];
 
 export default function ZrivePage() {
@@ -43,20 +77,36 @@ export default function ZrivePage() {
       <section className="mb-xl">
         <div className="max-w-3xl">
           <h1 className="text-hero-lg text-on-surface mb-sm">Zrive DS Course</h1>
-          <p className="text-title-lg text-secondary mb-md">
+          <p className="text-title-lg text-secondary mb-lg">
             6 end-to-end data science modules.
           </p>
-          <div className="flex flex-wrap gap-xs mb-lg">
-            {["Machine Learning", "APIs", "pandas", "XGBoost", "LightGBM", "FastAPI"].map(
-              (tag) => (
-                <span
-                  key={tag}
-                  className="px-sm py-xs bg-surface-container text-secondary text-label-sm rounded border border-outline-variant"
-                >
-                  {tag}
+        </div>
+
+        {/* Logos card */}
+        <div className="bg-surface-container border border-outline-variant rounded-xl p-lg">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-md">
+            {techStack.map((item) => (
+              <div key={item.label} className="flex flex-col items-center gap-sm">
+                {item.type === "icon" ? (
+                  <span className="material-symbols-outlined text-[44px] text-primary">
+                    {item.icon}
+                  </span>
+                ) : (
+                  <div className="h-11 flex items-center justify-center">
+                    <Image
+                      src={item.src}
+                      alt={item.label}
+                      width={72}
+                      height={44}
+                      className="object-contain max-h-11 w-auto"
+                    />
+                  </div>
+                )}
+                <span className="text-label-sm text-secondary text-center leading-tight">
+                  {item.label}
                 </span>
-              )
-            )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
