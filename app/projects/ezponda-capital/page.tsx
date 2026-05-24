@@ -146,12 +146,25 @@ export default function EzpondaCapitalPage() {
             </div>
             <div className="flex flex-col gap-sm">
               <h3 className="text-title-lg text-on-surface">
-                Independent High-Conviction Research
+                Value Investing for the Commodity Cycle
               </h3>
               <p className="text-body-md text-secondary leading-relaxed">
-                Deep-dive commodity theses for sophisticated investors, beyond
-                mainstream financial media. Rigorous fundamental analysis with
-                explicit valuation scenarios and margin-of-safety thinking.
+                Ezponda Capital is a specialized value investing platform
+                dedicated to commodity equities, built and curated by analyst{" "}
+                <a
+                  href="https://x.com/inigoezponda"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  Íñigo Ezponda
+                </a>
+                . It hosts rigorous investment theses and deep fundamental
+                analysis covering gold, copper, silver, and real assets across
+                the full commodity universe. Every thesis is anchored in
+                explicit margin-of-safety valuation scenarios, structured for
+                sophisticated investors who demand institutional-grade reasoning
+                over consensus noise.
               </p>
             </div>
           </div>
