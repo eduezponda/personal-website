@@ -13,43 +13,6 @@ const coverIcons: Record<string, string> = {
   "ezponda-capital": "trending_up",
 };
 
-const zriveTechStack = [
-  { label: "Machine Learning", type: "icon" as const, icon: "psychology" },
-  { label: "APIs",             type: "icon" as const, icon: "api" },
-  { label: "pandas",           type: "img"  as const, src: "/logos/pandas-dark.svg" },
-  { label: "XGBoost",          type: "img"  as const, src: "/logos/xgboost.png" },
-  { label: "LightGBM",         type: "img"  as const, src: "/logos/lightgbm.svg" },
-  { label: "FastAPI",          type: "img"  as const, src: "/logos/fastapi.png" },
-];
-
-function ZriveCardCover() {
-  return (
-    <div className="w-full h-full bg-[#131318] flex items-center justify-center px-md">
-      <div className="grid grid-cols-6 gap-xs w-full">
-        {zriveTechStack.map((item) => (
-          <div key={item.label} className="flex flex-col items-center gap-xs">
-            {item.type === "icon" ? (
-              <span className="material-symbols-outlined text-[28px] text-[#2dd4bf]">
-                {item.icon}
-              </span>
-            ) : (
-              /* eslint-disable-next-line @next/next/no-img-element */
-              <img
-                src={item.src}
-                alt={item.label}
-                className="object-contain h-7 w-auto max-w-[48px]"
-              />
-            )}
-            <span className="text-[9px] text-[#919191] text-center leading-tight truncate w-full text-center">
-              {item.label}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function ProjectsPage() {
   return (
     <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
@@ -74,14 +37,12 @@ export default function ProjectsPage() {
           >
             {/* Cover */}
             <div className="aspect-video mb-md bg-surface-container-low overflow-hidden rounded relative">
-              {project.slug === "zrive" ? (
-                <ZriveCardCover />
-              ) : project.coverImage ? (
+              {project.coverImage ? (
                 <Image
                   src={project.coverImage}
-                  alt={`${project.title} screenshot`}
+                  alt={`${project.title} cover`}
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   sizes="(min-width: 768px) 33vw, 100vw"
                 />
               ) : (

@@ -19,6 +19,7 @@ export const projects: Project[] = [
     tags: ["Machine Learning", "APIs", "Deployment"],
     href: "/projects/zrive",
     githubUrl: "https://github.com/eduezponda/zrive-ds",
+    coverImage: "/images/projects/zrive/cover.png",
     status: "live",
   },
   {
