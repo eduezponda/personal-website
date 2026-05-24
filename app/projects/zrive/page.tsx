@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { zriveModules } from "@/lib/zrive";
 import { projects } from "@/lib/projects";
@@ -93,12 +92,11 @@ export default function ZrivePage() {
                   </span>
                 ) : (
                   <div className="h-11 flex items-center justify-center">
-                    <Image
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
                       src={item.src}
                       alt={item.label}
-                      width={72}
-                      height={44}
-                      className="object-contain max-h-11 w-auto"
+                      className="object-contain max-h-11 w-auto max-w-[80px]"
                     />
                   </div>
                 )}
