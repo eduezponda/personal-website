@@ -18,7 +18,7 @@ export default function AboutPage() {
             <div className="space-y-sm">
               <div className="w-32 h-32 md:w-48 md:h-48 rounded-lg overflow-hidden border border-outline-variant">
                 <Image
-                  src="/profile.jpg"
+                  src="/images/profile.webp"
                   alt="Eduardo Ezponda"
                   width={192}
                   height={192}
@@ -73,7 +73,7 @@ export default function AboutPage() {
 
             {/* CV download */}
             <a
-              href="/docs/CV_Eduardo_Ezponda_Igea.pdf"
+              href="/docs/cv-eduardo-ezponda-igea.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full md:w-auto px-xl py-sm bg-surface-container-lowest border border-outline-variant text-on-surface text-title-md rounded hover:bg-surface-container-low transition-all flex items-center justify-center gap-xs"

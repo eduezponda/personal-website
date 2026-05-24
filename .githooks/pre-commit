@@ -11,7 +11,8 @@ set -euo pipefail
 #   cwebp input.png -o output.webp   (install: brew install webp)
 #   ffmpeg -i input.png output.webp
 # Then update any src= / ![]() references in .mdx / .tsx files.
-BAD_IMAGES=$(git diff --cached --name-only | grep -E '^public/.*\.(png|jpg|jpeg|gif|bmp|tiff|avif)$' || true)
+# --diff-filter=d excludes deleted paths so removing a legacy .png/jpg never triggers a false positive
+BAD_IMAGES=$(git diff --cached --name-only --diff-filter=d | grep -E '^public/.*\.(png|jpg|jpeg|gif|bmp|tiff|avif)$' || true)
 
 if [[ -n "$BAD_IMAGES" ]]; then
   echo ""

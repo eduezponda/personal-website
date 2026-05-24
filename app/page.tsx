@@ -41,7 +41,7 @@ export default function HomePage() {
       <section className="py-xl md:py-[120px] flex flex-col items-center text-center">
         <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-outline-variant mb-lg">
           <Image
-            src="/profile.jpg"
+            src="/images/profile.webp"
             alt="Eduardo Ezponda"
             width={96}
             height={96}

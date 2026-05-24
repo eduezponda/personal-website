@@ -19,36 +19,12 @@ const moduleIcons = [
 ];
 
 const techStack = [
-  {
-    label: "Machine Learning",
-    type: "icon" as const,
-    icon: "psychology",
-  },
-  {
-    label: "APIs",
-    type: "icon" as const,
-    icon: "api",
-  },
-  {
-    label: "pandas",
-    type: "img" as const,
-    src: "/logos/pandas-dark.svg",
-  },
-  {
-    label: "XGBoost",
-    type: "img" as const,
-    src: "/logos/xgboost.png",
-  },
-  {
-    label: "LightGBM",
-    type: "img" as const,
-    src: "/logos/lightgbm.svg",
-  },
-  {
-    label: "FastAPI",
-    type: "img" as const,
-    src: "/logos/fastapi.png",
-  },
+  { label: "Machine Learning", src: "/images/projects/zrive/machine_learning.webp" },
+  { label: "APIs",             src: "/images/projects/zrive/api.webp" },
+  { label: "pandas",           src: "/images/projects/zrive/pandas.webp" },
+  { label: "XGBoost",         src: "/logos/xgboost.png" },
+  { label: "LightGBM",        src: "/logos/lightgbm.svg" },
+  { label: "FastAPI",         src: "/logos/fastapi.png" },
 ];
 
 export default function ZrivePage() {
@@ -86,20 +62,14 @@ export default function ZrivePage() {
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-md">
             {techStack.map((item) => (
               <div key={item.label} className="flex flex-col items-center gap-sm">
-                {item.type === "icon" ? (
-                  <span className="material-symbols-outlined text-[44px] text-primary">
-                    {item.icon}
-                  </span>
-                ) : (
-                  <div className="h-11 flex items-center justify-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={item.src}
-                      alt={item.label}
-                      className="object-contain max-h-11 w-auto max-w-[80px]"
-                    />
-                  </div>
-                )}
+                <div className="h-11 flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.src}
+                    alt={item.label}
+                    className="object-contain max-h-11 w-auto max-w-[80px]"
+                  />
+                </div>
                 <span className="text-label-sm text-secondary text-center leading-tight">
                   {item.label}
                 </span>
@@ -176,7 +146,7 @@ export default function ZrivePage() {
             </div>
           </div>
           <a
-            href="/zrive-brochure.pdf"
+            href="/docs/zrive/zrive-brochure.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-shrink-0 flex items-center gap-xs bg-primary-container text-on-primary-container px-lg py-sm rounded-lg text-title-md transition-all hover:opacity-90 active:scale-95"
