@@ -6,6 +6,7 @@
 - [x] Write first blog post — "The Death of the Code Monkey: Welcome to the Era of Vibe Coding and Agents" — 2026-05-22
 - [ ] Add real assets: Komorebi PDF link, GitHub repo links for both projects, notebook screenshots
 - [ ] Connect custom domain (if available)
+- [ ] Responsiveness audit: review every page (/about, /projects, /projects/zrive, /projects/komorebi, /projects/ezponda-capital, /blog, /blog/[slug]) at mobile (375px), tablet (768px), and desktop (1280px). Fix any layout breakage, text overflow, or collapsed spacing.
 
 ## Done
 
