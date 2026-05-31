@@ -208,6 +208,24 @@ export default function ZrivePage() {
         </div>
       </section>
 
+      {/* System Design */}
+      <section className="mb-xl">
+        <h2 className="text-title-lg mb-lg flex items-center gap-xs">
+          <span className="material-symbols-outlined text-primary">
+            architecture
+          </span>
+          System Design
+        </h2>
+        <div className="bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/projects/zrive/system_design.webp"
+            alt="System design diagram for the basket recommendation API: user request flows through auth services, load balancing, and recommender systems to the FastAPI layer, which connects to a model registry, feature store, logging system, and monitoring."
+            className="w-full"
+          />
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="flex flex-col md:flex-row gap-md justify-center items-center py-lg bg-surface-container border border-outline-variant rounded-lg">
         {project.githubUrl && (
