@@ -183,7 +183,16 @@ export default function ZrivePage() {
                 <h3 className="text-title-md text-on-surface">
                   {module.title}
                 </h3>
-                <p className="text-body-md text-secondary">{module.summary}</p>
+                <p className="text-body-md text-secondary line-clamp-3">{module.summary}</p>
+              </div>
+              <div className="mb-md">
+                <Link
+                  href={`/projects/zrive/modules/${module.number}`}
+                  className="inline-flex items-center gap-xs text-label-sm text-primary hover:text-accent transition-colors"
+                >
+                  View Details
+                  <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </Link>
               </div>
               {module.pdfs && module.pdfs.length > 0 && (
                 <div className="flex flex-wrap gap-xs pt-xs border-t border-outline-variant/30">
