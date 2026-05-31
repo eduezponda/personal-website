@@ -25,7 +25,7 @@ export const zriveModules: ZriveModule[] = [
       "Multi-panel matplotlib visualisations",
     ],
     pdfs: [
-      { label: "Module 1: APIs", url: "/docs/zrive/module-1-api.pdf" },
+      { label: "API Engineering Fundamentals", url: "/docs/zrive/module-1-api.pdf" },
     ],
   },
   {
@@ -40,7 +40,7 @@ export const zriveModules: ZriveModule[] = [
       "Abandoned cart and user segmentation analysis",
     ],
     pdfs: [
-      { label: "Module 2: EDA", url: "/docs/zrive/module-2-eda.pdf" },
+      { label: "Exploratory Data Analysis", url: "/docs/zrive/module-2-eda.pdf" },
     ],
   },
   {
@@ -56,11 +56,11 @@ export const zriveModules: ZriveModule[] = [
     ],
     pdfs: [
       {
-        label: "Statistical Learning, Part 1",
+        label: "Statistical Learning Fundamentals, Part 1",
         url: "/docs/zrive/module-3-statistical-learning-1.pdf",
       },
       {
-        label: "Statistical Learning, Part 2",
+        label: "Statistical Learning Fundamentals, Part 2",
         url: "/docs/zrive/module-3-statistical-learning-2.pdf",
       },
     ],
@@ -77,7 +77,7 @@ export const zriveModules: ZriveModule[] = [
       "Clean separation of utils, models, and handlers",
     ],
     pdfs: [
-      { label: "Module 4: Model Fitting", url: "/docs/zrive/module-4-model-fitting.pdf" },
+      { label: "Optimal Model Fitting", url: "/docs/zrive/module-4-model-fitting.pdf" },
     ],
   },
   {
@@ -93,7 +93,7 @@ export const zriveModules: ZriveModule[] = [
     ],
     pdfs: [
       {
-        label: "Module 5: Analyse, Diagnose and Improve",
+        label: "Model Analysis, Diagnosis and Improvement",
         url: "/docs/zrive/module-5-analyse-diagnose-improve.pdf",
       },
     ],
@@ -110,7 +110,7 @@ export const zriveModules: ZriveModule[] = [
       "Load testing with attack.sh / report.sh",
     ],
     pdfs: [
-      { label: "Module 6: System Design", url: "/docs/zrive/module-6-system-design.pdf" },
+      { label: "System Design", url: "/docs/zrive/module-6-system-design.pdf" },
     ],
   },
   {
@@ -126,7 +126,7 @@ export const zriveModules: ZriveModule[] = [
     ],
     pdfs: [
       {
-        label: "Module 7: Business Translation",
+        label: "Business Translation",
         url: "/docs/zrive/module-7-business-translation.pdf",
       },
     ],
