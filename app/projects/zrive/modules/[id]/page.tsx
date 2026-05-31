@@ -72,10 +72,35 @@ export default async function ModuleDetailPage({
       </section>
 
       {/* Full description */}
-      <section className="mb-xl">
-        <p className="text-body-lg text-secondary leading-relaxed max-w-3xl">
-          {module.summary}
-        </p>
+      <section className="mb-xl flex flex-col gap-md max-w-3xl">
+        {module.description.map((block, i) => {
+          if (block.type === "paragraph") {
+            return (
+              <p key={i} className="text-body-lg text-secondary leading-relaxed">
+                {block.text}
+              </p>
+            );
+          }
+          return (
+            <div key={i}>
+              {block.label && (
+                <h3 className="text-label-sm uppercase tracking-widest text-primary mb-sm">
+                  {block.label}
+                </h3>
+              )}
+              <ul className="flex flex-col gap-xs">
+                {block.items.map((item) => (
+                  <li key={item} className="flex items-start gap-sm text-body-md text-secondary">
+                    <span className="material-symbols-outlined text-primary text-[16px] mt-[3px] shrink-0">
+                      arrow_forward
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
       </section>
 
       {/* Highlights */}
