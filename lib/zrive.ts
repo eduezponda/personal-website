@@ -10,6 +10,7 @@ export type ZriveModule = {
   skills: string[];
   highlights: string[];
   pdfs?: ZriveModulePdf[];
+  image?: string;
 };
 
 export const zriveModules: ZriveModule[] = [
@@ -112,6 +113,7 @@ export const zriveModules: ZriveModule[] = [
     pdfs: [
       { label: "System Design", url: "/projects/zrive/docs/module-6-system-design" },
     ],
+    image: "/images/projects/zrive/system_design.webp",
   },
   {
     number: 7,
