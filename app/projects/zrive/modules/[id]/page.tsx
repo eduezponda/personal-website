@@ -1,6 +1,46 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ContentBlock } from "@/lib/zrive";
 import { zriveModules } from "@/lib/zrive";
+
+function renderText(text: string): React.ReactNode {
+  const parts = text.split(/`([^`]+)`/);
+  if (parts.length === 1) return text;
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <code
+        key={i}
+        className="font-mono text-[0.85em] bg-surface-container-high text-accent px-1.5 py-0.5 rounded"
+      >
+        {part}
+      </code>
+    ) : (
+      part
+    )
+  );
+}
+
+function Block({ block }: { block: ContentBlock }) {
+  if (block.type === "paragraph") {
+    return (
+      <p className="text-body-lg text-secondary leading-relaxed">
+        {renderText(block.text)}
+      </p>
+    );
+  }
+  return (
+    <ul className="flex flex-col gap-xs">
+      {block.items.map((item, i) => (
+        <li key={i} className="flex items-start gap-sm text-body-md text-secondary">
+          <span className="material-symbols-outlined text-primary text-[16px] mt-[3px] shrink-0">
+            arrow_forward
+          </span>
+          <span>{renderText(item)}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export function generateStaticParams() {
   return zriveModules.map((m) => ({ id: String(m.number) }));
@@ -71,110 +111,74 @@ export default async function ModuleDetailPage({
         </div>
       </section>
 
-      {/* Full description */}
-      <section className="mb-xl flex flex-col gap-md max-w-3xl">
-        {module.description.map((block, i) => {
-          if (block.type === "paragraph") {
-            return (
-              <p key={i} className="text-body-lg text-secondary leading-relaxed">
-                {block.text}
-              </p>
-            );
-          }
-          return (
-            <div key={i}>
-              {block.label && (
-                <h3 className="text-label-sm uppercase tracking-widest text-primary mb-sm">
-                  {block.label}
-                </h3>
-              )}
-              <ul className="flex flex-col gap-xs">
-                {block.items.map((item) => (
-                  <li key={item} className="flex items-start gap-sm text-body-md text-secondary">
-                    <span className="material-symbols-outlined text-primary text-[16px] mt-[3px] shrink-0">
-                      arrow_forward
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+      {/* Content sections */}
+      <div className="flex flex-col gap-xl max-w-2xl">
+        {module.sections.map((section) => (
+          <section key={section.title}>
+            <h2 className="text-label-sm uppercase tracking-widest text-primary mb-md">
+              {section.title}
+            </h2>
+            <div className="flex flex-col gap-md">
+              {section.blocks.map((block, i) => (
+                <Block key={i} block={block} />
+              ))}
             </div>
-          );
-        })}
-      </section>
+          </section>
+        ))}
 
-      {/* Highlights */}
-      {module.highlights.length > 0 && (
-        <section className="mb-xl">
-          <h2 className="text-label-sm uppercase tracking-widest text-primary mb-md">
-            Highlights
-          </h2>
-          <ul className="flex flex-col gap-sm">
-            {module.highlights.map((h) => (
-              <li
-                key={h}
-                className="flex items-start gap-sm text-body-md text-secondary"
-              >
-                <span className="material-symbols-outlined text-primary text-[16px] mt-[3px] shrink-0">
-                  arrow_forward
-                </span>
-                {h}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+        {/* System design image */}
+        {module.image && (
+          <section>
+            <h2 className="text-label-sm uppercase tracking-widest text-primary mb-md">
+              Diagram
+            </h2>
+            <div className="bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={module.image}
+                alt={`System design diagram for ${module.title}`}
+                className="w-full"
+              />
+            </div>
+          </section>
+        )}
 
-      {/* System design image */}
-      {module.image && (
-        <section className="mb-xl">
-          <h2 className="text-label-sm uppercase tracking-widest text-primary mb-md">
-            System Design
-          </h2>
-          <div className="bg-surface-container border border-outline-variant rounded-xl overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={module.image}
-              alt={`System design diagram for ${module.title}`}
-              className="w-full"
-            />
-          </div>
-        </section>
-      )}
-
-      {/* PDF resources */}
-      {module.pdfs && module.pdfs.length > 0 && (
-        <section className="mb-xl">
-          <h2 className="text-label-sm uppercase tracking-widest text-primary mb-md">
-            PDF Resources
-          </h2>
-          <div className="flex flex-wrap gap-sm">
-            {module.pdfs.map((pdf) => (
-              <a
-                key={pdf.url}
-                href={pdf.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-xs text-body-md text-secondary border border-outline-variant rounded-lg px-md py-xs hover:border-outline hover:text-on-surface transition-colors"
-              >
-                <span className="material-symbols-outlined text-[16px]">
-                  picture_as_pdf
-                </span>
-                {pdf.label}
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
+        {/* PDF resources */}
+        {module.pdfs && module.pdfs.length > 0 && (
+          <section>
+            <h2 className="text-label-sm uppercase tracking-widest text-primary mb-md">
+              PDF Resources
+            </h2>
+            <div className="flex flex-wrap gap-sm">
+              {module.pdfs.map((pdf) => (
+                <a
+                  key={pdf.url}
+                  href={pdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-xs text-body-md text-secondary border border-outline-variant rounded-lg px-md py-xs hover:border-outline hover:text-on-surface transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[16px]">
+                    picture_as_pdf
+                  </span>
+                  {pdf.label}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+      </div>
 
       {/* Back */}
-      <Link
-        href="/projects/zrive"
-        className="inline-flex items-center gap-xs text-body-md text-secondary hover:text-on-surface transition-colors"
-      >
-        <span className="material-symbols-outlined text-[16px]">arrow_back</span>
-        Back to Zrive
-      </Link>
+      <div className="mt-xl">
+        <Link
+          href="/projects/zrive"
+          className="inline-flex items-center gap-xs text-body-md text-secondary hover:text-on-surface transition-colors"
+        >
+          <span className="material-symbols-outlined text-[16px]">arrow_back</span>
+          Back to Zrive
+        </Link>
+      </div>
     </main>
   );
 }
