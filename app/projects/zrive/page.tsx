@@ -31,7 +31,7 @@ export default function ZrivePage() {
   const project = projects.find((p) => p.slug === "zrive")!;
 
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-xs mb-md text-secondary">
         <Link
@@ -82,20 +82,46 @@ export default function ZrivePage() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Featured card */}
-        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg overflow-hidden relative min-h-[240px] flex flex-col justify-end">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="material-symbols-outlined text-[80px] text-outline/40">
-              account_tree
-            </span>
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg p-lg grid grid-cols-[1fr_148px] gap-xl min-h-[240px]">
+          {/* Left column: eyebrow + heading + description */}
+          <div className="flex flex-col gap-md min-w-0">
+            <div className="flex items-center gap-xs">
+              <span className="material-symbols-outlined text-[20px] text-primary">
+                account_tree
+              </span>
+              <span className="text-label-sm uppercase tracking-widest text-primary">
+                ML Pipeline
+              </span>
+            </div>
+            <div className="flex flex-col gap-sm">
+              <h3 className="text-title-lg text-on-surface">
+                End-to-End Pipeline
+              </h3>
+              <p className="text-body-md text-secondary leading-relaxed">
+                Comprehensive implementation covering data acquisition,
+                processing, modeling, and production deployment.
+              </p>
+            </div>
           </div>
-          <div className="relative p-lg w-full flex flex-col gap-xs">
-            <h3 className="text-title-lg text-on-surface">
-              End-to-End Pipeline
-            </h3>
-            <p className="text-body-md text-secondary max-w-md">
-              Comprehensive implementation covering data acquisition, processing,
-              modeling, and production deployment.
-            </p>
+
+          {/* Right column: key stats */}
+          <div className="flex flex-col justify-center gap-md border-l border-outline-variant/40 pl-xl">
+            {(
+              [
+                ["6", "Modules"],
+                ["3+", "Libraries"],
+                ["Prod", "Deployed"],
+              ] as const
+            ).map(([value, label]) => (
+              <div key={label}>
+                <p className="text-title-lg text-primary font-bold leading-none mb-[2px]">
+                  {value}
+                </p>
+                <p className="text-label-sm text-secondary uppercase tracking-widest">
+                  {label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -130,9 +156,9 @@ export default function ZrivePage() {
 
       {/* Brochure */}
       <section className="mb-xl">
-        <div className="flex items-center justify-between gap-md p-lg bg-surface-container border border-outline-variant rounded-lg">
-          <div className="flex items-center gap-md">
-            <span className="material-symbols-outlined text-[40px] text-primary">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-md p-lg bg-surface-container border border-outline-variant rounded-lg">
+          <div className="flex items-start gap-md">
+            <span className="material-symbols-outlined text-[40px] text-primary shrink-0">
               description
             </span>
             <div>
@@ -149,7 +175,7 @@ export default function ZrivePage() {
             href="/docs/zrive/zrive-brochure.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 flex items-center gap-xs bg-primary-container text-on-primary-container px-lg py-sm rounded-lg text-title-md transition-all hover:opacity-90 active:scale-95"
+            className="shrink-0 flex items-center gap-xs bg-primary-container text-on-primary-container px-lg py-sm rounded-lg text-title-md transition-all hover:opacity-90 active:scale-95 self-start sm:self-auto"
           >
             <span className="material-symbols-outlined">open_in_new</span>
             View PDF

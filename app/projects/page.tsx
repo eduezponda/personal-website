@@ -15,7 +15,7 @@ const coverIcons: Record<string, string> = {
 
 export default function ProjectsPage() {
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
       {/* Hero */}
       <section className="mb-xl">
         <h1 className="text-hero-lg text-on-surface mb-md">

@@ -2,14 +2,14 @@
 
 ## Pending
 
-- [x] Update email and LinkedIn link across the site — 2026-05-15
-- [x] Write first blog post — "The Death of the Code Monkey: Welcome to the Era of Vibe Coding and Agents" — 2026-05-22
-- [ ] Add real assets: Komorebi PDF link, GitHub repo links for both projects, notebook screenshots
-- [ ] Connect custom domain (if available)
 - [ ] Responsiveness audit: review every page (/about, /projects, /projects/zrive, /projects/komorebi, /projects/ezponda-capital, /blog, /blog/[slug]) at mobile (375px), tablet (768px), and desktop (1280px). Fix any layout breakage, text overflow, or collapsed spacing.
 
 ## Done
 
+- [x] Update email and LinkedIn link across the site — 2026-05-15
+- [x] Write first blog post — "The Death of the Code Monkey: Welcome to the Era of Vibe Coding and Agents" — 2026-05-22
+- [x] Add real assets: Komorebi PDF link, GitHub repo links for both projects, notebook screenshots
+- [x] Connect custom domain (if available)
 - [x] Initialize Next.js 15 project (package.json, tsconfig, next.config.ts, tailwind, postcss, eslint) — 2026-05-14
 - [x] Build base layout: globals.css with design tokens, layout.tsx with Inter font + nav — 2026-05-14
 - [x] Build Nav component (fixed top, active link highlighting, backdrop blur, lucide-react icons) — 2026-05-14

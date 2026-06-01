@@ -36,7 +36,7 @@ const focusAreas = [
 
 export default function HomePage() {
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop">
       {/* Hero */}
       <section className="py-xl md:py-[120px] flex flex-col items-center text-center">
         <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-outline-variant mb-lg">
@@ -108,8 +108,8 @@ export default function HomePage() {
 
       {/* Professional focus */}
       <section className="py-xl">
-        <div className="flex items-baseline gap-x-md mb-lg">
-          <h2 className="text-title-lg shrink-0">Professional Focus</h2>
+        <div className="flex flex-col gap-xs mb-lg">
+          <h2 className="text-title-lg">Professional Focus</h2>
           <p className="text-body-md text-secondary">
             Methodical approach to problem-solving across the data engineering
             lifecycle.

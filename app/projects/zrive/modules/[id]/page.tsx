@@ -69,7 +69,7 @@ export default async function ModuleDetailPage({
   if (!module) notFound();
 
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-xs mb-md text-secondary">
         <Link

@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-xl">
         {/* Left sticky column */}
         <aside className="md:col-span-5 lg:col-span-4">

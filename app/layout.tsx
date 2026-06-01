@@ -38,7 +38,7 @@ export default function RootLayout({
         <Nav />
         <div className="flex-1">{children}</div>
         <footer className="bg-surface border-t border-outline-variant mt-xl">
-          <div className="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-lg max-w-7xl mx-auto gap-md">
+          <div className="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-lg max-w-7xl mx-auto gap-md">
             <div className="text-title-md text-on-surface">Eduardo Ezponda</div>
             <div className="text-body-md text-secondary text-center">
               © 2026 Eduardo Ezponda. Built with precision.

@@ -12,7 +12,7 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
       {/* Hero */}
       <section className="max-w-3xl mb-xl">
         <h1 className="text-hero-lg text-on-surface mb-sm">Blog</h1>
@@ -54,7 +54,7 @@ export default function BlogPage() {
                         {post.title}
                       </h2>
                     </div>
-                    <div className="flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                    <div className="flex items-center self-center md:self-auto group-hover:translate-x-2 transition-transform duration-300">
                       <span className="material-symbols-outlined text-primary">
                         arrow_forward
                       </span>
@@ -91,8 +91,8 @@ export default function BlogPage() {
       {/* Follow CTA */}
       <section className="mt-xl">
         <div className="bg-surface-container-lowest border border-outline-variant p-lg md:p-xl rounded-lg flex flex-col md:flex-row items-center justify-between gap-lg">
-          <div className="flex items-baseline gap-x-md">
-            <h3 className="text-title-lg text-on-surface shrink-0">
+          <div className="flex flex-col gap-xs">
+            <h3 className="text-title-lg text-on-surface">
               Follow the Journey
             </h3>
             <p className="text-body-lg text-secondary">

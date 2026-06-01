@@ -84,7 +84,7 @@ const tiers = [
 
 export default function EzpondaCapitalPage() {
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
       {/* Breadcrumb */}
       <nav className="flex items-center gap-xs mb-md text-secondary">
         <Link
@@ -133,9 +133,9 @@ export default function EzpondaCapitalPage() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Featured card */}
-        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg p-lg grid grid-cols-[1fr_148px] gap-xl min-h-[240px]">
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg p-lg flex flex-col gap-lg md:grid md:grid-cols-[1fr_148px] md:gap-xl min-h-[240px]">
           {/* Left column: eyebrow + heading + description */}
-          <div className="flex flex-col justify-between gap-md min-w-0">
+          <div className="flex flex-col gap-md min-w-0 md:justify-between">
             <div className="flex items-center gap-xs">
               <span className="material-symbols-outlined text-[20px] text-primary">
                 candlestick_chart
@@ -169,8 +169,8 @@ export default function EzpondaCapitalPage() {
             </div>
           </div>
 
-          {/* Right column: key metrics */}
-          <div className="flex flex-col justify-center gap-md border-l border-outline-variant/40 pl-xl">
+          {/* Metrics: horizontal row on mobile, vertical column on desktop */}
+          <div className="flex flex-row justify-around md:flex-col md:justify-center gap-md border-t border-outline-variant/40 pt-lg md:border-t-0 md:border-l md:pt-0 md:pl-xl">
             {(
               [
                 ["6", "Assets tracked"],
@@ -178,7 +178,7 @@ export default function EzpondaCapitalPage() {
                 ["2", "Theses live"],
               ] as const
             ).map(([value, label]) => (
-              <div key={label}>
+              <div key={label} className="text-center md:text-left">
                 <p className="text-title-lg text-primary font-bold leading-none mb-[2px]">
                   {value}
                 </p>
@@ -294,7 +294,7 @@ export default function EzpondaCapitalPage() {
           {stack.map(({ label, value }) => (
             <div
               key={label}
-              className="flex items-center justify-between px-lg py-sm"
+              className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-lg py-sm gap-xs sm:gap-0"
             >
               <span className="text-secondary text-body-md">{label}</span>
               <span className="text-on-surface text-title-md">{value}</span>
@@ -346,122 +346,152 @@ export default function EzpondaCapitalPage() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
 
           {/* 1 — Landing hero — full width */}
-          <figure className="md:col-span-12 relative aspect-[16/7] rounded-lg overflow-hidden border border-outline-variant m-0">
-            <Image
-              src="/images/projects/ezponda-capital/hero.webp"
-              alt="Ezponda Capital landing page. Real Assets, Real Value."
-              fill
-              priority
-              className="object-cover object-top"
-              sizes="100vw"
-            />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
-              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
-                Landing Page
-              </p>
-              <p className="text-body-md text-white font-medium">
-                High-conviction commodity research on gold, copper, and macro
-                cycles, for investors who think in decades.
+          <figure className="md:col-span-12 rounded-lg overflow-hidden border border-outline-variant m-0">
+            <div className="relative aspect-video md:aspect-[16/7]">
+              <Image
+                src="/images/projects/ezponda-capital/hero.webp"
+                alt="Ezponda Capital landing page. Real Assets, Real Value."
+                fill
+                priority
+                className="object-cover object-top"
+                sizes="100vw"
+              />
+              <div className="hidden md:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+                <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">Landing Page</p>
+                <p className="text-body-md text-white font-medium">
+                  High-conviction commodity research on gold, copper, and macro cycles, for investors who think in decades.
+                </p>
+              </div>
+            </div>
+            <figcaption className="md:hidden px-md py-sm bg-surface-container">
+              <p className="text-label-sm text-secondary uppercase tracking-widest mb-[2px]">Landing Page</p>
+              <p className="text-body-md text-on-surface">
+                High-conviction commodity research on gold, copper, and macro cycles, for investors who think in decades.
               </p>
             </figcaption>
           </figure>
 
           {/* 2 — Featured theses (landscape 8/12) */}
-          <figure className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant m-0">
-            <Image
-              src="/images/projects/ezponda-capital/theses-gallery.webp"
-              alt="Featured Theses: Mako Mining and Freeport-McMoRan research cards"
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 768px) 66vw, 100vw"
-            />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
-              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
-                Research Theses
-              </p>
-              <p className="text-body-md text-white font-medium">
-                Thesis cards showing ticker, exchange, category tag, and
-                publication date, browsable by asset class.
+          <figure className="md:col-span-8 rounded-lg overflow-hidden border border-outline-variant m-0">
+            <div className="relative aspect-video">
+              <Image
+                src="/images/projects/ezponda-capital/theses-gallery.webp"
+                alt="Featured Theses: Mako Mining and Freeport-McMoRan research cards"
+                fill
+                className="object-cover object-top"
+                sizes="(min-width: 768px) 66vw, 100vw"
+              />
+              <div className="hidden md:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+                <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">Research Theses</p>
+                <p className="text-body-md text-white font-medium">
+                  Thesis cards showing ticker, exchange, category tag, and publication date, browsable by asset class.
+                </p>
+              </div>
+            </div>
+            <figcaption className="md:hidden px-md py-sm bg-surface-container">
+              <p className="text-label-sm text-secondary uppercase tracking-widest mb-[2px]">Research Theses</p>
+              <p className="text-body-md text-on-surface">
+                Thesis cards showing ticker, exchange, category tag, and publication date, browsable by asset class.
               </p>
             </figcaption>
           </figure>
 
-          {/* 3 — Login / auth (4/12, stretches to match row height) */}
-          <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant m-0">
-            <Image
-              src="/images/projects/ezponda-capital/auth-login.webp"
-              alt="Login to Terminal: Google OAuth and email/password login for the investment research dashboard"
-              fill
-              className="object-cover object-center"
-              sizes="(min-width: 768px) 33vw, 100vw"
-            />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
-              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
-                Authentication
-              </p>
-              <p className="text-body-md text-white font-medium">
-                Google OAuth or email/password login, granting access to the
-                investment research terminal.
+          {/* 3 — Login / auth (4/12) */}
+          <figure className="md:col-span-4 rounded-lg overflow-hidden border border-outline-variant m-0">
+            <div className="relative aspect-video md:aspect-auto md:h-full">
+              <Image
+                src="/images/projects/ezponda-capital/auth-login.webp"
+                alt="Login to Terminal: Google OAuth and email/password login for the investment research dashboard"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 768px) 33vw, 100vw"
+              />
+              <div className="hidden md:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+                <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">Authentication</p>
+                <p className="text-body-md text-white font-medium">
+                  Google OAuth or email/password login, granting access to the investment research terminal.
+                </p>
+              </div>
+            </div>
+            <figcaption className="md:hidden px-md py-sm bg-surface-container">
+              <p className="text-label-sm text-secondary uppercase tracking-widest mb-[2px]">Authentication</p>
+              <p className="text-body-md text-on-surface">
+                Google OAuth or email/password login, granting access to the investment research terminal.
               </p>
             </figcaption>
           </figure>
 
           {/* 4 — Coverage universe + analyst profile (landscape 8/12) */}
-          <figure className="md:col-span-8 relative aspect-video rounded-lg overflow-hidden border border-outline-variant m-0">
-            <Image
-              src="/images/projects/ezponda-capital/strategic-anchors.webp"
-              alt="Coverage Universe: Gold, Copper, Macro Cycles, and Real Assets category cards, plus analyst profile"
-              fill
-              className="object-cover object-top"
-              sizes="(min-width: 768px) 66vw, 100vw"
-            />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
-              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
-                Coverage Universe
-              </p>
-              <p className="text-body-md text-white font-medium">
-                Gold, Copper, Macro Cycles, and Real Assets as strategic
-                anchors, paired with the analyst profile and credential badges.
-              </p>
-            </figcaption>
-          </figure>
-
-          {/* 5 — User profile / RBAC (4/12, stretches to match row height) */}
-          <figure className="md:col-span-4 relative aspect-video md:aspect-auto rounded-lg overflow-hidden border border-outline-variant bg-[#131313] m-0">
-            <Image
-              src="/images/projects/ezponda-capital/profile-card.webp"
-              alt="User profile card showing name, email, Superadmin plan badge, and full admin access status"
-              fill
-              className="object-contain object-center"
-              sizes="(min-width: 768px) 33vw, 100vw"
-            />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
-              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
-                User Profile
-              </p>
-              <p className="text-body-md text-white font-medium">
-                Role-based access control with Guest, Free, and Subscriber tiers
-                enforced via Supabase RLS on every research asset.
+          <figure className="md:col-span-8 rounded-lg overflow-hidden border border-outline-variant m-0">
+            <div className="relative aspect-video">
+              <Image
+                src="/images/projects/ezponda-capital/strategic-anchors.webp"
+                alt="Coverage Universe: Gold, Copper, Macro Cycles, and Real Assets category cards, plus analyst profile"
+                fill
+                className="object-cover object-top"
+                sizes="(min-width: 768px) 66vw, 100vw"
+              />
+              <div className="hidden md:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+                <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">Coverage Universe</p>
+                <p className="text-body-md text-white font-medium">
+                  Gold, Copper, Macro Cycles, and Real Assets as strategic anchors, paired with the analyst profile and credential badges.
+                </p>
+              </div>
+            </div>
+            <figcaption className="md:hidden px-md py-sm bg-surface-container">
+              <p className="text-label-sm text-secondary uppercase tracking-widest mb-[2px]">Coverage Universe</p>
+              <p className="text-body-md text-on-surface">
+                Gold, Copper, Macro Cycles, and Real Assets as strategic anchors, paired with the analyst profile and credential badges.
               </p>
             </figcaption>
           </figure>
 
-          {/* 6 — Investment methodology + footer — full width */}
-          <figure className="md:col-span-12 relative aspect-[16/7] rounded-lg overflow-hidden border border-outline-variant m-0">
-            <Image
-              src="/images/projects/ezponda-capital/methodology.webp"
-              alt="Investment Methodology: Macro Framework, Conviction Filtering, and Institutional Lens steps"
-              fill
-              className="object-cover object-top"
-              sizes="100vw"
-            />
-            <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
-              <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">
-                Investment Methodology
+          {/* 5 — User profile / RBAC (4/12) */}
+          <figure className="md:col-span-4 rounded-lg overflow-hidden border border-outline-variant bg-[#131313] m-0">
+            <div className="relative aspect-video md:aspect-auto md:h-full">
+              <Image
+                src="/images/projects/ezponda-capital/profile-card.webp"
+                alt="User profile card showing name, email, Superadmin plan badge, and full admin access status"
+                fill
+                className="object-contain object-center"
+                sizes="(min-width: 768px) 33vw, 100vw"
+              />
+              <div className="hidden md:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+                <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">User Profile</p>
+                <p className="text-body-md text-white font-medium">
+                  Role-based access control with Guest, Free, and Subscriber tiers enforced via Supabase RLS on every research asset.
+                </p>
+              </div>
+            </div>
+            <figcaption className="md:hidden px-md py-sm bg-surface-container">
+              <p className="text-label-sm text-secondary uppercase tracking-widest mb-[2px]">User Profile</p>
+              <p className="text-body-md text-on-surface">
+                Role-based access control with Guest, Free, and Subscriber tiers enforced via Supabase RLS on every research asset.
               </p>
-              <p className="text-body-md text-white font-medium">
-                Three-step framework: top-down macro analysis → asymmetric
-                conviction filtering → institutional-grade presentation.
+            </figcaption>
+          </figure>
+
+          {/* 6 — Investment methodology — full width */}
+          <figure className="md:col-span-12 rounded-lg overflow-hidden border border-outline-variant m-0">
+            <div className="relative aspect-video md:aspect-[16/7]">
+              <Image
+                src="/images/projects/ezponda-capital/methodology.webp"
+                alt="Investment Methodology: Macro Framework, Conviction Filtering, and Institutional Lens steps"
+                fill
+                className="object-cover object-top"
+                sizes="100vw"
+              />
+              <div className="hidden md:block absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-md pt-xl pb-sm">
+                <p className="text-label-sm text-white/60 uppercase tracking-widest mb-[2px]">Investment Methodology</p>
+                <p className="text-body-md text-white font-medium">
+                  Three-step framework: top-down macro analysis, asymmetric conviction filtering, and institutional-grade presentation.
+                </p>
+              </div>
+            </div>
+            <figcaption className="md:hidden px-md py-sm bg-surface-container">
+              <p className="text-label-sm text-secondary uppercase tracking-widest mb-[2px]">Investment Methodology</p>
+              <p className="text-body-md text-on-surface">
+                Three-step framework: top-down macro analysis, asymmetric conviction filtering, and institutional-grade presentation.
               </p>
             </figcaption>
           </figure>

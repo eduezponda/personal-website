@@ -28,7 +28,7 @@ const stack = [
 
 export default function KomorebiPage() {
   return (
-    <main className="max-w-7xl mx-auto px-margin-desktop py-xl">
+    <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
       <Link
         href="/projects"
         className="inline-flex items-center gap-1.5 text-body-md text-secondary hover:text-on-surface transition-colors mb-lg"
