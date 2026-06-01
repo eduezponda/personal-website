@@ -82,7 +82,7 @@ export default function ZrivePage() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Featured card */}
-        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg p-lg grid grid-cols-[1fr_148px] gap-xl min-h-[240px]">
+        <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg p-lg flex flex-col gap-lg md:grid md:grid-cols-[1fr_148px] md:gap-xl min-h-[240px]">
           {/* Left column: eyebrow + heading + description */}
           <div className="flex flex-col gap-md min-w-0">
             <div className="flex items-center gap-xs">
@@ -105,7 +105,7 @@ export default function ZrivePage() {
           </div>
 
           {/* Right column: key stats */}
-          <div className="flex flex-col justify-center gap-md border-l border-outline-variant/40 pl-xl">
+          <div className="flex flex-row justify-around md:flex-col md:justify-center gap-md border-t border-outline-variant/40 pt-lg md:border-t-0 md:border-l md:pt-0 md:pl-xl">
             {(
               [
                 ["6", "Modules"],
@@ -113,7 +113,7 @@ export default function ZrivePage() {
                 ["Prod", "Deployed"],
               ] as const
             ).map(([value, label]) => (
-              <div key={label}>
+              <div key={label} className="text-center md:text-left">
                 <p className="text-title-lg text-primary font-bold leading-none mb-[2px]">
                   {value}
                 </p>
@@ -175,7 +175,7 @@ export default function ZrivePage() {
             href="/docs/zrive/zrive-brochure.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 flex items-center gap-xs bg-primary-container text-on-primary-container px-lg py-sm rounded-lg text-title-md transition-all hover:opacity-90 active:scale-95 self-start sm:self-auto"
+            className="shrink-0 flex items-center gap-xs bg-primary-container text-on-primary-container px-lg py-sm rounded-lg text-title-md transition-all hover:opacity-90 active:scale-95 self-center sm:self-auto"
           >
             <span className="material-symbols-outlined">open_in_new</span>
             View PDF
