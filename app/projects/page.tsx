@@ -30,7 +30,7 @@ export default function ProjectsPage() {
 
       {/* Projects grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-        {projects.map((project) => (
+        {projects.map((project, i) => (
           <article
             key={project.slug}
             className="group bg-surface-container-lowest border border-outline-variant rounded p-md flex flex-col h-full hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-300"
@@ -42,6 +42,7 @@ export default function ProjectsPage() {
                   src={project.coverImage}
                   alt={`${project.title} cover`}
                   fill
+                  priority={i === 0}
                   className="object-cover object-center"
                   sizes="(min-width: 768px) 33vw, 100vw"
                 />
