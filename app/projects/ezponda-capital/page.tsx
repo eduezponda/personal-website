@@ -349,7 +349,7 @@ export default function EzpondaCapitalPage() {
           <figure className="md:col-span-12 rounded-lg overflow-hidden border border-outline-variant m-0">
             <div className="relative aspect-video md:aspect-[16/7]">
               <Image
-                src="/images/projects/ezponda-capital/hero.webp"
+                src="/images/projects/ezponda-capital/cover.webp"
                 alt="Ezponda Capital landing page. Real Assets, Real Value."
                 fill
                 priority
