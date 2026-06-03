@@ -9,6 +9,7 @@
 - [x] Update email and LinkedIn link across the site — 2026-05-15
 - [x] Write first blog post — "The Death of the Code Monkey: Welcome to the Era of Vibe Coding and Agents" — 2026-05-22
 - [x] Add real assets: Komorebi PDF link, GitHub repo links for both projects, notebook screenshots
+
 - [x] Connect custom domain (if available)
 - [x] Initialize Next.js 15 project (package.json, tsconfig, next.config.ts, tailwind, postcss, eslint) — 2026-05-14
 - [x] Build base layout: globals.css with design tokens, layout.tsx with Inter font + nav — 2026-05-14

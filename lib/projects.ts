@@ -30,6 +30,7 @@ export const projects: Project[] = [
     tags: ["Binary Classification", "ML"],
     href: "/projects/komorebi",
     githubUrl: "https://github.com/eduezponda/zrive-ds-1q25-churn-prediction",
+    coverImage: "/images/projects/komorebi/cover.webp",
     pdfUrl: "/docs/komorebi-project-report.pdf",
     status: "live",
   },
@@ -41,7 +42,7 @@ export const projects: Project[] = [
     tags: ["Value Investing", "Gold", "Copper", "Next.js 15"],
     href: "/projects/ezponda-capital",
     githubUrl: "https://github.com/eduezponda/ezponda-capital",
-    coverImage: "/images/projects/ezponda-capital/hero.webp",
+    coverImage: "/images/projects/ezponda-capital/cover.webp",
     status: "live",
   },
 ];

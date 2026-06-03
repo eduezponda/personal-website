@@ -115,7 +115,7 @@ export default function KomorebiPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
         {/* Featured card */}
         <div className="md:col-span-8 bg-surface-container border border-outline-variant rounded-lg p-lg flex flex-col gap-lg md:grid md:grid-cols-[1fr_148px] md:gap-xl min-h-[240px]">
-          <div className="flex flex-col gap-md min-w-0 md:justify-between">
+          <div className="flex flex-col gap-md min-w-0">
             <div className="flex items-center gap-xs">
               <span className="material-symbols-outlined text-[20px] text-primary">
                 person_remove
@@ -129,10 +129,12 @@ export default function KomorebiPage() {
                 Predict churn one month ahead
               </h3>
               <p className="text-body-md text-secondary leading-relaxed">
-                Sumauto loses advertisers without warning. Each lost dealership
-                costs the business roughly €1,000 in foregone revenue. The goal
-                was a model that identifies at-risk advertisers one month before
-                they leave, giving the sales team time to intervene.
+                Komorebi is a Madrid-based AI consultancy. They brought this
+                case to Zrive&apos;s 2025 cohort from their client Sumauto,
+                a vehicle classifieds group. Sumauto loses advertisers without
+                warning, each costing roughly €1,000 in foregone revenue. The
+                goal was a model that flags at-risk advertisers one month before
+                they leave.
               </p>
             </div>
           </div>
@@ -169,7 +171,6 @@ export default function KomorebiPage() {
               { label: "Team", value: "4 Zrive students" },
               { label: "Model", value: "XGBoost" },
               { label: "Lead time", value: "1 month ahead" },
-              { label: "Threshold", value: "0.14 to 0.16" },
             ].map(({ label, value }) => (
               <li
                 key={label}

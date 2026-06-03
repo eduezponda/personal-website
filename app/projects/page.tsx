@@ -43,6 +43,7 @@ export default function ProjectsPage() {
                   alt={`${project.title} cover`}
                   fill
                   priority={i === 0}
+                  loading={i === 0 ? "eager" : "lazy"}
                   className="object-cover object-center"
                   sizes="(min-width: 768px) 33vw, 100vw"
                 />
