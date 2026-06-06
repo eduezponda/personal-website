@@ -2,7 +2,7 @@
 
 ## Pending
 
-- [ ] Responsiveness audit: review every page (/about, /projects, /projects/zrive, /projects/komorebi, /projects/ezponda-capital, /blog, /blog/[slug]) at mobile (375px), tablet (768px), and desktop (1280px). Fix any layout breakage, text overflow, or collapsed spacing.
+- [x] Responsiveness audit: review every page (/about, /projects, /projects/zrive, /projects/komorebi, /projects/ezponda-capital, /blog, /blog/[slug]) at mobile (375px), tablet (768px), and desktop (1280px). Fix any layout breakage, text overflow, or collapsed spacing. — 2026-06-06
 
 ## Done
 

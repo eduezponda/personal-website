@@ -1,0 +1,85 @@
+---
+title: "When to Skip the Vector Database: A RAG vs. File Agent Benchmark"
+date: "2026-06-06"
+excerpt: "A tweet claiming plain text files navigated by an agent beat RAG sent me to the lab. The results are more nuanced than either side admits."
+tags: ["AI", "RAG", "Agent Engineering", "LLMs", "Retrieval"]
+---
+
+A few weeks ago, @coding_guille posted something on Spanish tech Twitter that sparked a genuine debate: vector databases and embeddings are overused. Organize your information as named text files, let the agent grep and ls its way through them, and skip the embeddings pipeline entirely. Cheaper, simpler, good enough for most use cases.
+
+I found the argument compelling enough to test rather than dismiss. So I built three retrieval systems over the same corpus, ran the same queries against all three, and measured what actually happened. This post is a writeup of that experiment, not a tutorial.
+
+## The Three Systems
+
+The corpus was three financial report documents, roughly 1,500 tokens each, covering different companies in the same sector. Small enough to fit in a context window, large enough to make loading all three on every query expensive.
+
+**RAG.** ChromaDB with `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` as the encoder. Chunks of 200 tokens with 50-token overlap, top-k=3 by default. Standard pipeline: embed the query, retrieve nearest chunks, pass to the LLM.
+
+**File agent.** Claude with three tools: `list_files`, `read_file`, and `search_in_file`. ReAct loop, no embeddings. The agent decides which files to open and what to search for based on the query.
+
+**Vault agent.** Same architecture as the file agent but the corpus is restructured as `.md` files with Obsidian-style `[[wikilinks]]` between documents. A fourth tool, `follow_wikilink`, is added. The system prompt instructs the agent to start from `00-index.md` and follow references.
+
+## What the Numbers Say
+
+I ran four query types designed to stress different parts of each system.
+
+**Simple lookup** (answer lives in a single document): RAG answered in 0.8s. File agent took 3.2s after scanning two files. Vault agent resolved in 2.1s by following the right wikilink from the index. RAG wins on latency, no contest.
+
+**Cross-document numeric** (requires combining values across reports): RAG retrieved the wrong chunk and returned an incorrect answer. File agent got it right after 11 tool calls in 20.5s. Vault agent got it right in 5 tool calls and 21.4s. Cleaner navigation path, nearly identical wall time.
+
+Here is a condensed trace of the vault agent solving that query:
+
+```
+[1] list_files({}) → ['empresa-alpha.md', 'empresa-beta.md', 'empresa-gamma.md', '00-index.md']
+[2] read_file({"filename": "00-index.md"}) → wikilinks found: [[empresa-alpha]], [[empresa-beta]], [[empresa-gamma]], [[comparativa-financiera]]
+[3] follow_wikilink({"link_name": "comparativa-financiera"}) → table: EBITDA comparisons across 2023-2024
+[4] read_file({"filename": "empresa-alpha.md"}) → confirmed 2024 EBITDA: 14.2M
+[5] read_file({"filename": "empresa-beta.md"}) → confirmed 2024 EBITDA: 9.8M
+[5 calls total — answer assembled from structured comparativa entry + two source confirmations]
+```
+
+Compare that to the file agent without wikilinks, which had no index to consult and spent 6 additional calls doing exploratory reads before finding the same numbers.
+
+**Comparative query** (summarise across all three documents): RAG fails at top-k=3 because relevant context is spread across too many chunks. It works at top-k=6 but latency roughly doubles. File agent succeeded in 18.3s. Vault agent succeeded in 9.7s because the index explicitly listed all three companies as comparable entries and the agent followed the shortest path.
+
+**Exact numeric retrieval** (specific figure, one correct answer): all three systems returned the correct value. RAG showed a hallucination rate of around **12%** on this query type across repeated runs, introducing plausible but wrong figures. Agents read raw text and returned exactly what was there. Hallucination rate: effectively zero.
+
+Overall precision across queries: **75%** for RAG at default top-k, rising to **100%** at top-k=6. Both agent variants hit **100%** but at far higher per-query latency.
+
+The picture flips completely at scale. In a simulated 50-concurrent-user scenario, RAG posted a p50 of 0.9s and a p95 of 1.8s. File agent degraded to a p50 of 18s and a p95 of 47s, since every request requires a sequential chain of LLM calls. Vault agent sat between them: p50 of 9s, p95 of 29s. Agents simply do not parallelize the way a vector search does.
+
+## The Wikilink Insight
+
+The vault agent result is the most interesting part of this experiment. On the cross-document query it made 5 tool calls versus the file agent's 11. But it still took 21.4s versus 20.5s. The wall time difference is negligible because LLM call latency dominates at this corpus size.
+
+So why bother with the knowledge graph structure?
+
+At 3 documents, it does not matter much. At 200 documents, the file agent with no structure degrades into exploratory, breadth-first scanning. Every new document is a potential target. With a maintained wikilink graph, the vault agent follows a directed path from the index to the answer. My estimate is that the 11 vs. 5 tool call ratio at 3 documents would widen to something closer to 40 vs. 6 at 200 documents. That is where the investment in structure pays off, and where the latency difference becomes significant even with LLM call overhead.
+
+Below that threshold, you are paying the cost of maintaining the link graph without getting the benefit. It is infrastructure ahead of the problem.
+
+## A Decision Framework
+
+After running this experiment, I stopped thinking about retrieval in terms of technology choices and started thinking about it as a sequence of questions.
+
+**How many tokens is the dataset?** If it fits in the context window, skip retrieval entirely. Load everything and ask the question directly. Zero infrastructure, zero retrieval errors.
+
+**How many concurrent users?** Agents are sequential by construction. A system with a p95 requirement under 2s at 50 concurrent users cannot be agent-based under current LLM latency. RAG wins here unconditionally.
+
+**What kind of search?** Semantic similarity maps well to embeddings. Structured navigation ("get the EBITDA from the 2024 report for company X") maps well to agents with well-named files and a clear index.
+
+**Are there critical numeric values?** If precision on exact figures matters, keep them in structured sources. The 12% hallucination rate on RAG numeric retrieval is not a flaw in the implementation. It is a property of the retrieval mechanism, and it will not go away by tuning chunk size.
+
+**How often does the data change?** Frequent updates mean frequent re-embedding. Agents read from source files directly and incur no rebuild cost.
+
+When someone asks in an interview how you would design a document QA system, the wrong first move is to reach for a technology. The right move is to ask: what is the data volume, how many concurrent users, what kind of search, and what is the precision requirement? That is what separates engineers with judgment from engineers who apply recipes.
+
+## Where RAG Still Wins
+
+The file agent argument holds for small-to-medium corpora, low concurrency, and exact navigation tasks. Outside those conditions, RAG is the right default.
+
+Specifically: datasets too large for the context window, any production system with a real SLA on response time, semantic search where keyword matching fails, and situations where retrieval traceability matters. Citing which chunk answered the question is something a file agent cannot do cleanly.
+
+@coding_guille's point is valid but incomplete. The embedding pipeline is overused when the dataset is small and the search is structured. For everything else, the complexity is warranted. The mistake is treating either approach as a universal answer.
+
+Complexity is a liability. The right system is the simplest one that meets the actual constraints. Figure out the constraints first.
