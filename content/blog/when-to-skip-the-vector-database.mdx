@@ -5,7 +5,7 @@ excerpt: "A tweet claiming plain text files navigated by an agent beat RAG sent 
 tags: ["AI", "RAG", "Agent Engineering", "LLMs", "Retrieval"]
 ---
 
-A few weeks ago, @coding_guille posted something on Spanish tech Twitter that sparked a genuine debate: vector databases and embeddings are overused. Organize your information as named text files, let the agent grep and ls its way through them, and skip the embeddings pipeline entirely. Cheaper, simpler, good enough for most use cases.
+A few weeks ago, [@XMihura](https://x.com/XMihura) posted something on Spanish tech Twitter that sparked a genuine debate: vector databases and embeddings are overused. Organize your information as named text files, let the agent grep and ls its way through them, and skip the embeddings pipeline entirely. Cheaper, simpler, good enough for most use cases.
 
 I found the argument compelling enough to test rather than dismiss. So I built three retrieval systems over the same corpus, ran the same queries against all three, and measured what actually happened. This post is a writeup of that experiment, not a tutorial.
 
@@ -80,6 +80,6 @@ The file agent argument holds for small-to-medium corpora, low concurrency, and 
 
 Specifically: datasets too large for the context window, any production system with a real SLA on response time, semantic search where keyword matching fails, and situations where retrieval traceability matters. Citing which chunk answered the question is something a file agent cannot do cleanly.
 
-@coding_guille's point is valid but incomplete. The embedding pipeline is overused when the dataset is small and the search is structured. For everything else, the complexity is warranted. The mistake is treating either approach as a universal answer.
+[@XMihura](https://x.com/XMihura)'s point is valid but incomplete. The embedding pipeline is overused when the dataset is small and the search is structured. For everything else, the complexity is warranted. The mistake is treating either approach as a universal answer.
 
 Complexity is a liability. The right system is the simplest one that meets the actual constraints. Figure out the constraints first.
