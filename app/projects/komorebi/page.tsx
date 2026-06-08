@@ -131,7 +131,7 @@ export default function KomorebiPage() {
               <p className="text-body-md text-secondary leading-relaxed">
                 Komorebi is a Madrid-based AI consultancy. They brought this
                 case to Zrive&apos;s 2025 cohort from their client Sumauto,
-                a vehicle classifieds group. Sumauto loses advertisers without
+                a group of car advertising portals. Sumauto loses advertisers without
                 warning, each costing roughly €1,000 in foregone revenue. The
                 goal was a model that flags at-risk advertisers one month before
                 they leave.
@@ -194,7 +194,7 @@ export default function KomorebiPage() {
         </h2>
         <div className="bg-surface-container border border-outline-variant rounded-lg p-lg flex flex-col gap-md">
           <p className="text-body-md text-secondary leading-relaxed max-w-3xl">
-            Sumauto operates vehicle classified portals that connect car
+            Sumauto is a group of car advertising portals that connect car
             dealerships with buyers. Advertisers leave the platform both
             explicitly through cancellation requests and implicitly by letting
             contracts expire without renewal. The existing churn model, built by
