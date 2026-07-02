@@ -1,0 +1,64 @@
+---
+title: "Garbage In, Garbage Out: Why Your Repository Is the Real Model"
+date: "2026-07-02"
+excerpt: "An AI agent does not obey your prompt, it obeys your codebase. If the base of the pyramid is weak, the model amplifies that weakness at machine speed. The fix is not a better prompt or a second AI reviewer, it is deterministic guardrails that cannot be argued with."
+tags: ["AI", "Software Engineering", "Agent Engineering", "CI/CD"]
+---
+
+In my last post I described the uncomfortable moment that defines this era: an agent generates 500 lines of code in seconds, and no human in the room fully understands the logic underneath. The natural instinct is to blame the speed. I no longer think that is the problem. The problem is what the agent was copying from in the first place.
+
+An AI agent does not write code in a vacuum. It leans on and imitates the patterns already present in your repository. It reads your folder structure, your naming, your existing abstractions, and it produces more of the same. This is the part most teams underestimate: **the repository is the real model.** The weights of the foundation model are fixed, but the code around the cursor is the context that decides what "good" looks like for the next 500 lines.
+
+## The Base of the Pyramid
+
+Think of a project as a pyramid. The base is the architecture, the component boundaries, the core abstractions. Everything else rests on it. When that base is clean, the agent has good examples to mimic, and it tends to produce code that fits. When the base is sloppy, the agent mimics the sloppiness, and it does so faster and more prolifically than any junior developer ever could.
+
+This is the old principle of garbage in, garbage out, except the amplifier is now running at machine speed. A single questionable pattern in your service layer is no longer copied three times by three engineers over three months. It is copied thirty times in an afternoon. The agent is not malicious and it is not careless, it is simply consistent, and consistency applied to a bad base produces a lot of bad code very quickly.
+
+The hard consequence is this: if a project starts from a deficient base, it becomes extremely difficult to recover later. You are not fighting one bad decision, you are fighting every copy the agent made of it. The lesson is not "prompt better". The lesson is that the quality of your foundation is now a force multiplier, in both directions.
+
+## The Circular Validation Trap
+
+So how do you stop the amplification? The tempting answer, and the one I see everywhere, is to ask another AI. Generate the code with one model, then ask a model to review whether the code is clean and maintainable.
+
+This is a trap, and it is worth naming clearly. **Asking an AI to subjectively judge the output of an AI is a mirror judging a mirror.** The reviewer shares the same blind spots, the same training biases, and the same tendency to reward plausible-looking code. Worse, if the reviewer has the context of the original request, it is primed to confirm that the request was satisfied. You are not adding a check, you are adding a second opinion from the same mind.
+
+Subjectivity cannot be a quality gate. A gate has to return the same verdict every time, regardless of how the code was phrased or who is asking. That is not something a language model gives you. It is something deterministic software has given us for decades.
+
+## Determinism as the Only Referee
+
+The way out is to delegate rule enforcement to traditional, deterministic tooling: linters, type checkers, static analyzers. These tools do not have an opinion. They return pass or fail, and they return the same answer every single time. Wired into the CI pipeline, they become unpassable quality gates. The agent can generate whatever it likes, but nothing merges unless it clears the gate.
+
+In a modern Python stack that means **Ruff**, which unifies linting and formatting in a single pass at a speed that makes running it on every save trivial, plus **Mypy** or **Pyright** to enforce typing so the agent cannot quietly paper over interfaces. On the TypeScript and JavaScript side, **Biome** now serves as the baseline, replacing the old ESLint and Prettier pairing with integrated formatting and linting in one tool.
+
+These are not style preferences. They are the referee that decides whether code exists or not.
+
+## Executable Architecture Contracts
+
+Linting keeps individual files honest. It does nothing about architecture, and architecture is exactly what the agent erodes first. An agent that does not know your layering rules will happily import your database layer straight into a controller, because locally that looks like the shortest path to working code.
+
+The answer is to make your architecture executable. In Python, **Tach** and **import-linter** let you declare which layers may import which, and they fail the build the moment a forbidden cross-layer import appears. In the TypeScript world, **dependency-cruiser** analyzes the full dependency graph to catch circular dependencies, orphaned modules, and violations of the Stable Dependencies Principle, while **eslint-plugin-boundaries** gives the same feedback instantly inside the editor. Your architecture stops being a diagram on a wiki that everyone ignores. It becomes a contract the build enforces.
+
+## Numbers the Agent Cannot Argue With
+
+Finally, agents have a signature failure mode: they produce verbose, deeply nested, over-parameterized code that technically works and is miserable to maintain. You fight this with hard numeric thresholds, checked automatically, with no room for negotiation.
+
+| Metric | Threshold | Why it matters with an agent |
+| --- | --- | --- |
+| Lines per file | ≤ 300 | Agents sprawl. A cap forces real decomposition. |
+| Lines per function | ≤ 40 | Prevents mega-functions that hide logic. |
+| Cyclomatic complexity | ≤ 8 | Limits branching the tests cannot cover. |
+| Cognitive complexity (SonarSource) | ≤ 12 | Targets human readability, not just paths. |
+| Nesting depth | ≤ 3 | Kills the pyramid of doom agents love to build. |
+| Parameters | ≤ 4 | A long signature signals a missing abstraction. |
+| Duplication (jscpd) | < 3% | Agents re-implement what they do not remember exists. |
+
+That last row deserves emphasis. Because writing code is now nearly free, an agent will cheerfully re-create a function that already lives two folders away, simply because it did not recall it. **jscpd** measures that duplication directly and fails the build when it creeps past three percent.
+
+## The Gate Is the Contract
+
+None of this is about distrusting the agent. It is about being honest regarding what an agent is: a fast, consistent imitator of whatever you put in front of it. If you put a clean base and a wall of deterministic gates in front of it, it becomes a genuine force multiplier. If you put a weak base and a second AI reviewer in front of it, you have built a machine for generating technical debt at scale.
+
+My stance is simple: in the age of agents, the code you write matters less than the gates you set. Prompts are negotiable, opinions are negotiable, even the model is replaceable. The gate is the one thing in the pipeline that cannot be flattered, rushed, or talked out of its verdict. That is exactly why it is the only part you can trust.
+
+In the next post I will look at the other half of the equation. Guardrails decide what is allowed out, but the quality of what goes in depends entirely on context. That is where Obsidian, tightly scoped context windows, and a reviewer that knows nothing about your intent come in.

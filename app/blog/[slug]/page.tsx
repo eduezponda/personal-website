@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getAllPosts, getPost } from "@/lib/blog";
 
 export async function generateStaticParams() {
@@ -95,7 +96,10 @@ export default async function BlogPostPage({
         prose-img:rounded-lg prose-img:my-10
         prose-hr:border-outline-variant"
       >
-        <MDXRemote source={post.content} />
+        <MDXRemote
+          source={post.content}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
       </article>
     </main>
   );
