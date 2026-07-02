@@ -31,11 +31,7 @@ The way out is to hand the rules to plain, deterministic tools. Linters, type ch
 
 In a modern Python project that means Ruff, which does linting and formatting in one very fast pass, plus Mypy or Pyright to check types so the agent cannot quietly break an interface. In TypeScript and JavaScript, Biome is now the baseline. It replaces the old pair of ESLint and Prettier with one tool that both formats and lints. These are not style choices. They decide if the code is allowed to exist.
 
-## Executable Architecture Contracts
-
-Linting keeps single files honest. It does nothing for architecture, and architecture is the first thing an agent breaks. An agent that does not know your layering rules will happily import the database layer straight into a controller, because to the agent that looks like the shortest path to working code.
-
-The answer is to turn your architecture into something the build can run. In Python, Tach and import-linter let you declare which layers may import which, and they fail the build the moment a forbidden import appears. In TypeScript, dependency-cruiser reads the whole dependency graph and catches circular dependencies and orphan files, while eslint-plugin-boundaries gives you the same warning inside the editor. Your architecture stops being a diagram on a wiki that everyone ignores. It becomes a contract the build enforces.
+These tools keep single files honest, but they do nothing for architecture, and architecture is the first thing an agent breaks. An agent that does not know your layering rules will happily import the database layer straight into a controller, because to the agent that looks like the shortest path to working code. The same idea fixes it. A rule like "a controller may not touch the database directly" should live in the CI pipeline as a gate, not in a wiki page that everyone ignores.
 
 ## Numbers the Agent Cannot Argue With
 
