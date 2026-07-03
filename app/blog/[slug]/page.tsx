@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getAllPosts, getPost } from "@/lib/blog";
 import { BlogArticle } from "@/features/BlogArticle";
-import { BlogPostCard } from "@/features/BlogPostCard";
+import { RelatedPostCard } from "@/features/RelatedPostCard";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -95,14 +95,19 @@ export default async function BlogPostPage({
 
       {/* More from the blog */}
       {morePosts.length > 0 && (
-        <section className="mt-xl pt-xl border-t border-outline-variant">
-          <h2 className="text-title-lg text-on-surface mb-sm">
-            More from the Blog
-          </h2>
-          <div className="flex flex-col border-t border-outline-variant">
-            {morePosts.map((p) => (
-              <BlogPostCard key={p.slug} post={p} />
-            ))}
+        <section className="mt-xl">
+          <div className="bg-surface-container-low border border-outline-variant rounded-lg p-lg md:p-xl">
+            <span className="block text-label-sm text-primary uppercase tracking-widest mb-xs">
+              Continue Reading
+            </span>
+            <h2 className="text-title-lg text-on-surface mb-lg">
+              More from the Blog
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+              {morePosts.map((p) => (
+                <RelatedPostCard key={p.slug} post={p} />
+              ))}
+            </div>
           </div>
         </section>
       )}
