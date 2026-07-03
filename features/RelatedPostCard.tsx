@@ -6,7 +6,7 @@ export function RelatedPostCard({ post }: { post: PostMeta }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col justify-between gap-md bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:border-primary-container hover:-translate-y-0.5 transition-all"
+      className="group h-full flex flex-col justify-between gap-md bg-surface-container-lowest border border-outline-variant rounded-lg p-md hover:border-primary-container hover:-translate-y-0.5 transition-all"
     >
       <div>
         <div className="flex items-center gap-sm mb-xs flex-wrap">
