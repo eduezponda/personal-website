@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { estimateReadingTime } from "./reading-time";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
@@ -10,6 +11,7 @@ export type PostMeta = {
   date: string;
   excerpt: string;
   tags: string[];
+  readingTime: number;
 };
 
 export type Post = PostMeta & {
@@ -25,13 +27,14 @@ export function getAllPosts(): PostMeta[] {
     .map((filename) => {
       const slug = filename.replace(/\.mdx$/, "");
       const raw = fs.readFileSync(path.join(BLOG_DIR, filename), "utf-8");
-      const { data } = matter(raw);
+      const { data, content } = matter(raw);
       return {
         slug,
         title: data.title ?? slug,
         date: data.date ?? "",
         excerpt: data.excerpt ?? "",
         tags: data.tags ?? [],
+        readingTime: estimateReadingTime(content),
       };
     })
     .sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -49,6 +52,7 @@ export function getPost(slug: string): Post | null {
     date: data.date ?? "",
     excerpt: data.excerpt ?? "",
     tags: data.tags ?? [],
+    readingTime: estimateReadingTime(content),
     content,
   };
 }
