@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getAllPosts, getPost } from "@/lib/blog";
 import { BlogArticle } from "@/features/BlogArticle";
-import { RelatedPostCard } from "@/features/RelatedPostCard";
+import { RelatedPostsCarousel } from "@/features/RelatedPostsCarousel";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -32,9 +32,7 @@ export default async function BlogPostPage({
   const post = getPost(slug);
   if (!post) notFound();
 
-  const morePosts = getAllPosts()
-    .filter((p) => p.slug !== slug)
-    .slice(0, 2);
+  const morePosts = getAllPosts().filter((p) => p.slug !== slug);
 
   return (
     <main className="max-w-[680px] mx-auto px-5 py-xl">
@@ -103,11 +101,7 @@ export default async function BlogPostPage({
             <h2 className="text-title-lg text-on-surface mb-lg">
               More from the Blog
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
-              {morePosts.map((p) => (
-                <RelatedPostCard key={p.slug} post={p} />
-              ))}
-            </div>
+            <RelatedPostsCarousel posts={morePosts} />
           </div>
         </section>
       )}
