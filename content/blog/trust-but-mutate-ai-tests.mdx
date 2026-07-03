@@ -1,0 +1,24 @@
+---
+title: "Trust, but Mutate: When AI Tests Lie to You"
+date: "2026-07-06"
+excerpt: "A blind reviewer can prove code is clean, but not that it works. Tests do that, and TDD is nearly free now that code is cheap. But when an AI writes the tests, the only honest way to know they are real is mutation testing."
+tags: ["AI", "Software Engineering", "Testing", "TDD"]
+---
+
+A blind reviewer can prove that code is clean, but it cannot prove that it works. Clean and correct are not the same thing. Only tests show that the code does what it should, and when the same agent writes both the code and the tests, you have to be sure those tests are real and not just green.
+
+## Write the Test First
+
+The oldest defense still works. In test driven development you describe the behavior you want before the code exists. The test fails, then you write just enough code to make it pass. With Pytest this is a fast loop.
+
+The value with an agent is that the requirement becomes a fixed target, written before the solution. The agent cannot quietly change what success means, because success was pinned down first. And this discipline used to be expensive, since writing tests by hand was slow. Now that producing code is cheap, the agent writes those tests in seconds. TDD went from a costly habit to a nearly free one, while the payoff stayed the same.
+
+## Then Mutate
+
+There is still a catch. An agent under pressure to pass will write a test that runs the code and checks almost nothing. It looks green and proves nothing, and line coverage will not save you, because coverage only tells you a line ran, not that anything was actually checked.
+
+Mutation testing is the honest audit. It takes your working code and introduces small bugs into it, one at a time. It turns a greater than into a less than, or removes a plus one. Each broken version is a mutant. Then it runs your tests against every mutant. Good tests fail, because the code is now wrong, and a test that catches the mutant has killed it. A suite that stays green while the code is broken has just proven it was never testing that logic. In Python you get this with mutmut or cosmic-ray, and in TypeScript with Stryker.
+
+What you get back is a mutation score, the share of mutants your tests killed. Unlike coverage, it cannot be faked with empty assertions, because an empty assertion kills nothing. You wire a minimum score into the pipeline next to the linter, and now even the tests have a gate they must pass.
+
+That is the whole idea of the series. An agent is fast, so you point that speed at gates it cannot talk its way past. Clean code, focused context, and tests that are proven real. Not hoping the machine gets it right, but building a track it cannot leave.
