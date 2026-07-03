@@ -1,0 +1,42 @@
+---
+title: "The Blind Reviewer: Context Engineering for AI Agents"
+date: "2026-07-02"
+excerpt: "Gates decide what code is allowed out. Context decides what goes in, and more context is not better. This post is about feeding an agent a small, focused, well connected context, and then checking the result with a reviewer that knows nothing about what you asked for."
+tags: ["AI", "Agent Engineering", "Context Engineering", "Obsidian"]
+---
+
+In the last post I argued that deterministic gates decide what code is allowed to leave the pipeline. But gates are only half of the story. They judge what comes out. They say nothing about what goes in. And what goes into an agent is context. This post is about that other half. How you choose, shape, and limit the context you give a model, and how you check the result without fooling yourself.
+
+## More Context Is Not Better
+
+There is a common belief that if you give the model more information, it will make better decisions. In practice the opposite is often true. A context window is not a filing cabinet where more paper means more knowledge. Every extra file, every unrelated function, every old comment is noise. The model has to guess which parts matter, and when it guesses wrong, it invents. A large and unfocused context is one of the main causes of hallucination.
+
+So the skill is not adding more. The skill is choosing less, and choosing well. A good context is small, relevant, and close to the task. Everything else is a distraction that makes the model worse, not better.
+
+## A Knowledge Graph Instead of a Prompt
+
+The problem is that useful context rarely lives in one place. The requirement is in one document, the reason behind a design choice is in another, and the business rule that explains both is somewhere else entirely. If you paste all of it into a prompt, you are back to noise. If you paste too little, the model is missing the point.
+
+This is where an Obsidian vault becomes powerful. You keep your requirements, your architecture decisions, and your business logic as small notes, and you connect them with links. An architecture decision record points to the requirement that caused it. That requirement points to the business rule behind it. Over time these links form a graph, and the graph carries meaning. When a task touches one note, the links tell you exactly which other notes belong in the context and which do not.
+
+Instead of a flat wall of text, the model receives a small set of notes that already know how they relate to each other. The context is connected and full of meaning, and it is still small. That combination is what a plain prompt can almost never give you.
+
+## Different Jobs, Different Windows
+
+Once you think this way, a single shared context for the whole project stops making sense. A task that fixes a bug in the payment flow needs the payment notes and nothing about the email templates. A task that writes a new report needs the reporting rules and none of the login code. Different jobs need completely different windows.
+
+The clean way to do this is with subagents. You give each subagent a role and its own context, scoped to its job. One subagent plans, one writes the code, one writes the tests. None of them carries the full history of the others. Each one sees only what it needs. This keeps every window small and focused, and it stops one part of the work from polluting another.
+
+## The Blind Reviewer
+
+This brings us to the most useful role of all, and the one people skip. The reviewer.
+
+The natural instinct is to give the reviewer everything. The task, the conversation, the intent. That is the wrong move. A reviewer that knows what you were trying to do will bend toward approving it. It reads your intent and confirms it. It becomes the mirror I warned about in the last post.
+
+So the reviewer should be blind. You give it the code and the rules, and nothing else. Its only job is to check whether the code follows the deterministic rules from the first post: the linter, the types, the size and complexity limits, the architecture boundaries, the duplication check. With no story to confirm, it cannot be flattered into assuming the code is correct. It just measures the result against fixed criteria. It is a fresh pair of eyes, turned into a role with a locked and empty context.
+
+## Context In, Verification Out
+
+Context is a tool you shape on purpose, not a bucket you fill to the top. A small and connected context makes the agent smart. A blind reviewer keeps the check honest. The people who get real value from agents are not the ones who write the longest prompts. They are the ones who decide, with care, what the model sees for each task, and who never let the thing that wrote the code be the only thing that judges it.
+
+There is still one gap. A blind reviewer can confirm that the code is clean, but not that it actually works. For that you need tests, and when an AI writes the tests, you need a way to know the tests are real and not empty. That is the subject of the next post.
