@@ -132,3 +132,13 @@ body {
 .blog-article li + li {
   margin-top: 0.5rem;
 }
+
+/* Hide the scrollbar on horizontal carousels while keeping native scroll/swipe */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
