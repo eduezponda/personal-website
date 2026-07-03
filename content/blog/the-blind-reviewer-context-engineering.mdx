@@ -31,16 +31,12 @@ The clean way to do this is with subagents. You give each subagent a role and it
 
 This brings us to the most useful role of all, and the one people skip. The reviewer.
 
-The natural instinct is to give the reviewer everything. The task, the conversation, the intent, the reasons. That is exactly the wrong move. A reviewer that knows what you were trying to do will bend toward approving it. It reads your intent and it confirms your intent. It becomes the mirror I warned about in the last post.
+The natural instinct is to give the reviewer everything. The task, the conversation, the intent. That is the wrong move. A reviewer that knows what you were trying to do will bend toward approving it. It reads your intent and confirms it. It becomes the mirror I warned about in the last post.
 
-So the reviewer should be blind. You give it the code and the rules, and nothing else. No conversation history. No description of the goal. No hint about what the author meant. Its only job is to check whether the code follows the deterministic rules from the first post. Does it pass the linter and the type checker. Does it stay under the size and complexity limits. Does it respect the architecture boundaries. Does it avoid duplication.
-
-Because the blind reviewer has no story to confirm, it cannot be flattered. It cannot assume the code is correct because it knows what the code was supposed to do. It simply measures the result against fixed criteria. This is the human idea of a fresh pair of eyes, turned into a role with a locked and empty context.
+So the reviewer should be blind. You give it the code and the rules, and nothing else. Its only job is to check whether the code follows the deterministic rules from the first post: the linter, the types, the size and complexity limits, the architecture boundaries, the duplication check. With no story to confirm, it cannot be flattered into assuming the code is correct. It just measures the result against fixed criteria. It is a fresh pair of eyes, turned into a role with a locked and empty context.
 
 ## Context In, Verification Out
 
-The lesson of the first post was that opinions cannot be gates. The lesson of this one is that context is a tool you shape on purpose, not a bucket you fill to the top. A small and connected context makes the agent smart. A blind reviewer keeps the check honest.
-
-My view is simple. The people who get real value from agents are not the ones who write the longest prompts. They are the ones who decide, with care, what the model is allowed to see for each task, and who never let the thing that wrote the code be the only thing that judges it.
+Context is a tool you shape on purpose, not a bucket you fill to the top. A small and connected context makes the agent smart. A blind reviewer keeps the check honest. The people who get real value from agents are not the ones who write the longest prompts. They are the ones who decide, with care, what the model sees for each task, and who never let the thing that wrote the code be the only thing that judges it.
 
 There is still one gap. A blind reviewer can confirm that the code is clean, but not that it actually works. For that you need tests, and when an AI writes the tests, you need a way to know the tests are real and not empty. That is the subject of the next post.
