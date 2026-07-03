@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import remarkGfm from "remark-gfm";
 import { getAllPosts, getPost } from "@/lib/blog";
+import { BlogArticle } from "@/features/BlogArticle";
+import { BlogPostCard } from "@/features/BlogPostCard";
 
 export async function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -32,6 +32,10 @@ export default async function BlogPostPage({
   const post = getPost(slug);
   if (!post) notFound();
 
+  const morePosts = getAllPosts()
+    .filter((p) => p.slug !== slug)
+    .slice(0, 2);
+
   return (
     <main className="max-w-[680px] mx-auto px-5 py-xl">
       {/* Back link */}
@@ -43,13 +47,18 @@ export default async function BlogPostPage({
       </Link>
 
       <header className="mb-xl">
-        {/* Date — own line, muted */}
-        <time className="block text-label-sm text-secondary uppercase tracking-widest mb-sm">
-          {post.date}
-        </time>
+        {/* Date and reading time — own line, muted */}
+        <div className="flex items-center gap-sm mb-sm flex-wrap">
+          <time className="text-label-sm text-secondary uppercase tracking-widest">
+            {post.date}
+          </time>
+          <span className="text-label-sm text-secondary uppercase tracking-widest">
+            {post.readingTime} min read
+          </span>
+        </div>
 
-        {/* Title — lighter weight than hero */}
-        <h1 className="text-[28px] leading-[1.2] font-bold tracking-tight text-on-surface mb-lg md:text-[40px]">
+        {/* Title — reuses the site's hero type scale, not one-off pixel values */}
+        <h1 className="text-hero-lg-mobile md:text-hero-sidebar text-on-surface mb-lg">
           {post.title}
         </h1>
 
@@ -57,12 +66,13 @@ export default async function BlogPostPage({
         {post.tags.length > 0 && (
           <div className="flex flex-wrap gap-xs mb-lg">
             {post.tags.map((tag) => (
-              <span
+              <Link
                 key={tag}
-                className="text-label-sm text-secondary bg-surface-container px-sm py-xs rounded-full border border-outline-variant"
+                href={`/blog?tag=${encodeURIComponent(tag)}`}
+                className="text-label-sm text-secondary bg-surface-container px-sm py-xs rounded-full border border-outline-variant hover:border-outline hover:text-on-surface transition-colors"
               >
                 {tag}
-              </span>
+              </Link>
             ))}
           </div>
         )}
@@ -81,26 +91,21 @@ export default async function BlogPostPage({
       {/* Section divider */}
       <div className="w-full h-px bg-outline-variant/40 mb-xl" />
 
-      <article
-        className="blog-article prose md:prose-lg max-w-none
-        prose-headings:text-on-surface prose-headings:font-bold prose-headings:tracking-tight
-        prose-h2:mt-12 prose-h2:mb-5
-        prose-h3:mt-8 prose-h3:mb-3
-        prose-p:text-secondary prose-p:leading-[1.7]
-        prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-        prose-strong:text-on-surface prose-strong:font-semibold
-        prose-code:text-primary prose-code:bg-surface-container-high prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm
-        prose-pre:bg-surface-container-high prose-pre:border prose-pre:border-outline-variant prose-pre:rounded-lg prose-pre:p-6
-        prose-blockquote:border-l-4 prose-blockquote:pl-5 prose-blockquote:text-secondary prose-blockquote:font-normal
-        prose-li:text-secondary prose-li:leading-[1.7]
-        prose-img:rounded-lg prose-img:my-10
-        prose-hr:border-outline-variant"
-      >
-        <MDXRemote
-          source={post.content}
-          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
-        />
-      </article>
+      <BlogArticle content={post.content} />
+
+      {/* More from the blog */}
+      {morePosts.length > 0 && (
+        <section className="mt-xl pt-xl border-t border-outline-variant">
+          <h2 className="text-title-lg text-on-surface mb-sm">
+            More from the Blog
+          </h2>
+          <div className="flex flex-col border-t border-outline-variant">
+            {morePosts.map((p) => (
+              <BlogPostCard key={p.slug} post={p} />
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }

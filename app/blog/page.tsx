@@ -1,15 +1,21 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
+import { BlogPostCard } from "@/features/BlogPostCard";
 
 export const metadata = {
   title: "Blog | Eduardo Ezponda",
   description: "Notes on data science, value investing, and building things.",
 };
 
-const categories = ["Engineering", "DS", "Value Investing", "Career"];
-
-export default function BlogPage() {
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const { tag } = await searchParams;
   const posts = getAllPosts();
+  const allTags = Array.from(new Set(posts.flatMap((post) => post.tags))).sort();
+  const filteredPosts = tag ? posts.filter((post) => post.tags.includes(tag)) : posts;
 
   return (
     <main className="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-xl">
@@ -24,43 +30,18 @@ export default function BlogPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-xl">
         {/* Post list */}
         <div className="md:col-span-8">
-          {posts.length === 0 ? (
+          {filteredPosts.length === 0 ? (
             <div className="border-t border-outline-variant py-lg text-center">
               <p className="text-body-md text-secondary">
-                No posts yet. First post coming soon.
+                {tag
+                  ? `No posts tagged "${tag}" yet.`
+                  : "No posts yet. First post coming soon."}
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-0 border-t border-outline-variant">
-              {posts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="group py-lg border-b border-outline-variant hover:bg-surface-container-low transition-all"
-                >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-md px-base">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-sm mb-xs">
-                        <span className="text-label-sm text-secondary uppercase tracking-widest">
-                          {post.date}
-                        </span>
-                        {post.tags[0] && (
-                          <span className="bg-surface-container-highest text-on-surface-variant px-xs py-0.5 rounded text-label-sm uppercase">
-                            {post.tags[0]}
-                          </span>
-                        )}
-                      </div>
-                      <h2 className="text-title-lg text-on-surface group-hover:text-primary transition-colors">
-                        {post.title}
-                      </h2>
-                    </div>
-                    <div className="flex items-center self-center md:self-auto group-hover:translate-x-2 transition-transform duration-300">
-                      <span className="material-symbols-outlined text-primary">
-                        arrow_forward
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+            <div className="flex flex-col border-t border-outline-variant">
+              {filteredPosts.map((post) => (
+                <BlogPostCard key={post.slug} post={post} />
               ))}
             </div>
           )}
@@ -69,19 +50,30 @@ export default function BlogPage() {
         {/* Sidebar */}
         <aside className="md:col-span-4 space-y-lg">
           <div className="bg-surface-container-lowest border border-outline-variant p-md rounded-lg">
-            <h3 className="text-title-md mb-sm">Categories</h3>
+            <h3 className="text-title-md mb-sm">Browse by Topic</h3>
             <div className="flex flex-wrap gap-xs">
-              {categories.map((cat, i) => (
-                <span
-                  key={cat}
-                  className={`px-sm py-base text-label-sm rounded-full ${
-                    i === categories.length - 1
+              <Link
+                href="/blog"
+                className={`px-sm py-base text-label-sm rounded-full transition-colors ${
+                  !tag
+                    ? "bg-primary text-on-primary"
+                    : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
+                }`}
+              >
+                All
+              </Link>
+              {allTags.map((t) => (
+                <Link
+                  key={t}
+                  href={`/blog?tag=${encodeURIComponent(t)}`}
+                  className={`px-sm py-base text-label-sm rounded-full transition-colors ${
+                    tag === t
                       ? "bg-primary text-on-primary"
-                      : "bg-surface-container text-on-surface-variant"
+                      : "bg-surface-container text-on-surface-variant hover:bg-surface-container-high"
                   }`}
                 >
-                  {cat}
-                </span>
+                  {t}
+                </Link>
               ))}
             </div>
           </div>
