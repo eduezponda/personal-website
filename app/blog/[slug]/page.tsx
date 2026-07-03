@@ -94,13 +94,15 @@ export default async function BlogPostPage({
       {/* More from the blog */}
       {morePosts.length > 0 && (
         <section className="mt-xl">
-          <div className="bg-surface-container-low border border-outline-variant rounded-lg p-lg md:p-xl">
-            <span className="block text-label-sm text-primary uppercase tracking-widest mb-xs">
-              Continue Reading
-            </span>
-            <h2 className="text-title-lg text-on-surface mb-lg">
-              More from the Blog
-            </h2>
+          <div className="bg-surface-container-low border border-outline-variant rounded-lg overflow-hidden">
+            <div className="px-lg pt-lg md:px-xl md:pt-xl">
+              <span className="block text-label-sm text-primary uppercase tracking-widest mb-xs">
+                Continue Reading
+              </span>
+              <h2 className="text-title-lg text-on-surface mb-lg">
+                More from the Blog
+              </h2>
+            </div>
             <RelatedPostsCarousel posts={morePosts} />
           </div>
         </section>
